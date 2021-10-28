@@ -1,3 +1,20 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-blar lsd
+import pygame
+
+pygame.init()
+WIDTH, HEIGHT = 900, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))##Opening the window 
+pygame.display.set_caption('kiss moi bat')##Dose nothing for now 
+
+
+def main():
+    Run = True
+    while Run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:## Runs until the user exits the window
+                Run = False
+
+    pygame.quit()
+
+
+if __name__ == "__main__":## Calls the main function
+    main()
