@@ -1,25 +1,38 @@
 import pygame
 from sys import exit
 
-pygame.init()
-WIDTH, HEIGHT = 900, 600
-screen = pygame.display.set_mode((WIDTH, HEIGHT))  ##Opening the window
-pygame.display.set_caption('BattleShips')  ##The name of the window
-clock = pygame.time.Clock()  ## import for time and fps
+# CONSTANTS
+Widht_Main, Widht_grid, Height_Main, Height_Grid = 800, 400, 600, 300
+screen = pygame.display.set_mode((Widht_Main, Height_Main))  # Opening the window
+pygame.display.set_caption('BattleShips')  # The name of the game
+BLACK = (0, 0, 0)
 
-test_surface = pygame.Surface((100, 200))
-test_surface.fill('Blue')
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:  ## Runs until the user exits the window
-            pygame.quit()
-            exit()
+def DrawGrid():
+    blockSize = 30  # Set the size of the grid block
+    for x in range(Widht_Main):
+        for y in range(Height_Main):
+            if 200 < x * blockSize < 500 and 100 < y * blockSize < 400:  # Putting the grid in a normal place
+                rect = pygame.Rect(x * blockSize, y * blockSize, blockSize, blockSize)
+                pygame.draw.rect(screen, BLACK, rect, 1)
 
-    screen.blit(test_surface, (0, 0))
 
-    pygame.display.update()
-    clock.tick(60)  ## limits the fps to 60
+def main():
+    pygame.init()
+    clock = pygame.time.Clock()  # import for time and fps
+    test_surface = pygame.image.load('Graphics/water.png')  # importing the backgrounds
 
-if __name__ == "__main__":  ## Calls the main function
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:  # Runs until the user exits the window
+                pygame.quit()
+                exit()
+
+        screen.blit(test_surface, (0, 0))
+        DrawGrid()
+        pygame.display.update()
+        clock.tick(60)  # limits the fps to 60
+
+
+if __name__ == '__main__':
     main()
