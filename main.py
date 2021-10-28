@@ -16,7 +16,6 @@ def main():
         clock.tick(60)  ## limits the fps to 60
 
     pygame.quit()
-        if you ese this you is sasiska
-
+if you not see this you moki
 if __name__ == "__main__":  ## Calls the main function
     main()
