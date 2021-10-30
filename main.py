@@ -7,7 +7,7 @@ Width_Main, Width_grid, Height_Main, Height_Grid = 800, 400, 600, 300
 screen = pygame.display.set_mode((Width_Main, Height_Main))  # Opening the window
 pygame.display.set_caption('BattleShips')  # The name of the game
 BLACK = (0, 0, 0)
-ABC = '0ABCDEFGHIG'
+ABC = '0ABCDEFGHIJ'
 
 board = []  # Making a board
 for x in range(11):
@@ -21,6 +21,8 @@ def draw_grid():
             if 200 < x * blockSize < 520 and 100 < y * blockSize < 430:  # Putting the grid in a normal place
                 rect = pygame.Rect(x * blockSize, y * blockSize, blockSize, blockSize)
                 pygame.draw.rect(screen, BLACK, rect, 1)
+    rect = pygame.Rect(blockSize*7, blockSize*4, blockSize*11, blockSize*11)
+    pygame.draw.rect(screen, BLACK, rect, 2)
 
 
 class Ship:  # A Class for the ships
