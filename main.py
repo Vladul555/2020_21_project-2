@@ -7,12 +7,10 @@ Width_Main, Width_grid, Height_Main, Height_Grid = 800, 400, 600, 300
 screen = pygame.display.set_mode((Width_Main, Height_Main))  # Opening the window
 pygame.display.set_caption('BattleShips')  # The name of the game
 BLACK = (0, 0, 0)
+board = []
 
-board = [[0 for x in range(11)] for y in range(11)]#Making the board
-for i in range(11):
-    for j in range(11):
-        board[0][i] = i
-        board[j][0] = j
+
+
 
 
 def draw_grid():
@@ -46,6 +44,16 @@ class Ship:  # A Class for the ships
                     pass
 
 
+def Make_Board(board1):
+    board1 = [[0 for x in range(11)] for y in range(11)]  # Making the board
+    for i in range(11):
+        for j in range(11):
+            board1[0][i] = i
+            board1[j][0] = j
+    Print_Board(board1)
+    return board1
+
+
 def Print_Board(board):
     for row in board:
         print(row)
@@ -55,7 +63,7 @@ def main():
     pygame.init()
     clock = pygame.time.Clock()  # import for time and fps
     test_surface = pygame.image.load('Graphics/water.png')  # importing the backgrounds
-    Print_Board(board)
+    Make_Board(board)
 
     while True:
         for event in pygame.event.get():
