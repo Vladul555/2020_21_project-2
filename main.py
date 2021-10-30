@@ -25,7 +25,22 @@ def draw_grid():
 
 class Ship:  # A Class for the ships
     def __init__(self, size):
-        self.size = size
+        if 2 <= size <= 5:  # Ships are between 2 and 5
+            self.size = size
+        else:
+            self.size = None  # Illegal ships cannot be placed.
+
+    def Place(self, i, j,
+              rotation):  # Places the first block of a ship in [i,j], if rotation is 1 the ship is horizontal
+        # if the rotation is 2 the ship is vertical
+        if self.size is not None:
+            match rotation:
+                case 1:
+                    pass  # Place from j through j+size
+                case 2:
+                    pass  # Place from i to i+size
+                case _:  # Default case is illegal, therefore will not act
+                    pass
 
 
 def Board(board):
