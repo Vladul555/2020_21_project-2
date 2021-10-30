@@ -7,11 +7,12 @@ Width_Main, Width_grid, Height_Main, Height_Grid = 800, 400, 600, 300
 screen = pygame.display.set_mode((Width_Main, Height_Main))  # Opening the window
 pygame.display.set_caption('BattleShips')  # The name of the game
 BLACK = (0, 0, 0)
-ABC = '0ABCDEFGHIJ'
 
-board = []  # Making a board
-for x in range(11):
-    board.append(["O"] * 11)
+board = [[0 for x in range(11)] for y in range(11)]#Making the board
+for i in range(11):
+    for j in range(11):
+        board[0][i] = i
+        board[j][0] = j
 
 
 def draw_grid():
@@ -21,7 +22,7 @@ def draw_grid():
             if 200 < x * blockSize < 520 and 100 < y * blockSize < 430:  # Putting the grid in a normal place
                 rect = pygame.Rect(x * blockSize, y * blockSize, blockSize, blockSize)
                 pygame.draw.rect(screen, BLACK, rect, 1)
-    rect = pygame.Rect(blockSize*7, blockSize*4, blockSize*11, blockSize*11)
+    rect = pygame.Rect(blockSize * 7, blockSize * 4, blockSize * 11, blockSize * 11)
     pygame.draw.rect(screen, BLACK, rect, 2)
 
 
@@ -32,7 +33,7 @@ class Ship:  # A Class for the ships
         else:
             self.size = None  # Illegal ships cannot be placed.
 
-    def Place(self, i, j,
+    def place(self, i, j,
               rotation):  # Places the first block of a ship in [i,j], if rotation is 1 the ship is horizontal
         # if the rotation is 2 the ship is vertical
         if self.size is not None:
@@ -45,16 +46,16 @@ class Ship:  # A Class for the ships
                     pass
 
 
-def Board(board):
+def Print_Board(board):
     for row in board:
-        print(" ".join(row))
+        print(row)
 
 
 def main():
     pygame.init()
     clock = pygame.time.Clock()  # import for time and fps
     test_surface = pygame.image.load('Graphics/water.png')  # importing the backgrounds
-    Board(board)
+    Print_Board(board)
 
     while True:
         for event in pygame.event.get():
