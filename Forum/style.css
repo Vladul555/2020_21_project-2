@@ -6,12 +6,12 @@
 
 html{
     font-size: 14px;
-    background-color: rgb(151, 172, 154);
-    color: rgb(16, 12, 245);
+    background-color: rgb(151, 16, 61);
+    color: rgb(61, 24, 228) ;
 }
 
 a{
-    color: darkgreen;
+    color: rgb(0, 0, 0);
     font-weight: bolder;
     text-decoration: none;
     font-size: large;
@@ -29,7 +29,7 @@ h1{
 
 }
 .subforum-title{
-    background-color: darkgrey;
+    background-color: rgb(160, 90, 90);
     padding: 5px;
     border-radius: 5px;
     margin: 4px;
@@ -43,11 +43,46 @@ h1{
     padding: 10px;
     margin: 4px;
     border-radius: 5px;
-    background-color: rgb(188, 194, 194);
+    background-color: rgb(51, 170, 170);
 }
 
 .center{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*navigation_bar*/
+
+header{
+    margin-inline: 10px ;
+}
+.navigation_bar{
+    display: flex;
+    align-items: center;
+}
+.navigation{
+    background-color:darkslategray;
+    padding: 10px;
+    width: 65%;
+    display: inline-block;
+    border-radius: 5px;
+    max-height: 80px;
+    margin-right:  10 px;
+}
+.navigation_list{
+    list-style-type:none;
+    overflow: hidden;
+}
+
+.navigation_item {
+    float: left;
+    display: block;
+    text-align: justify;
+    margin-inline: 40px;
+    
+}
+.navigation_link{
+    color: floralwhite;
+    font-size: 20px;
 }
