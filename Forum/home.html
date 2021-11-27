@@ -9,9 +9,10 @@
 </head>
 <body>
     <header>
-        <div class="navigation_bar">
-            <nav class="navigation">
+        <div class="navigation_bar ">
+            <nav class="navigation hide"id='navigation'>
                 <ul class="navigation_list">
+                    <li class="close_icon" onclick="showIconBar()">&#10006;</li>
                     <li class="navigation_item">
                         <a href="#"class="navigation_link">Home</a>
                     </li>
@@ -23,6 +24,8 @@
                     </li>
                 </ul>
             </nav>
+            <a href="#" class="bar_icon" id="iconBar" onclick="hideIconBar()">&#9776;</span></a>
+            <div class="Brand">My Forum</div>
         </div>
     </header>
     <div class="container">
