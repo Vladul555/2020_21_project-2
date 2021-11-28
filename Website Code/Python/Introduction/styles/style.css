@@ -73,9 +73,24 @@
   font-weight: 900;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   text-align:left;
   margin-bottom: 30px;
+  list-style: none;
+}
+
+img{
+  width: 100%;
+
+}
+
+.img{
+  width: 90%;
+  margin-bottom: 35px;
+}
+
+.no-bullets {
+  list-style-type: none;
 }
 
 .header{
@@ -98,22 +113,6 @@
   font-weight: 900;
 }
 
-.reload {
-  width: 50%;
-  height: 40px;
-  font-size: 14px;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: opacity .4s;
-  color: white;
-  font-family: inherit;
-  background-color: rgb(235, 20, 152);
-  color: white
-}
-
 .button {
   width: 25%;
   height: 40px;
@@ -131,7 +130,12 @@
   font-size: 25px;
   font-weight: 900;
   font-family: inherit;
+  background-color: springgreen; 
+  opacity: 0.7;
+}
 
+.button:hover {
+  opacity: 1;
 }
 
 .test{
@@ -145,25 +149,3 @@
   text-align: center;
   font-weight: 900;
 }
-
-/* Change submit button color when pressed */
-/* .button:focus{
-  outline: none;
-  background-color: rgba(224, 21, 147);
-}
-.button[type="submit"]:hover {
-  opacity: .7;
-} */
-
-
-/* .submit-holder{
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  margin-bottom: 40px;
-  width: 340px;
-  height: 60px;
-  border: 0;
-  font-size: 0;
-  margin-top: 30px;
-} */ 
