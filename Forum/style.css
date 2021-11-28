@@ -30,7 +30,7 @@ h1{
 
 }
 .subforum-title{
-    background-color: rgb(183, 230, 157);
+    background-color: rgb(102, 97, 124);
     padding: 5px;
     border-radius: 5px;
     margin: 4px;
@@ -64,7 +64,7 @@ header{
     align-items:center;
 }
 .navigation{
-    background-color:rgb(97, 124, 124);
+    background-color:rgb(102, 97, 124);
     padding: 10px;
     width:65%;
     display:inline-block;
@@ -166,7 +166,7 @@ footer{
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: rgb(141, 139, 151);
+    background-color: rgb(102, 97, 124);
     display: block;
     text-align: center;
     font-size: 25px;
@@ -182,13 +182,10 @@ footer{
 .table-head div{
     padding: 5px;
     margin: 2px;
-    background-color: rgb(141, 139, 151);
+    background-color: rgb(102, 97, 124);
     font-weight: bold;
 }
 
-.table-head .status{
-    flex: 5%;
-}
 
 .table-head .subjects{
     flex: 70%;
@@ -200,4 +197,45 @@ footer{
 
 .table-head .last-reply{
     flex: 15%;
+}
+
+/*table body*/
+
+.table-row{
+    display:flex;  
+}
+
+.table-row .subjects,.table-row .replise,.table-row .last-reply{
+    padding: 5px;
+    margin: 3px;
+    background-color: rgb(141, 139, 151);
+}
+
+.table-row .subjects{
+    flex: 70%;
+}
+
+.table-row .replise{
+    flex: 10%;
+}
+
+.table-row .last-reply{
+    flex: 15%;
+}
+
+/*pagination*/
+
+.pagination{
+    padding: 20px;
+    font-size:25px;
+}
+.pagination a{
+    color: white;
+    margin-inline:5px;
+    padding: 5px 10px;
+    font-size:15px;
+    border: solid 0.5px white;
+}
+.pagination a:hover {
+    opacity: 0.5;
 }
