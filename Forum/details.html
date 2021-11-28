@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyForum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="navigation_bar ">
+            <nav class="navigation hide"id='navigation'>
+                <ul class="navigation_list">
+                    <span class="close_icon"onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <li class="navigation_item">
+                        <a href="../Website Code/Main Menu/index.html">Main menu</a>
+                    </li>
+                    <li class="navigation_item">
+                        <a href="home.html">home</a>
+                    </li>
+                    <li class="navigation_item">
+                        <a href="#">Details</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="bar_icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></span></a>
+            <div class="Brand">Glyph Forum</div>
+        </div>
+        <!--Search_box-->
+        <div class="search_box">
+            <div>
+                <select name="" id="">
+                    <option value="everything">Everything</option>
+                    <option value="title">Title</option>
+                    <option value="description">Description</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="Serching...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+    </header>
+    <div class="container">
+
+        <!--Navigation-->
+        <div class="navigate">
+            <span style="color: white; ;"><a href="#"> My Forum - Forums  </a> &nbsp>>&nbsp <a href="#">Radom Forum</a> &nbsp>>&nbsp <a href="#">Radom Post</a></span>
+        </div>
+
+        <div class="topic_container">
+            <div class="head">
+                <div class="authors">Author</div>
+                <div class="content">Topic: post's title</div>
+            </div>
+
+            <div class="body">
+                <div class="authors">
+                    <div class="username"> <a href="#">Username</a></div>
+                    <div>Role</div>
+                   <span class="trash_icon"> <i class="fa fa-trash"></i></span>
+                    <div>Posts <u>45</u></div>
+                    <div>Points: <u>555</u></div>
+                </div>
+
+                <div class="content">
+                    Just a random quastion about a potato what cah it me 
+                    <br>is it about potatos ? 
+                    <br><br>
+                    we wont know
+                    <br><br>
+                    <hr>
+                    was writen by a Username  
+                    <div class="comment">
+                         <button onclick=" showComment()"> Comment </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!---Comment input-->
+        <div class="comment-area hide">
+            <textarea name="comment" id="" placeholder="Comment here if you like potatos ..."></textarea>
+            <input type="submit" value="Submit">
+        </div>
+    
+    <footer>
+        &copy;Glyph
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
