@@ -8,9 +8,10 @@
   margin: 0 auto;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   box-sizing: border-box;
-  background-image: url(../images/bike.jpg);
+  background-image: url(../images/testbackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 40% 15%;
 }
 
 .menu {
@@ -92,7 +93,7 @@
 
 .variants {
   width: 300px;
-  min-height: 50px;
+  min-height: 75px;
   border: 1px solid gray;
   border-radius: 25px;
   display: flex;
@@ -103,9 +104,10 @@
   box-shadow: 0 3px 5px  gray;
   position: relative;
   font-size: 85%;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   background-color: #fff;
+  text-align: center;
 }
 
 .variants:hover {
