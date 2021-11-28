@@ -1,0 +1,58 @@
+@import url(Login.html);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#71b7e6,#9b59b6);
+    padding: 30px;
+}
+.container {
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    padding: 40px 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0,0.2);
+    border-radius: 5px;
+}
+
+.container form{
+    height: 100%;
+    width: 100%;
+    background: #fff;
+}
+
+.container .form-content{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.form-constent .login-form input:focus,
+.form-constent .login-form input:valid{
+    width: calc(100% / 2 -25px);
+    background: red;
+}
+
+ form .form-constent .title{
+font-size: 24px;
+font-weight: 500;
+color: #333;
+}
+/*
+form .form-constent .title:before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 25px;
+    background: linear-gradient(135deg,#71b7e6,#9b59b6); 
+}
+/*
+form .form-constent .input-boxes{
+    margin-top: 30px;
+}
