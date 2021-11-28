@@ -61,48 +61,46 @@ header{
 }
 .navigation_bar{
     display: flex;
-    align-items:flex-start;
+    align-items:center;
 }
 .navigation{
     background-color:rgb(97, 124, 124);
-    padding: 5px;
-    width: 46%;
-    display:flex;
+    padding: 10px;
+    width:65%;
+    display:inline-block;
     border-radius: 5px;
     max-height: 80px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 .navigation_list{
     list-style-type:none;
     overflow: hidden;
 }
 
-.navigation_item {
-    float: left;
+.navigation_item a{
+    float:inline-start;
     display: block;
-    position: relative;
-    margin-inline: 40px;
+    position: center;
+    margin-inline: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    padding: 10px;
 }
-.navigation_item:hover{
+.navigation_item a:hover{
     background-color: rgb(30, 180, 50);
 }
 
-.navigation_link{
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-}
 .close_icon {
-    font-size:30px;
+    font-size:40px;
     float:left;
     cursor: pointer;
-    font-weight:bolder;
    
 }
 .hide{
     display: none;
 }
 .bar_icon{
-    font-size: 50px;
+    font-size: 70px;
     display: inline-block;
     margin-right: 10px;
     cursor: pointer;
@@ -110,4 +108,96 @@ header{
 .Brand{
     font-size: 60px;
     display: inline-block;
+}
+
+/*navigation for small screens*/
+
+
+@media screen and(max-width:460px){
+    .navigation{
+        max-height:auto;
+    }
+  
+    .navigation_item a{
+        float: left;
+        display: inline;
+        position: center;
+        margin-inline: 3px;
+        font-size: 10px;
+        padding: 5px;
+    }
+    
+    
+    .close_icon {
+        font-size:30px;  
+    }
+
+    .Brand{
+        font-size: 20px;
+    }
+}
+
+.search_box{
+
+    margin-top: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.search_box select{
+    padding: 10px;
+}
+.search_box input{
+    padding: 10px;
+}
+.search_box button{
+    padding: 10px;
+    background-color: white;
+}
+.search_box button:hover{
+    background-color: rgb(30, 180, 50);
+    color: white;
+}
+/* Footer*/
+
+footer{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(141, 139, 151);
+    display: block;
+    text-align: center;
+    font-size: 25px;
+}
+
+/*###############################################*/
+/*posts.html*/
+
+.table-head{
+    display: flex;
+}
+
+.table-head div{
+    padding: 5px;
+    margin: 2px;
+    background-color: rgb(141, 139, 151);
+    font-weight: bold;
+}
+
+.table-head .status{
+    flex: 5%;
+}
+
+.table-head .subjects{
+    flex: 70%;
+}
+
+.table-head .replise{
+    flex: 10%;
+}
+
+.table-head .last-reply{
+    flex: 15%;
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyForum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="navigation_bar ">
+            <nav class="navigation hide"id='navigation'>
+                <ul class="navigation_list">
+                    <span class="close_icon"onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <li class="navigation_item">
+                        <a href="#">Main menu</a>
+                    </li>
+                    <li class="navigation_item">
+                        <a href="#">Posts</a>
+                    </li>
+                    <li class="navigation_item">
+                        <a href="#">Details</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="bar_icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></span></a>
+            <div class="Brand">Glyph Forum</div>
+        </div>
+        <!--Search_box-->
+        <div class="search_box">
+            <div>
+                <select name="" id="">
+                    <option value="everything">Everything</option>
+                    <option value="title">Title</option>
+                    <option value="description">Description</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="Serching...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
+    </header>
+    <div class="container">
+
+        <div class="post-table">
+            <div class="table-head">
+                <div class="subjects">Subjects</div>
+                <div class="replise">Replise</div>
+                <div class="last-reply">Last Repl</div>
+            </div>
+            <div class="table-row">
+                <div class="status"></div>
+            </div>
+        </div>
+       
+    </div>
+    <footer>
+        &copy;Glyph
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
