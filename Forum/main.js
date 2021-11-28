@@ -19,5 +19,10 @@ function showIconBar(){
 
 function showComment(){
     var commentArea = document.getElementById("comment-area");
+    commentArea.setAttribute("style", "display:block;");
+}
+
+function hideComment(){
+    var commentArea = document.getElementById("comment-area");
     commentArea.setAttribute("style", "display:none;");
 }

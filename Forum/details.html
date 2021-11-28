@@ -79,15 +79,48 @@
                 
             </div>
         </div>
+
         
-        <!---Comment input-->
-        <div class="comment-area hide">
+        <!---Show Comment-->
+        <div class="comment-area hide" id="comment-area">
             <textarea name="comment" id="" placeholder="Comment here if you like potatos ..."></textarea>
-            <input type="submit" value="Submit">
+            <input type="submit" onclick="hideComment()" value="Submit">
         </div>
-    
+        
+        <div class="topic_container">
+            <div class="head">
+                <div class="authors">Author</div>
+                <div class="content">Topic: post's title</div>
+            </div>
+
+            <div class="body">
+                <div class="authors">
+                    <div class="username"> <a href="#">Username</a></div>
+                    <div>Role</div>
+                   <span class="trash_icon"> <i class="fa fa-trash"></i></span>
+                    <div>Posts <u>45</u></div>
+                    <div>Points: <u>555</u></div>
+                </div>
+
+                <div class="content">
+                    Just a random quastion about a potato what cah it me 
+                    <br>is it about potatos ? 
+                    <br><br>
+                    we wont know
+                    <br><br>
+                    <hr>
+                    was writen by a Username  
+                    <div class="comment">
+                         <button onclick=" showComment()"> Comment </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        
     <footer>
-        &copy;Glyph
+        &copy;Glyph International.
     </footer>
     <script src="main.js"></script>
 </body>
