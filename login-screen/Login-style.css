@@ -44,7 +44,7 @@ font-size: 24px;
 font-weight: 500;
 color: #333;
 }
-/*
+/
 form .form-constent .title:before{
     content: '';
     position: absolute;
@@ -52,7 +52,7 @@ form .form-constent .title:before{
     width: 25px;
     background: linear-gradient(135deg,#71b7e6,#9b59b6); 
 }
-/*
+
 form .form-constent .input-boxes{
     margin-top: 30px;
 }
