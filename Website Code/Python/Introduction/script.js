@@ -1,8 +1,7 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1 */
         title: "Introduction To Pyton",
-        mainText: "Python is a popular programming language. It was created by Guido van Rossum, and released in 1991." ,
+        mainText: "Python is a popular programming language. It was created by Guido van Rossum, and released in 1991.",
         opt1: "● Python is used in Software Development",
         opt2: "● Python is used in Web Development",
         opt3: "● Python is used in Mathematics",
@@ -28,7 +27,7 @@ const Data = [
     },
     {
         /*Page 4*/
-        title:"Indendation",
+        title: "Indendation",
         mainText: "Python uses indentation to indicate a block of code.indentation in Python is very important.",
         opt1: "● You have to use the same number of spaces in the same block of code, otherwise Python will give you an error",
         opt2: "● The number of spaces is up to you as a programmer, but it has to be at least one",
@@ -63,7 +62,7 @@ let currentData = 0
 loadData()
 
 /*function loads new data for each page of the theory*/
-function loadData(){
+function loadData() {
 
     const current_Text_Data = Data[currentData]
     title.innerText = current_Text_Data.title
@@ -76,28 +75,27 @@ function loadData(){
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
-       currentData++
-       if(currentData < Data.length) {
-           loadData()
-       } 
-       else {
-           intro.innerHTML = `
+    currentData++
+    if (currentData < Data.length) {
+        loadData()
+    } else {
+        intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
-           <input class="button" type="button" onClick="location.href='/Website Code/Python/Multiple Questions/index.html'"
+           <input class="button" type="button" onClick="location.href='../../Python/Multiple Questions/index.html'"
                 value='Start Test!'>
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
-       }
+    }
 })
 
 /*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
-    if(currentData > -1) {
-        if(currentData != 0)
+    if (currentData > -1) {
+        if (currentData != 0)
             currentData--
-        loadData()  
-    } 
+            loadData()
+    }
 })

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyForum</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <header>
         <div class="navigation_bar ">
-            <nav class="navigation hide"id='navigation'>
+            <nav class="navigation hide" id='navigation'>
                 <ul class="navigation_list">
-                    <span class="close_icon"onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <span class="close_icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
                     <li class="navigation_item">
                         <a href="../Website Code/Main Menu/index.html">Main menu</a>
                     </li>
@@ -59,34 +61,32 @@
                 <div class="authors">
                     <div class="username"> <a href="#">Username</a></div>
                     <div>Role</div>
-                   <span class="trash_icon"> <i class="fa fa-trash"></i></span>
+                    <span class="trash_icon"> <i class="fa fa-trash"></i></span>
                     <div>Posts <u>45</u></div>
                     <div>Points: <u>555</u></div>
                 </div>
 
                 <div class="content">
-                    Just a random quastion about a potato what cah it me 
-                    <br>is it about potatos ? 
+                    Just a random quastion about a potato what cah it me
+                    <br>is it about potatos ?
+                    <br><br> we wont know
                     <br><br>
-                    we wont know
-                    <br><br>
-                    <hr>
-                    was writen by a Username  
+                    <hr> was writen by a Username
                     <div class="comment">
-                         <button onclick=" showComment()"> Comment </button>
+                        <button onclick=" showComment()"> Comment </button>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
-        
+
         <!---Show Comment-->
         <div class="comment-area hide" id="comment-area">
             <textarea name="comment" id="" placeholder="Comment here if you like potatos ..."></textarea>
             <input type="submit" onclick="hideComment()" value="Submit">
         </div>
-        
+
         <div class="topic_container">
             <div class="head">
                 <div class="authors">Author</div>
@@ -97,31 +97,30 @@
                 <div class="authors">
                     <div class="username"> <a href="#">Username</a></div>
                     <div>Role</div>
-                   <span class="trash_icon"> <i class="fa fa-trash"></i></span>
+                    <span class="trash_icon"> <i class="fa fa-trash"></i></span>
                     <div>Posts <u>45</u></div>
                     <div>Points: <u>555</u></div>
                 </div>
 
                 <div class="content">
-                    Just a random quastion about a potato what cah it me 
-                    <br>is it about potatos ? 
+                    Just a random quastion about a potato what cah it me
+                    <br>is it about potatos ?
+                    <br><br> we wont know
                     <br><br>
-                    we wont know
-                    <br><br>
-                    <hr>
-                    was writen by a Username  
+                    <hr> was writen by a Username
                     <div class="comment">
-                         <button onclick=" showComment()"> Comment </button>
+                        <button onclick=" showComment()"> Comment </button>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
-        
-    <footer>
-        &copy;Glyph International.
-    </footer>
-    <script src="main.js"></script>
+
+        <footer>
+            &copy;Glyph International.
+        </footer>
+        <script src="main.js"></script>
 </body>
+
 </html>

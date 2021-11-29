@@ -1,5 +1,4 @@
-const quizData = [
-    {
+const quizData = [{
         question: "When was Python Created?",
         a: "1991",
         b: "2005",
@@ -70,7 +69,7 @@ function deselectAnswers() {
 function getSelected() {
     let answer
     answerEls.forEach(answerEl => {
-        if(answerEl.checked) {
+        if (answerEl.checked) {
             answer = answerEl.id
         }
     })
@@ -80,24 +79,33 @@ function getSelected() {
 
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
-    if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
-           score++
-       }
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++
+        }
 
-       currentQuiz++
+        currentQuiz++
 
-       if(currentQuiz < quizData.length) {
-           loadQuiz()
-       } else {
-           quiz.innerHTML = `
-           <div  class="quiz-header">
-           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-
-           <button class="reload" onclick="location.reload()">Reload</button>
-           </div>
-           `
-       }
+        if (currentQuiz < quizData.length) {
+            loadQuiz()
+        } else {
+            if (score > 2) {
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly, PASSED! 😀</h2>
+               <button class="reload" onclick="location.href='"../../Courses/index.html"'">Return To Courses</button>
+               </div>
+               `
+                updateCourses(sessionStorage.getItem("id"));
+            } else {
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly, FAILED! 😔</h2>
+               <button class="reload" onclick="location.reload()">Reload</button>
+               </div>
+               `
+            }
+        }
     }
 })
 
@@ -130,8 +138,8 @@ function run_clock(id, endtime) {
             clearInterval(timeinterval);
             press = confirm("Time's up!\nPress OK to pay for a premium user or press Cancel to return to the main manu");
             if (press == false) {
-                window.location.href = "/Website Code/Main Menu/index.html"
-            } else { window.location.href = "/Website Code/Upgrade/index.html" }
+                window.location.href = "../../Main Menu/index.html"
+            } else { window.location.href = "../../Upgrade/index.html" }
         }
     }
     update_clock(); // run function once at first to avoid delay
