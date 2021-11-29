@@ -90,13 +90,22 @@ submitBtn.addEventListener('click', () => {
        if(currentQuiz < quizData.length) {
            loadQuiz()
        } else {
-           quiz.innerHTML = `
-           <div  class="quiz-header">
-           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-
-           <button class="reload" onclick="location.reload()">Reload</button>
-           </div>
-           `
+           if (score > 2){
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly, PASSED! 😀</h2>
+               <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+               </div>
+               `
+           }
+           else{
+               quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly, FAILED! 😔</h2>
+               <button class="reload" onclick="location.reload()">Reload</button>
+               </div>
+               `
+           }
        }
     }
 })
