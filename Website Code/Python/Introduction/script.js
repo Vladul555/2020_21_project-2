@@ -47,6 +47,7 @@ const Data = [
 
 ];
 
+/*my elements in JS need to be connected to id's in HTML to function*/
 const intro = document.getElementById('intro')
 const title = document.getElementById('title')
 const mainText = document.getElementById('mainText')
@@ -58,10 +59,10 @@ const nextBtn = document.getElementById('next')
 const previousBtn = document.getElementById('previous')
 
 let currentData = 0
-let flag = 0
 
 loadData()
 
+/*function loads new data for each page of the theory*/
 function loadData(){
 
     const current_Text_Data = Data[currentData]
@@ -73,6 +74,7 @@ function loadData(){
     option4.innerText = current_Text_Data.opt4
 }
 
+/*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
        currentData++
        if(currentData < Data.length) {
@@ -90,6 +92,8 @@ nextBtn.addEventListener('click', () => {
            `
        }
 })
+
+/*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
     if(currentData > -1) {
         if(currentData != 0)
@@ -109,3 +113,4 @@ previousBtn.addEventListener('click', () => {
     }
 })
 
+module.exports = loadData /* For Unit Testing*/
