@@ -5,6 +5,7 @@
     font-family: 'Helvetica Neue', Arial, sans-serif;
     box-sizing: border-box;
     background-image: url('../images/holla.jpg');
+    background-repeat: none;
     background-size: cover;
     background-repeat: no-repeat;
 }
