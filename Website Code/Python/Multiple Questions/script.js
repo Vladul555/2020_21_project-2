@@ -35,7 +35,7 @@ const quizData = [
 
 ];
 
-const quiz= document.getElementById('quiz')
+const quiz = document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
@@ -100,3 +100,41 @@ submitBtn.addEventListener('click', () => {
        }
     }
 })
+
+var time_in_minutes = 0.1;
+var current_time = Date.parse(new Date());
+var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
+
+
+function time_remaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return { 'total': t, 'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds };
+}
+
+function run_clock(id, endtime) {
+    var clock = document.getElementById(id);
+    var press;
+
+    function update_clock() {
+        var t = time_remaining(endtime);
+        if (t.seconds <= 9) {
+            clock.innerHTML = '<b>' + t.minutes + ':0' + t.seconds + '</b>';
+        } else {
+            clock.innerHTML = '<b>' + t.minutes + ':' + t.seconds + '</b>';
+        }
+        if (t.total <= 0) {
+            clearInterval(timeinterval);
+            press = confirm("Time's up!\nPress OK to pay for a premium user or press Cancel to return to the main manu");
+            if (press == false) {
+                window.location.href = "/Main Menu/index.html"
+            } else { window.location.href = "/Upgrade/index.html" }
+        }
+    }
+    update_clock(); // run function once at first to avoid delay
+    var timeinterval = setInterval(update_clock, 1000);
+}
+run_clock('clockdiv', deadline);

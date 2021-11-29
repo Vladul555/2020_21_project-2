@@ -47,7 +47,7 @@ const Data = [
 
 ];
 
-/* my elements in JS need to be connected to id's in HTML to function*/
+/*my elements in JS need to be connected to id's in HTML to function*/
 const intro = document.getElementById('intro')
 const title = document.getElementById('title')
 const mainText = document.getElementById('mainText')
@@ -59,7 +59,6 @@ const nextBtn = document.getElementById('next')
 const previousBtn = document.getElementById('previous')
 
 let currentData = 0
-let flag = 0
 
 loadData()
 
@@ -74,8 +73,6 @@ function loadData(){
     option3.innerText = current_Text_Data.opt3
     option4.innerText = current_Text_Data.opt4
 }
-
-module.exports = loadData /* For Unit Testing*/
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
@@ -116,3 +113,4 @@ previousBtn.addEventListener('click', () => {
     }
 })
 
+module.exports = loadData /* For Unit Testing*/
