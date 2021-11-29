@@ -101,7 +101,7 @@ submitBtn.addEventListener('click', () => {
     }
 })
 
-var time_in_minutes = 0.1;
+var time_in_minutes = 0.2;
 var current_time = Date.parse(new Date());
 var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
 
@@ -130,8 +130,8 @@ function run_clock(id, endtime) {
             clearInterval(timeinterval);
             press = confirm("Time's up!\nPress OK to pay for a premium user or press Cancel to return to the main manu");
             if (press == false) {
-                window.location.href = "/Main Menu/index.html"
-            } else { window.location.href = "/Upgrade/index.html" }
+                window.location.href = "/Website Code/Main Menu/index.html"
+            } else { window.location.href = "/Website Code/Upgrade/index.html" }
         }
     }
     update_clock(); // run function once at first to avoid delay
