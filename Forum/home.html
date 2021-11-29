@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyForum</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -12,21 +13,34 @@
         <div class="navigation_bar ">
             <nav class="navigation hide"id='navigation'>
                 <ul class="navigation_list">
-                    <li class="close_icon" onclick="showIconBar()">&#10006;</li>
+                    <span class="close_icon"onclick="showIconBar()"><i class="fa fa-close"></i></span>
                     <li class="navigation_item">
-                        <a href="#"class="navigation_link">Home</a>
+                        <a href="../Website Code/Main Menu/index.html">Main menu</a>
                     </li>
                     <li class="navigation_item">
-                        <a href="#" class="navigation_link">Forum</a>
+                        <a href="posts.html">Posts</a>
                     </li>
                     <li class="navigation_item">
-                        <a href="#"class="navigation_link">Details</a>
+                        <a href="details.html">Details</a>
                     </li>
                 </ul>
             </nav>
-            <a href="#" class="bar_icon" id="iconBar" onclick="hideIconBar()">&#9776;</span></a>
-            <div class="Brand">My Forum</div>
+            <a href="#" class="bar_icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></span></a>
+            <div class="Brand">Glyph Forum</div>
         </div>
+        <!--Search_box-->
+        <div class="search_box">
+            <div>
+                <select name="" id="">
+                    <option value="everything">Everything</option>
+                    <option value="title">Title</option>
+                    <option value="description">Description</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="Serching...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+
     </header>
     <div class="container">
         <div class="subforum">
@@ -119,7 +133,9 @@
             </div>
         </div>
     </div>
-
+    <footer>
+        &copy;Glyph International.
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>
