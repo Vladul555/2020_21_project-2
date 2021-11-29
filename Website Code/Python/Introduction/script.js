@@ -101,5 +101,3 @@ previousBtn.addEventListener('click', () => {
         loadData()  
     } 
 })
-
-module.exports = loadData /* For Unit Testing*/
