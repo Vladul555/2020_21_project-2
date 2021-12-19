@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upgrade to Premium!</title>
     <link rel="stylesheet" href="./styles/style.css">
-
+    <script src="../../http.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Upgrade!</title>
 </head>
 
@@ -31,7 +32,7 @@
             as long as you learn how to code with Premium!<br>Just fill that form and you'll be upgraded on your way to be the top of your class!</p><br><br><br>
     </div>
     <div id="box4" class="box">
-        <form action="../Main Menu/index.html">
+        <form>
             <label for="username">Username: </label>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password: </label>
@@ -40,7 +41,9 @@
             <input type="text" id="CC" name="CC"><br>
             <label for="CVV">CVV number: </label>
             <input type="text" id="CVV" name="CVV" size=3><br>
-            <input type="submit" value="Submit!" onclick='alert("Upgraded!")'>
+            <input type="button" value="Submit!" onclick=updateStatus()>
         </form>
     </div>
+    <script src="./script.js"></script>
+
 </body>

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyForum</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <header>
         <div class="navigation_bar ">
-            <nav class="navigation hide"id='navigation'>
+            <nav class="navigation hide" id='navigation'>
                 <ul class="navigation_list">
-                    <span class="close_icon"onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <span class="close_icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
                     <li class="navigation_item">
                         <a href="../Website Code/Main Menu/index.html">Main menu</a>
                     </li>
@@ -58,159 +60,138 @@
             </div>
             <div class="table-row">
                 <div class="subjects"><a href="#">Is potatos are potat?</a>
-                    <br>
-                    Started by <b><a href="#">User</a></b>.</div>
-                 <div class="replise">
-                     2 Replise <br>125 Views
-                 </div>
-                 <div class="last-reply">
-                     oct 12 2021
-                <br>
-                     By <b><a href="#">User</a></b>
+                    <br> Started by <b><a href="#">User</a></b>.</div>
+                <div class="replise">
+                    2 Replise <br>125 Views
                 </div>
-            </div> 
-    </div>
+                <div class="last-reply">
+                    oct 12 2021
+                    <br> By <b><a href="#">User</a></b>
+                </div>
+            </div>
+        </div>
 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    <div class="table-row">
-        <div class="subjects"><a href="#">Is potatos are potat?</a>
-            <br>
-            Started by <b><a href="#">User</a></b>.</div>
-         <div class="replise">
-             2 Replise <br>125 Views
-         </div>
-         <div class="last-reply">
-             oct 12 2021
-        <br>
-             By <b><a href="#">User</a></b>
+        <div class="table-row">
+            <div class="subjects"><a href="#">Is potatos are potat?</a>
+                <br> Started by <b><a href="#">User</a></b>.</div>
+            <div class="replise">
+                2 Replise <br>125 Views
+            </div>
+            <div class="last-reply">
+                oct 12 2021
+                <br> By <b><a href="#">User</a></b>
+            </div>
         </div>
-    </div> 
-    
-    <!--pagination-->
+
+        <!--pagination-->
         <div class="pagination">
-             pages: <a href="#">1</a><a href="#">2</a><a href="#">3</a>
+            pages: <a href="#">1</a><a href="#">2</a><a href="#">3</a>
         </div>
-    
-    
-    <footer>
-        &copy;Glyph International.
-    </footer>
-    <script src="main.js"></script>
+
+
+        <footer>
+            &copy;Glyph International.
+        </footer>
+        <script src="main.js"></script>
 </body>
+
 </html>

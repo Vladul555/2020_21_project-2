@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyForum</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
+
 <body>
     <header>
         <div class="navigation_bar ">
-            <nav class="navigation hide"id='navigation'>
+            <nav class="navigation hide" id='navigation'>
                 <ul class="navigation_list">
-                    <span class="close_icon"onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <span class="close_icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
                     <li class="navigation_item">
                         <a href="../Website Code/Main Menu/index.html">Main menu</a>
                     </li>
@@ -44,36 +47,21 @@
     </header>
     <div class="container">
         <div class="subforum">
-                <div class="subforum-title ">
-                    <h1>Genera Information</h1>
+            <div class="subforum-title ">
+                <h1>Genera Information</h1>
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-descriptions subforum-column ">
+                    <h1><a href="">Description Title:</a></h1>
+                    <p>Description content: can you call me on my sellphone potato polox</p>
                 </div>
-                <div class="subforum-row">
-                    <div class="subforum-descriptions subforum-column ">
-                        <h1><a href="">Description Title:</a></h1>
-                        <p>Description content: can you call me on my sellphone potato polox</p>
-                    </div>
-                    <div class="subforum-stats subforum-column center">
-                        <span>24 posts | 13 Topics</span>
-                    </div>
-                    <div class="subforum-info subforum-column ">
-                        <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
-                        <br>
-                        on <small>22 Dec 2021</small>
-                    </div>
+                <div class="subforum-stats subforum-column center">
+                    <span>24 posts | 13 Topics</span>
                 </div>
-        </div>
-        <div class="subforum-row">
-            <div class="subforum-descriptions subforum-column ">
-                <h1><a href="">Description Title:</a></h1>
-                <p>Description content: can you call me on my sellphone potato polox</p>
-            </div>
-            <div class="subforum-stats subforum-column center">
-                <span>24 posts | 13 Topics</span>
-            </div>
-            <div class="subforum-info subforum-column ">
-                <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
-                <br>
-                on <small>22 Dec 2021</small>
+                <div class="subforum-info subforum-column ">
+                    <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
+                    <br> on <small>22 Dec 2021</small>
+                </div>
             </div>
         </div>
         <div class="subforum-row">
@@ -86,8 +74,7 @@
             </div>
             <div class="subforum-info subforum-column ">
                 <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
-                <br>
-                on <small>22 Dec 2021</small>
+                <br> on <small>22 Dec 2021</small>
             </div>
         </div>
         <div class="subforum-row">
@@ -100,8 +87,7 @@
             </div>
             <div class="subforum-info subforum-column ">
                 <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
-                <br>
-                on <small>22 Dec 2021</small>
+                <br> on <small>22 Dec 2021</small>
             </div>
         </div>
         <div class="subforum-row">
@@ -114,8 +100,7 @@
             </div>
             <div class="subforum-info subforum-column ">
                 <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
-                <br>
-                on <small>22 Dec 2021</small>
+                <br> on <small>22 Dec 2021</small>
             </div>
         </div>
         <div class="subforum-row">
@@ -128,8 +113,20 @@
             </div>
             <div class="subforum-info subforum-column ">
                 <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
-                <br>
-                on <small>22 Dec 2021</small>
+                <br> on <small>22 Dec 2021</small>
+            </div>
+        </div>
+        <div class="subforum-row">
+            <div class="subforum-descriptions subforum-column ">
+                <h1><a href="">Description Title:</a></h1>
+                <p>Description content: can you call me on my sellphone potato polox</p>
+            </div>
+            <div class="subforum-stats subforum-column center">
+                <span>24 posts | 13 Topics</span>
+            </div>
+            <div class="subforum-info subforum-column ">
+                <b><a href="">Last Post</a></b> by <b><a href="">Just AUser</a></b>
+                <br> on <small>22 Dec 2021</small>
             </div>
         </div>
     </div>
@@ -138,4 +135,5 @@
     </footer>
     <script src="main.js"></script>
 </body>
+
 </html>
