@@ -47,11 +47,12 @@ const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
 let score = 0
+var heart = 3
+
 
 loadQuiz()
 
 function loadQuiz() {
-
     deselectAnswers()
 
     const currentQuizData = quizData[currentQuiz]
@@ -90,18 +91,39 @@ submitBtn.addEventListener('click', () => {
        if(currentQuiz < quizData.length) {
            loadQuiz()
        } else {
-           quiz.innerHTML = `
-           <div  class="quiz-header">
-           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-
-           <button class="reload" onclick="location.reload()">Reload</button>
-           </div>
-           `
+           if (score > 2){
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+               <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+               </div>
+               `
+           }
+           else{
+               heart--
+               if (heart > 0) {
+                   quiz.innerHTML = `
+                   <div  class="quiz-header">
+                   <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+                   <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
+                   <button class="reload" onclick="location.reload()">Reload</button>
+                   </div>
+                   `
+               }
+               else {
+                   quiz.innerHTML = `
+                   <div  class="quiz-header">
+                   <h2>You Failed 😢</h2>
+                   <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+                   </div>
+                   `
+               }
+           }
        }
     }
 })
 
-var time_in_minutes = 0.1;
+var time_in_minutes = 10;
 var current_time = Date.parse(new Date());
 var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
 
@@ -130,11 +152,18 @@ function run_clock(id, endtime) {
             clearInterval(timeinterval);
             press = confirm("Time's up!\nPress OK to pay for a premium user or press Cancel to return to the main manu");
             if (press == false) {
-                window.location.href = "/Main Menu/index.html"
-            } else { window.location.href = "/Upgrade/index.html" }
+                window.location.href = "/Website Code/Main Menu/index.html"
+            } else { window.location.href = "/Website Code/Upgrade/index.html" }
         }
     }
     update_clock(); // run function once at first to avoid delay
     var timeinterval = setInterval(update_clock, 1000);
 }
 run_clock('clockdiv', deadline);
+
+
+var timeout;
+document.onmousemove = function(){
+  clearTimeout(timeout);
+  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+}

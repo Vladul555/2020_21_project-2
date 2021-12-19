@@ -85,7 +85,7 @@ nextBtn.addEventListener('click', () => {
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
-           <input class="button" type="button" onClick="location.href='/Python/Multiple Questions/index.html'"
+           <input class="button" type="button" onClick="location.href='/Website Code/Python/Multiple Questions/index.html'"
                 value='Start Test!'>
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
@@ -100,17 +100,10 @@ previousBtn.addEventListener('click', () => {
             currentData--
         loadData()  
     } 
-    else {
-        intro.innerHTML = `
-        <div class="header">
-        <h2 class="test">You completed the theory!</h2>
-
-        <input class="button" type="button" onClick="location.href='/Python/Multiple Questions/index.html'"
-             value='Start Test!'>
-         <button class="button" onclick="location.reload()">Reload</button>
-        </div>
-        `
-    }
 })
 
-module.exports = loadData /* For Unit Testing*/
+var timeout;
+document.onmousemove = function(){
+  clearTimeout(timeout);
+  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+}
