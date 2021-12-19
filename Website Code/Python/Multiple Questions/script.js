@@ -47,12 +47,19 @@ const submitBtn = document.getElementById('submit')
 
 let currentQuiz = 0
 let score = 0
-var heart = 3
+
 
 
 loadQuiz()
+var heart
+if (localStorage.getItem("heart")){
+    heart = localStorage.getItem("heart")
+}
+    else
+        heart = 3
 
 function loadQuiz() {
+
     deselectAnswers()
 
     const currentQuizData = quizData[currentQuiz]
@@ -102,6 +109,7 @@ submitBtn.addEventListener('click', () => {
            else{
                heart--
                if (heart > 0) {
+                   localStorage.setItem("heart",heart)
                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
