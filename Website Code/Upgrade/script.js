@@ -1,3 +1,6 @@
+//Linking to the DB will go here mostly
+
+
 var timeout;
 document.onmousemove = function(){
   clearTimeout(timeout);
