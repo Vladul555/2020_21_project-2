@@ -1,13 +1,14 @@
 function updateStatus() {
-  if (sessionStorage.getItem('id')) {
-      updateUser({ UserType: true }, sessionStorage.getItem('id')).then(value => { window.location.href = "../Main Menu/" })
-  } else {
-      alert('Login!!');
-  }
+    if (sessionStorage.getItem('id')) {
+        updateUser({ UserType: userTypes["Premium"] }, sessionStorage.getItem('id')).then(value => { window.location.href = "../Main Menu/index.html" })
+    } else {
+        alert('Login!!');
+        window.location.href = "../../login-screen/Login.html"
+    }
 }
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
