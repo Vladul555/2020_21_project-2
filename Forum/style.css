@@ -1,0 +1,347 @@
+/* global*/
+
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+    background-color: rgb(57, 70, 94);
+    color: rgb(0, 0, 0) ;
+}
+
+a{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: large;
+}
+h1{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+/* home.html*/
+
+.container{
+    margin: 20px;
+    padding: 20px;
+
+}
+.subforum-title{
+    background-color: rgb(102, 97, 124);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 4px;
+    color: black;
+}
+
+.subforum-row{
+    display: grid ;
+    grid-template-columns: 67% 13% 20% ;
+}
+
+.subforum-descriptions a:hover,.subforum-info a:hover{
+    opacity: 0.5;
+}
+
+.subforum-column{
+    padding: 10px;
+    margin: 4px;
+    border-radius: 5px;
+    background-color: rgb(141, 139, 151);
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*navigation_bar*/
+
+header{
+    margin-inline: 40px ;
+}
+
+.navigation_bar{
+    display: flex;
+    align-items:center;
+}
+
+.navigation{
+    background-color:rgb(102, 97, 124);
+    padding: 10px;
+    width:65%;
+    display:inline-block;
+    border-radius: 5px;
+    max-height: 80px;
+    margin-right: 10px;
+}
+.navigation_list{
+    list-style-type:none;
+    overflow: hidden;
+}
+
+.navigation_item a{
+    float:inline-start;
+    display: block;
+    position: center;
+    margin-inline: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    padding: 10px;
+}
+.navigation_item a:hover{
+    opacity: 0.5;
+}
+
+.close_icon {
+    font-size:40px;
+    float:left;
+    cursor: pointer;  
+}
+
+.close_icon :hover{
+    opacity: 0.6;
+}
+
+.hide{
+    display: none;
+}
+
+.bar_icon{
+    font-size: 70px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.bar_icon :hover{
+    opacity: 0.6;
+}
+
+.Brand{
+    font-size: 60px;
+    display: inline-block;
+}
+
+/*navigation for small screens*/
+
+
+@media screen and(max-width:460px){
+    .navigation{
+        max-height:auto;
+    }
+  
+    .navigation_item a{
+        float: left;
+        display: inline;
+        position: center;
+        margin-inline: 3px;
+        font-size: 10px;
+        padding: 5px;
+    }
+    
+    
+    .close_icon {
+        font-size:30px;  
+    }
+
+    .Brand{
+        font-size: 20px;
+    }
+}
+
+.search_box{
+
+    margin-top: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.search_box select{
+    padding: 10px;
+}
+
+.search_box input{
+    padding: 10px;
+}
+
+.search_box button{
+    padding: 10px;
+    background-color: white;
+}
+
+.search_box button:hover{
+    background-color: rgb(30, 170, 180);
+    color: white;
+}
+
+/* Footer*/
+
+footer{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(102, 97, 124);
+    display: block;
+    text-align: center;
+    font-size: 25px;
+}
+
+/*###############################################*/
+/*posts.html*/
+
+.table-head{
+    display: flex;
+}
+
+.table-head div{
+    padding: 5px;
+    margin: 2px;
+    background-color: rgb(102, 97, 124);
+    font-weight: bold;
+}
+
+
+.table-head .subjects{
+    flex: 70%;
+}
+
+.table-head .replise{
+    flex: 10%;
+}
+
+.table-head .last-reply{
+    flex: 15%;
+}
+
+/*table body*/
+
+.table-row{
+    display:flex;  
+}
+
+.table-row .subjects,.table-row .replise,.table-row .last-reply{
+    padding: 5px;
+    margin: 3px;
+    background-color: rgb(141, 139, 151);
+}
+
+.table-row .subjects{
+    flex: 70%;
+}
+
+.table-row .replise{
+    flex: 10%;
+}
+
+.table-row .last-reply{
+    flex: 15%;
+}
+
+/*pagination*/
+
+.pagination{
+    padding: 20px;
+    font-size:25px;
+}
+
+.pagination a{
+    color: white;
+    margin-inline:5px;
+    padding: 5px 10px;
+    font-size:15px;
+    border: solid 0.5px white;
+}
+
+.pagination a:hover {
+    opacity: 0.5;
+}
+
+/*Navigation*/
+
+.navigate{
+    margin-block: 20px;
+    font-weight: lighter;
+    font-size: 24px;
+}
+
+.navigate a{
+    color: white;
+}
+
+.navigate a:hover{
+    opacity: 0.5;
+}
+
+/*####################################################*/
+
+/*detail.html*/
+
+.head{
+    display: flex;
+    background-color: rgb(102, 97, 124);
+    padding: 5px;
+    font-size: 20px;
+}
+
+.authors{
+    flex: 20%;
+}
+.content{
+    flex: 80%;
+}
+
+.body{
+    display: flex;
+    background-color: rgb(141, 139, 151);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.body .authors .username{
+    font-size: 20px;
+}
+.body .authors .trash_icon{
+    font-size: 50px;
+}
+
+.body .content .comment button{
+    border:black;
+    padding: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+    float: right;
+    
+}
+
+.comment-area{
+    margin-top: 5px;
+    margin-bottom: 55px;
+}
+
+.comment-area textarea{
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    margin-block:10px ;
+}
+
+.comment-area input{
+    float: right;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.comment-area input:hover{
+    border:solid 1px black
+}
+
+.comment-container{
+    margin-top: 30px;
+}
