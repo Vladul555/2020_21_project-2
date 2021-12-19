@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyForum</title>
+    <script src="../../http.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
     <title>Options</title>
 
 </head>
@@ -16,32 +19,36 @@
     
         </li>
         <li class="list">
-            <a href="#">
-                <button class="buttons" id="change-password">Change Password</button></a>
+            <button class="buttons" id="change-password">Change Password</button>
+            <input type="password" id="pass">
         </li>
         <li class="list">
-            <a href="#">
-                <button class="buttons" id="change-name">Change Name</button></a>
+            <button class="buttons" id="change-name">Change FullName</button>
+            <input type="text" id="fname">
+
         </li>
         <li class="list">
-            <a href="#">
-                <button class="buttons" id="change-last-name">Change Last Name</button></a>
+            <button class="buttons" id="change-last-name">Change UserName</button>
+            <input type="text" id="username">
+
         </li>
         <li class="list">
-            <a href="#">
-                <button class="buttons" id="change-mail">Change-Mail</button></a>
+            <button class="buttons" id="change-mail">Change-Mail</button>
+            <input type="email" id="mail">
+
         </li>
         <li class="list">
-            <a href="#">
-                <button class="buttons" id="change-gender">Change-Gender</button></a>
+            <button class="buttons" id="change-gender">Change-Gender</button>
+            <input type="radio" id="m" value="m"> m
+            <input type="radio" id="f" value="f"> f
+            <input type="radio" id="nb" value="nb"> nb
+
         </li>
         <li class="list">
-            <a href="../Main Menu/index.html">
-                <button class="buttons">Back</button></a>
-        </li>
+            <button class="buttons" onclick="updateUserOps()">Accept</button>
     
 </nav>
     
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
