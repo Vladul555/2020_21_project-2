@@ -74,7 +74,7 @@
             PhoneNumber = document.getElementById("phone").value;
             Email = document.getElementById("email").value;
             Password = document.getElementById("pass").value;
-            UserType = false //false usertype means free user, true would mean premium.
+            UserType = "Free" //"Free" usertype means free user, "Premium" would mean premium, "Admin" would be admin user
             Gender = document.getElementById("dot-3").checked ? document.getElementById("dot-3").value : document.getElementById("dot-2").checked ? document.getElementById("dot-2").value : document.getElementById("dot-1").checked ? document.getElementById("dot-1").value : null;
             let info = [
                 FullName,
@@ -82,7 +82,7 @@
                 PhoneNumber,
                 Email,
                 Password,
-                UserType,
+                userTypes[UserType],
                 Gender
             ]
             let isValid = true;
@@ -99,7 +99,7 @@
                 PhoneNumber,
                 Email,
                 Password,
-                UserType,
+                UserType: userTypes[UserType],
                 Gender
             }).then(value => {
                 window.location.href = "../login-screen/Login.html";
