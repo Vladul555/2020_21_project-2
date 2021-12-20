@@ -24,9 +24,46 @@ const Data = [
     {
         /*Page 5*/
         title: "Casting",
-        mainText: "If you want to specify the data type of a variable, this can be done with casting",
-    }
-  
+        mainText: "If you want to specify the data type of a variable, this can be done with casting\nx = str(3) --> # x will be '3'\ny = int(3) --> # y will be 3\nz = float(3) --> # z will be 3.0",
+    },
+    {
+        title: "Variable Names",
+        mainText: "A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume)",
+    },
+    {
+        title: "Rules for Python variable names",
+        mainText: "Must start with a letter or the underscore character\nCannot start with a number\nCase-sensitive (age, Age and AGE are three different variables)",
+    },
+    {
+        title: "Example 1",
+        mainText: "Legal variable names\nmyvar = 'John'\nmy_var = 'John\n_my_var = 'John'\nmyVar = 'John'\nMYVAR = 'John'\nmyvar2 = 'John'",
+    },
+    {
+        title: "Example 2",
+        mainText: "illegal variable names\n2myvar = 'John'\nmy-var = 'John\nmy var = 'John'",
+
+    },
+    {
+        title: "Output Variables",
+        mainText: "The Python print statement is often used to output variables\nTo combine both text and a variable\nPython uses the + character\nYou can also use the + character to add a variable to another variable",
+    },
+    {
+        title: "Example 1",
+        mainText: "x = 'awesome'\nprint('Python is' + x) --> Python is\ny = 'Python is'\nprint(y+x) --> Python is awesome",
+    },
+    {
+        title: "Example 2",
+        mainText: "However If you try to combine a string and a number\nPython will give you an error\nx = 5\ny = 5\nprint(x+y) --> TypeError unsupported type for + 'int' and 'str'",
+    },
+    {
+        title: "Global Variables",
+        mainText: "Variables that are created outside of a function are known as global variables\nGlobal variables can be used both inside and outside functions",
+    },
+    {
+        title: "Example 1",
+        mainText: "x = 'awesome'\n   def myFunc():\n   print('Python is' + x)\nmyFunc()\nOutput: Python is awesome",
+    },
+    
   ];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
@@ -67,7 +104,7 @@ nextBtn.addEventListener('click', () => {
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
-           <input class="button" type="button" onClick="location.href='#'"
+           <input class="button" type="button" onClick="location.href='../Variables/FinalTest/index.html'"
                 value='Start Test!'>
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
