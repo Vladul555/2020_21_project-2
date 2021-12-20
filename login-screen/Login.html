@@ -40,7 +40,11 @@
             login(Username, Password).then(value => {
                 if (value.data._id) {
                     sessionStorage.setItem("id", value.data._id)
-                    window.location.href = "../Website Code/Main Menu/index.html"
+                    sessionStorage.setItem("user", value.data.UserType)
+                    if (value.data.UserType !== userTypes["Admin"])
+                        window.location.href = "../Website Code/Main Menu/index.html"
+                    else
+                        window.location.href = "../Website Code/Main Menu/Admin.html"
                 } else {
                     alert("Wrong login credentials.\nPlease try again.");
                 }
