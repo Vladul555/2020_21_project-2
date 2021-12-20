@@ -52,3 +52,12 @@
     background-color: rgba(57, 163, 71, 0.425);
     flex-shrink: 60%;
 }
+
+.center{ 
+    display:flex;  
+    justify-content: center;  
+    align-items: center;  
+    font-size:25px;
+    font-weight: 900;
+    text-align: center;
+}
