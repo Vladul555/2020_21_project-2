@@ -13,7 +13,7 @@ let alertMsg = [
 let currentTxt = 0
 let premium = false
 
-function alert5min() {
+function alertMin() {
 
   if (currentTxt >= alertMsg.length){
     currentTxt = 0 
@@ -23,5 +23,5 @@ function alert5min() {
   currentTxt++
 }
 
-if (premium){alert5min();}
-setInterval(alert5min, 5*60*1000);  
+if (premium){alertMin();}
+setInterval(alert5min, 60*1000);  
