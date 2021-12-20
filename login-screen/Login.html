@@ -1,0 +1,56 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="Login-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../http.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Login</div>
+        <form action="#">
+            <div class="input-boxes">
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <span class="details">Username</span>
+                    <input type="text" placeholder="Enter your Username" required id="user">
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-key"></i>
+                    <span class="details">Password</span>
+                    <input type="password" placeholder="Enter your Password" required id="pass">
+                </div>
+            </div>
+            <div class="text"><a href="#">Forgot your password?</a></div>
+            <div class=" button input-box">
+                <input type="button" value="Login" onclick="logUser()">
+            </div>
+            <div class="text">Don't have an account?<br> <a href="../Registration screen/Registration.html">Register here.</a></div>
+        </form>
+    </div>
+    <script>
+        function logUser() {
+            const Username = document.getElementById("user").value;
+            const Password = document.getElementById("pass").value;
+            login(Username, Password).then(value => {
+                if (value.data._id) {
+                    sessionStorage.setItem("id", value.data._id)
+                    sessionStorage.setItem("user", value.data.UserType)
+                    if (value.data.UserType !== userTypes["Admin"])
+                        window.location.href = "../Website Code/Main Menu/index.html"
+                    else
+                        window.location.href = "../Website Code/Main Menu/Admin.html"
+                } else {
+                    alert("Wrong login credentials.\nPlease try again.");
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

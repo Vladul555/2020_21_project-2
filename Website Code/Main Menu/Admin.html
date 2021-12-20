@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/Admin.css">
+    <script src="../../http.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //if (sessionStorage.getItem("UserType") !== userTypes["Admin"])
+        //window.location.href = "../Main Menu/index.html" //kick out the user to the regular menu if not an admin
+    </script>
+    <title>Main Menu</title>
+</head>
+
+<body class="page">
+
+    <div style="display: flex; flex-direction: column; width: 100%;">
+        <nav class="navbar">
+            <label class="logo">Glyph</label>
+            <ul class="menu" id="menu">
+                <li class="list">
+                    <button class="buttons" id="start" onclick="getUsers()">Show users</button>
+                </li>
+                <li class="list">
+                    <button class="buttons" id="upgrade">Delete User</button>
+                </li>
+                <li class="list">
+                    <button class="buttons" id="upgrade">Ban User</button>
+                </li>
+            </ul>
+        </nav>
+        <table class="table" id="table">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>User type</th>
+                <th>Gender</th>
+                <th>Number of completed courses</th>
+                <th>User hash ID</th>
+            </tr>
+
+        </table>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>
