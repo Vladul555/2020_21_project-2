@@ -30,3 +30,5 @@ function login(user, pass) {
         Password: pass
     })
 }
+
+const userTypes = { "Free": 0, "Premium": 1, "Admin": 2 }

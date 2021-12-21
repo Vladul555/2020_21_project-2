@@ -1,3 +1,5 @@
+import { userTypes } from "src/user/User.enum";
+
 /* eslint-disable prettier/prettier */
 export class UpdateUserDto {
   FullName?: string;
@@ -5,7 +7,7 @@ export class UpdateUserDto {
   PhoneNumber?: string;
   Email?: string;
   Password?: string;
-  UserType?: boolean;
+  UserType?: userTypes;
   Gender?: string;
   numOfCourses?: number;
 }
