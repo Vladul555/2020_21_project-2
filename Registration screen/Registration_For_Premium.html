@@ -39,11 +39,11 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Confirm Credit card Number</span>
-                    <input type="password" placeholder="Creditcard Number" required id="CardNum">
+                    <input type="text" placeholder="Creditcard Number" required id="CardNum">
                 </div>
                 <div class="input-box">
                     <span class="details">Confirm CVV Number</span>
-                    <input type="password" placeholder="CVV Number" required id="CVV">
+                    <input type="text" placeholder="CVV Number" required id="CVV">
                 </div>
             </div>
             <div class="gender-details">
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="button">
-                <input type="button" value="Register" onclick="regUser()">
+                <input type="button" value="Register" onclick="RegPremUser()">
             </div>
             <br>
             <p>Already have an account?<br> <a href="../login-screen/Login.html">Login here.</a></p>
@@ -76,12 +76,14 @@
         </form>
     </div>
     <script>
-        function regUser() {
+        function RegPremUser() {
             FullName = document.getElementById("name").value;
             Username = document.getElementById("user").value;
             PhoneNumber = document.getElementById("phone").value;
             Email = document.getElementById("email").value;
             Password = document.getElementById("pass").value;
+            card_num = document.getElementById("CardNum").value;
+            cvv = document.getElementById("CVV").value;
             UserType = "Premium" //"Free" usertype means free user, "Premium" would mean premium, "Admin" would be admin user
             Gender = document.getElementById("dot-3").checked ? document.getElementById("dot-3").value : document.getElementById("dot-2").checked ? document.getElementById("dot-2").value : document.getElementById("dot-1").checked ? document.getElementById("dot-1").value : null;
             let info = [
@@ -91,7 +93,9 @@
                 Email,
                 Password,
                 userTypes[UserType],
-                Gender
+                Gender,
+                card_num,
+                cvv
             ]
             let isValid = true;
             for (let i = 0; i < info.length; i++) {
