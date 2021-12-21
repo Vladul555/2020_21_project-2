@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="Registration-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../http.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Premium Registration</div>
+        <form action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" placeholder="Enter your name" required id="name">
+                </div>
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input type="text" placeholder="Enter your Username" required id="user">
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" placeholder="Enter your Email" required id="email">
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input type="text" placeholder="Enter your Phone Number" required id="phone">
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" placeholder="Enter your password" required id="pass">
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Password</span>
+                    <input type="password" placeholder="Confirm your password" required id="passCon">
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Credit card Number</span>
+                    <input type="password" placeholder="Creditcard Number" required id="CardNum">
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm CVV Number</span>
+                    <input type="password" placeholder="CVV Number" required id="CVV">
+                </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1" value="m">
+                <input type="radio" name="gender" id="dot-2" value="f">
+                <input type="radio" name="gender" id="dot-3" value="nb">
+                <span class="gender-title">gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                    <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                    <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Prefer not to say</span>
+                        </label>
+                </div>
+            </div>
+            <div class="button">
+                <input type="button" value="Register" onclick="regUser()">
+            </div>
+            <br>
+            <p>Already have an account?<br> <a href="../login-screen/Login.html">Login here.</a></p>
+            <br>
+            <a href="../Website Code/Main Menu/index.html">Back to the Main Menu.</a>
+        </form>
+    </div>
+    <script>
+        function regUser() {
+            FullName = document.getElementById("name").value;
+            Username = document.getElementById("user").value;
+            PhoneNumber = document.getElementById("phone").value;
+            Email = document.getElementById("email").value;
+            Password = document.getElementById("pass").value;
+            UserType = "Premium" //"Free" usertype means free user, "Premium" would mean premium, "Admin" would be admin user
+            Gender = document.getElementById("dot-3").checked ? document.getElementById("dot-3").value : document.getElementById("dot-2").checked ? document.getElementById("dot-2").value : document.getElementById("dot-1").checked ? document.getElementById("dot-1").value : null;
+            let info = [
+                FullName,
+                Username,
+                PhoneNumber,
+                Email,
+                Password,
+                userTypes[UserType],
+                Gender
+            ]
+            let isValid = true;
+            for (let i = 0; i < info.length; i++) {
+                if (info[i] === "" || info[i] == null) {
+                    alert("Please fill all the fields of the form.");
+                    isValid = false;
+                    break;
+                }
+            }
+            isValid ? createUser({
+                FullName,
+                Username,
+                PhoneNumber,
+                Email,
+                Password,
+                UserType: userTypes[UserType],
+                Gender
+            }).then(value => {
+                window.location.href = "../login-screen/Login.html";
+            }) : null
+
+        }
+    </script>
+</body>
+
+</html>
