@@ -1,45 +1,52 @@
 const quizData = [
     {
-        question: "Which is the corret way to assign the value 'volvo to carname",
-        a: "carname = 'volvo",
-        b: "car name = 'volvo",
-        c: "car-name = 'volvo'",
-        d: "All the above",
+        question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
+        a: "A = 50\nB = 70\nif A > B",
+        b: "A = 70\nB = 50\nif B > A",
+        c: "A = 100\nB = 90\nif A > B",
+        d: "A = 1\nB = 1\n if A > B",
+        correct: "c",
+    },
+    {
+        question: "A must be equal to B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
+        a: "A = 50\nB = 70\nif A == B",
+        b: "A = 'Hello'\nB = 'Morning'\nif B == A",
+        c: "A = True\nB = True\nif A == B",
+        d: "A = 19\nB = 18\n if A == B",
+        correct: "c",
+    },
+    {
+        question: "Variables A must be Greater than B, and B must be Greater than C for us to print('Hello World')\nWhich option will accomplish the task?",
+        a: "A = 20\nB = 20\nC = 20\nif A = B = C",
+        b: "A = True\nB = True\nC = True\n if A > B and B > C",
+        c: "C = 1.2\nA = 1.9\nB = 1.5\nif A > B and B > C",
+        d: "B = 'Max'\nA = 1\nC = True\n if A >= B or B <= C",
+        correct: "c",
+    },
+    {
+        question: "Inorder for us to determine if 2 objects are not equal to one another we must use what condition?",
+        a: "!=",
+        b: "not=",
+        c: "=!",
+        d: "notEqual=",
         correct: "a",
     },
     {
-        question: "A variable 'x' is created and we would like to assign 10 to it\nChoose the correct option",
-        a: "x be 50",
-        b: "x == 50",
-        c: "x equals 50",
-        d: "x = 50",
+        question: "which if statement will return true for numbers outside the range of '100-1000'?",
+        a: "if x > 100 or x < 1000:",
+        b: "if x >= 100 and x <= 1000:",
+        c: "if x < 100 or x > 1000:",
+        d: "if x < 100 and x >= 1001",
         correct: "d",
     },
     {
-        question: "What isn't correct about variables",
-        a: "type() is a function to determine variable type",
-        b: "Variables are created the moment you first declare them",
-        c: "Changing the type of a variable is possible after they have been set",
-        d: "Declaring a variable name may not start with a digit or underscore, and may not end with an underscore ",
-        correct: "b",
+        question: "which statement will return True?",
+        a: "x = 5\ny = 5\nif x >= y:",
+        b: "x = 10\ny = 10\nif y > x+1:",
+        c: "x = 'hello'\ny = 'john\nif type(x) != type(y)",
+        d: "x = 50\ny = 49\nif y >= x ",
+        correct: "a",
     },
-    {
-        question: "Determine the correct Syntax to assign the same value to all 3 variables in one line of code",
-        a: "x == y == z",
-        b: "x = y = z",
-        c: "x === y === z",
-        d: "you cannot assign more than 2 variables the same value in one line of code",
-        correct: "b",
-    },
-    {
-        question: "Variable named myVar has been declared\nIn what way can we find the type of the variable",
-        a: "Using typeof(myVar)",
-        b: "Writing myVar.type ",
-        c: "Using type(myVar)",
-        d: "None of the above",
-        correct: "c",
-    },
-
 
 ];
 
@@ -106,7 +113,7 @@ submitBtn.addEventListener('click', () => {
        if(currentQuiz < quizData.length) {
            loadQuiz()
        } else {
-           if (score > 3){
+           if (score > 4){
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
@@ -127,6 +134,7 @@ submitBtn.addEventListener('click', () => {
                    `
                }
                else {
+                   localStorage.setItem("heart",3)  
                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You Failed 😢</h2>
