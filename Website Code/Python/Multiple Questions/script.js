@@ -119,6 +119,7 @@ submitBtn.addEventListener('click', () => {
                    `
                }
                else {
+                   localStorage.setItem("heart",3)
                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You Failed 😢</h2>
