@@ -115,6 +115,7 @@ submitBtn.addEventListener('click', () => {
                    <button class="reload" onclick="location.reload()">Reload</button>
                    </div>
                    `
+
                 } else {
                     quiz.innerHTML = `
                    <div  class="quiz-header">
