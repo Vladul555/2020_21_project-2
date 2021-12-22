@@ -1,3 +1,8 @@
+if(sessionStorage.getItem('DarkMod')){
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod',flag);
+}
+
 var timeout;
 document.onmousemove = function(){
   clearTimeout(timeout);
@@ -25,3 +30,11 @@ function alertMin() {
 
 if (premium){alertMin();}
 setInterval(alert5min, 60*1000);  
+
+
+function TestdarkMode() {
+  if (flag == 1){
+    var element = document.body;
+    element.classList.toggle("dark-mode")
+  }
+}
