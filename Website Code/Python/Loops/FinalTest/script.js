@@ -1,53 +1,36 @@
 const quizData = [
     {
-        question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 50\nB = 70\nif A > B",
-        b: "A = 70\nB = 50\nif B > A",
-        c: "A = 100\nB = 90\nif A > B",
-        d: "A = 1\nB = 1\n if A > B",
-        correct: "c",
-    },
-    {
-        question: "A must be equal to B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 50\nB = 70\nif A == B",
-        b: "A = 'Hello'\nB = 'Morning'\nif B == A",
-        c: "A = True\nB = True\nif A == B",
-        d: "A = 19\nB = 18\n if A == B",
-        correct: "c",
-    },
-    {
-        question: "Variables A must be Greater than B, and B must be Greater than C for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 20\nB = 20\nC = 20\nif A = B = C",
-        b: "A = True\nB = True\nC = True\n if A > B and B > C",
-        c: "C = 1.2\nA = 1.9\nB = 1.5\nif A > B and B > C",
-        d: "B = 'Max'\nA = 1\nC = True\n if A >= B or B <= C",
-        correct: "c",
-    },
-    {
-        question: "Inorder for us to determine if 2 objects are not equal to one another we must use what condition?",
-        a: "!=",
-        b: "not=",
-        c: "=!",
-        d: "notEqual=",
-        correct: "a",
-    },
-    {
-        question: "which if statement will return true for numbers outside the range of '100-1000'?",
-        a: "if x > 100 or x < 1000:",
-        b: "if x >= 100 and x <= 1000:",
-        c: "if x < 100 or x > 1000:",
-        d: "if x < 100 and x >= 1001",
+        question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
+        a: "1 2 3 4 5",
+        b: "0 1 2 3 4 5",
+        c: "6 5 4 3 2 1",
+        d: "1 2 3 4 5 6",
         correct: "d",
     },
     {
-        question: "which statement will return True?",
-        a: "x = 5\ny = 5\nif x >= y:",
-        b: "x = 10\ny = 10\nif y > x+1:",
-        c: "x = 'hello'\ny = 'john\nif type(x) != type(y)",
-        d: "x = 50\ny = 49\nif y >= x ",
+        question: "What is the output of:\ni=1\nwhile i < 5\nif == 3:\nbreak\n i += 1\nprint(i,end= ' ')",
+        a: "1 2 3 4",
+        b: "1 2 4 5",
+        c: "1 2 3",
+        d: "0 1 2 4 5",
+        correct: "c",
+    },
+    {
+        question: "What is the purpose of the 'Continue' Statement",
+        a: "Skipping the current iteration to the following",
+        b: "Stopping the loop even if statement is True",
+        c: "Exiting the loop cycle and continuing to the next line of code",
+        d: "Skipping the current statement and continuing to the next",
         correct: "a",
     },
-
+    {
+        question: "Which answer is False",
+        a: "For loops are used when the programmer knows how many times the loop should run ",
+        b: "Within Python there are 2 primitive loops: While & For",
+        c: "Do While is used in Python to execute a statement prior the iteration",
+        d: "While iterations run undelessly until the statement is False",
+        correct: "c",
+    },
 ];
 
 const quiz = document.getElementById('quiz')
@@ -113,7 +96,7 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizData.length) {
             loadQuiz()
         } else {
-            if (score > 2) {
+            if (score > 3) {
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
@@ -152,7 +135,6 @@ submitBtn.addEventListener('click', () => {
         }
     }
 })
-
 
 var time_in_minutes = 10;
 var current_time = Date.parse(new Date());
@@ -194,7 +176,7 @@ run_clock('clockdiv', deadline);
 
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
