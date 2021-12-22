@@ -18,6 +18,13 @@
     width: 100%;
     height: 100%;
 }
+
+.dark-mode {
+    background-color: black;
+    color: white;
+    background-image: none;
+  }
+
 .navbar{
     display: flex;
     margin: 0 auto;
