@@ -75,7 +75,7 @@ nextBtn.addEventListener('click', () => {
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
-           <input class="button" type="button" onClick="location.href='../Conditions and Statements/FinalTest/index.html'"
+           <input class="button" type="button" onClick="location.href='../Loops/FinalTest/index.html'"
                 value='Start Test!'>
             <button class="button" onclick="location.reload()">Reload</button>
            </div>

@@ -1,6 +1,5 @@
-const quizData = [
-    {
-        question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
+const quizData = [{
+    question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
         a: "1 2 3 4 5",
         b: "0 1 2 3 4 5",
         c: "6 5 4 3 2 1",
@@ -31,6 +30,8 @@ const quizData = [
         d: "While iterations run undelessly until the statement is False",
         correct: "c",
     },
+
+
 ];
 
 const quiz = document.getElementById('quiz')
@@ -50,10 +51,10 @@ let score = 0
 
 loadQuiz()
 var heart
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
-    if (sessionStorage.getItem("heart")) {
-        heart = sessionStorage.getItem("heart")
-    } else
+if (localStorage.getItem("heart")){
+    heart = localStorage.getItem("heart")
+}
+    else
         heart = 3
 
 function loadQuiz() {
@@ -76,7 +77,7 @@ function deselectAnswers() {
 function getSelected() {
     let answer
     answerEls.forEach(answerEl => {
-        if (answerEl.checked) {
+        if(answerEl.checked) {
             answer = answerEl.id
         }
     })
@@ -86,53 +87,46 @@ function getSelected() {
 
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
-    if (answer) {
-        if (answer === quizData[currentQuiz].correct) {
-            score++
-        }
+    if(answer) {
+       if(answer === quizData[currentQuiz].correct) {
+           score++
+       }
 
-        currentQuiz++
+       currentQuiz++
 
-        if (currentQuiz < quizData.length) {
-            loadQuiz()
-        } else {
-            if (score > 3) {
+       if(currentQuiz < quizData.length) {
+           loadQuiz()
+       } else {
+           if (score > 3){
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-            } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
-                heart--
-                if (heart > 0) {
-                    sessionStorage.setItem("heart", heart)
-                    quiz.innerHTML = `
+           }
+           else{
+               heart--
+               if (heart > 0) {
+                   localStorage.setItem("heart",heart)
+                   quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
                    <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
                    <button class="reload" onclick="location.reload()">Reload</button>
                    </div>
                    `
-
-                } else {
-                    quiz.innerHTML = `
+               }
+               else {
+                   quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You Failed 😢</h2>
                    <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                    </div>
                    `
-                }
-            } else {
-                quiz.innerHTML = `
-               <div  class="quiz-header">
-               <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
-               <h2 style='text-align: center'>You Failed 😢</h2>
-               <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
-               </div>
-               `
-            }
-        }
+               }
+           }
+       }
     }
 })
 
@@ -176,7 +170,7 @@ run_clock('clockdiv', deadline);
 
 
 var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+document.onmousemove = function(){
+  clearTimeout(timeout);
+  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
 }
