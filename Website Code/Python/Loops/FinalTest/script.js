@@ -1,5 +1,6 @@
-const quizData = [{
-    question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
+const quizData = [
+    {
+        question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
         a: "1 2 3 4 5",
         b: "0 1 2 3 4 5",
         c: "6 5 4 3 2 1",
@@ -30,9 +31,9 @@ const quizData = [{
         d: "While iterations run undelessly until the statement is False",
         correct: "c",
     },
-
-
 ];
+
+
 
 const quiz = document.getElementById('quiz')
 const answerEls = document.querySelectorAll('.answer')
@@ -51,83 +52,90 @@ let score = 0
 
 loadQuiz()
 var heart
-if (localStorage.getItem("heart")){
-    heart = localStorage.getItem("heart")
-}
-    else
-        heart = 3
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+if (sessionStorage.getItem("heart")) {
+    heart = sessionStorage.getItem("heart")
+} else
+    heart = 3
 
 function loadQuiz() {
 
-    deselectAnswers()
+deselectAnswers()
 
-    const currentQuizData = quizData[currentQuiz]
+const currentQuizData = quizData[currentQuiz]
 
-    questionEl.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
+questionEl.innerText = currentQuizData.question
+a_text.innerText = currentQuizData.a
+b_text.innerText = currentQuizData.b
+c_text.innerText = currentQuizData.c
+d_text.innerText = currentQuizData.d
 }
 
 function deselectAnswers() {
-    answerEls.forEach(answerEl => answerEl.checked = false)
+answerEls.forEach(answerEl => answerEl.checked = false)
 }
 
 function getSelected() {
-    let answer
-    answerEls.forEach(answerEl => {
-        if(answerEl.checked) {
-            answer = answerEl.id
-        }
-    })
-    return answer
+let answer
+answerEls.forEach(answerEl => {
+    if (answerEl.checked) {
+        answer = answerEl.id
+    }
+})
+return answer
 }
 
 
 submitBtn.addEventListener('click', () => {
-    const answer = getSelected()
-    if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
-           score++
-       }
+const answer = getSelected()
+if (answer) {
+    if (answer === quizData[currentQuiz].correct) {
+        score++
+    }
 
-       currentQuiz++
+    currentQuiz++
 
-       if(currentQuiz < quizData.length) {
-           loadQuiz()
-       } else {
-           if (score > 3){
+    if (currentQuiz < quizData.length) {
+        loadQuiz()
+    } else {
+        if (score > 2) {
+            quiz.innerHTML = `
+           <div  class="quiz-header">
+           <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+           <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+           </div>
+           `
+        } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+            heart--
+            if (heart > 0) {
+                sessionStorage.setItem("heart", heart)
                 quiz.innerHTML = `
                <div  class="quiz-header">
-               <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+               <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+               <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
+               <button class="reload" onclick="location.reload()">Reload</button>
+               </div>
+               `
+
+            } else {
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You Failed 😢</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-           }
-           else{
-               heart--
-               if (heart > 0) {
-                   localStorage.setItem("heart",heart)
-                   quiz.innerHTML = `
-                   <div  class="quiz-header">
-                   <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-                   <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
-                   <button class="reload" onclick="location.reload()">Reload</button>
-                   </div>
-                   `
-               }
-               else {
-                   quiz.innerHTML = `
-                   <div  class="quiz-header">
-                   <h2>You Failed 😢</h2>
-                   <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
-                   </div>
-                   `
-               }
-           }
-       }
+            }
+        } else {
+            quiz.innerHTML = `
+           <div  class="quiz-header">
+           <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
+           <h2 style='text-align: center'>You Failed 😢</h2>
+           <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+           </div>
+           `
+        }
     }
+}
 })
 
 var time_in_minutes = 10;
@@ -136,41 +144,41 @@ var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
 
 
 function time_remaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    return { 'total': t, 'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds };
+var t = Date.parse(endtime) - Date.parse(new Date());
+var seconds = Math.floor((t / 1000) % 60);
+var minutes = Math.floor((t / 1000 / 60) % 60);
+var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+var days = Math.floor(t / (1000 * 60 * 60 * 24));
+return { 'total': t, 'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds };
 }
 
 function run_clock(id, endtime) {
-    var clock = document.getElementById(id);
-    var press;
+var clock = document.getElementById(id);
+var press;
 
-    function update_clock() {
-        var t = time_remaining(endtime);
-        if (t.seconds <= 9) {
-            clock.innerHTML = '<b>' + t.minutes + ':0' + t.seconds + '</b>';
-        } else {
-            clock.innerHTML = '<b>' + t.minutes + ':' + t.seconds + '</b>';
-        }
-        if (t.total <= 0) {
-            clearInterval(timeinterval);
-            press = confirm("Time's up!\nPress OK to pay for a premium user or press Cancel to return to the main manu");
-            if (press == false) {
-                window.location.href = "/Website Code/Main Menu/index.html"
-            } else { window.location.href = "/Website Code/Upgrade/index.html" }
-        }
+function update_clock() {
+    var t = time_remaining(endtime);
+    if (t.seconds <= 9) {
+        clock.innerHTML = '<b>' + t.minutes + ':0' + t.seconds + '</b>';
+    } else {
+        clock.innerHTML = '<b>' + t.minutes + ':' + t.seconds + '</b>';
     }
-    update_clock(); // run function once at first to avoid delay
-    var timeinterval = setInterval(update_clock, 1000);
+    if (t.total <= 0) {
+        clearInterval(timeinterval);
+        press = confirm("Time's up!\nPress OK to pay for a premium user or press Cancel to return to the main manu");
+        if (press == false) {
+            window.location.href = "/Website Code/Main Menu/index.html"
+        } else { window.location.href = "/Website Code/Upgrade/index.html" }
+    }
+}
+update_clock(); // run function once at first to avoid delay
+var timeinterval = setInterval(update_clock, 1000);
 }
 run_clock('clockdiv', deadline);
 
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+clearTimeout(timeout);
+timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
