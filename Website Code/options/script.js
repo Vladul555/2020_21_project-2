@@ -32,3 +32,18 @@ function showChangeBox(){
   var commentArea = document.getElementById("pass");
   commentArea.setAttribute("style", "display:block;");
 }
+
+flag = 0;//lightmode if 0 darkmode if 1
+function darkMode() {
+  var content = document.getElementById("drkBtn");
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  if (flag == 0){
+    content.innerText = "Dark Mode is ON";
+    flag = 1;
+  }
+  else{
+    content.innerText = "DarkMode";
+    flag = 0;
+  }
+}
