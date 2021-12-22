@@ -9,4 +9,5 @@ export class CreateUserDto {
   readonly UserType: userTypes;
   readonly Gender: string;
   numOfCourses: number;
+  bannedStatus: boolean;
 }

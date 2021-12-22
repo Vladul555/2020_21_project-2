@@ -9,7 +9,7 @@ function updateUser(user, id) {
 }
 
 function deleteUser(id) {
-    return axios.del(url + "/user/" + id);
+    return axios.delete(url + "/user/" + id);
 }
 
 function printUsers() {
@@ -22,6 +22,14 @@ function printUser(id) {
 
 function updateCourses(id) {
     return axios.put(url + "/user/" + id + "/course");
+}
+
+function banUser(id) {
+    return axios.put(url + "/user/" + id + "/ban");
+}
+
+function unbanUser(id) {
+    return axios.put(url + "/user/" + id + "/unban");
 }
 
 function login(user, pass) {

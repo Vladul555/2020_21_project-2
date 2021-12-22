@@ -19,30 +19,39 @@
 
     <div style="display: flex; flex-direction: column; width: 100%;">
         <nav class="navbar">
-            <label class="logo">Glyph</label>
+            <label class="logo">Glyph - Admin Page</label>
             <ul class="menu" id="menu">
                 <li class="list">
                     <button class="buttons" id="start" onclick="getUsers()">Show users</button>
                 </li>
                 <li class="list">
-                    <button class="buttons" id="upgrade">Delete User</button>
+                    <button class="buttons" id="upgrade" onclick="ShowField()">Delete User</button>
                 </li>
                 <li class="list">
-                    <button class="buttons" id="upgrade">Ban User</button>
+                    <button class="buttons" id="upgrade" onclick="ShowFieldBan()">Ban User</button>
                 </li>
+                <li class="list">
+                    <button class="buttons" onclick="ShowFieldUnban()">Unban User</button>
+                </li>
+                <input type="text" placeholder="Enter hash ID" id="id" style="visibility: hidden; align-self: center;"> <br><br>
+                <input type="button" class="buttons" value="Submit ID" id="delbut" style="visibility: hidden; align-self: center;" onclick="deleteUserAdmin(document.getElementById('id').value)">
+                <input type="button" class="buttons" value="Submit ID" id="banbut" style="visibility: hidden; align-self: center;" onclick="banUserAdmin(document.getElementById('id').value)">
+                <input type="button" class="buttons" value="Submit ID" id="unbanbut" style="visibility: hidden; align-self: center;" onclick="unbanUserAdmin(document.getElementById('id').value)">
             </ul>
+            <table class="table" id="table" style='visibility: hidden;'>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>User type</th>
+                    <th>Gender</th>
+                    <th>Number of completed courses</th>
+                    <th>User hash ID</th>
+                    <th>Banned status</th>
+                </tr>
+            </table>
         </nav>
-        <table class="table" id="table">
-            <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>User type</th>
-                <th>Gender</th>
-                <th>Number of completed courses</th>
-                <th>User hash ID</th>
-            </tr>
 
-        </table>
+
     </div>
     <script src="admin.js"></script>
 </body>
