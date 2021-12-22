@@ -41,7 +41,11 @@
                 if (value.data._id) {
                     sessionStorage.setItem("id", value.data._id)
                     sessionStorage.setItem("user", value.data.UserType)
-                    if (value.data.UserType !== userTypes["Admin"])
+                    sessionStorage.setItem("ban", value.data.bannedStatus)
+                    if (value.data.bannedStatus) {
+                        alert("Your user has been banned, to unban your user, please contect the admin")
+                        window.location.reload()
+                    } else if (value.data.UserType !== userTypes["Admin"])
                         window.location.href = "../Website Code/Main Menu/index.html"
                     else
                         window.location.href = "../Website Code/Main Menu/Admin.html"
