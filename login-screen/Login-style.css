@@ -1,17 +1,18 @@
 @import url(Login.html);
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins',sans-serif;
+    font-family: 'poppins', sans-serif;
 }
-body{
+
+body {
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: linear-gradient(135deg,#71b7e6,#9b59b6);
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
 .container {
@@ -19,34 +20,39 @@ body{
     width: 100%;
     background: #fff;
     padding: 40px 30px;
-    box-shadow:  5px 10px;
+    box-shadow: 5px 10px;
     border-radius: 5px;
 }
-.container .title{
+
+.container .title {
     font-size: 25px;
     font-weight: 500;
     position: relative;
 }
-.container .title::before{
+
+.container .title::before {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     height: 3px;
     width: 25px;
-    background: linear-gradient(135deg,#71b7e6,#9b59b6);
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
-.container form .input-boxes{
+
+.container form .input-boxes {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
-form .input-boxes .input-box{
+
+form .input-boxes .input-box {
     margin-bottom: 10px;
     width: calc(100% / 2 -20px);
 }
-.input-boxes .input-box input{
+
+.input-boxes .input-box input {
     height: 50px;
     width: 100%;
     outline: none;
@@ -54,18 +60,21 @@ form .input-boxes .input-box{
     border: 1px solid #ccc;
     padding-left: 15px;
     font-size: 16px;
-    border-bottom-width:2px;
+    border-bottom-width: 2px;
     transition: all 0.3s ease;
 }
+
 .input-boxes .input-box input:focus,
-.input-boxes .input-box input:valid{
-    border-color:#9b59b6 ;
+.input-boxes .input-box input:valid {
+    border-color: #9b59b6;
 }
-form .button{
+
+form .button {
     height: 45px;
     margin: 45px 0;
 }
-form .button input{
+
+form .button input {
     height: 100%;
     width: 80%;
     outline: none;
@@ -75,8 +84,16 @@ form .button input{
     font-weight: 500;
     border-radius: 5px;
     letter-spacing: 1px;
-    background:linear-gradient(135deg,#71b7e6,#9b59b6); ;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    ;
 }
-form .button input:hover{
-    background:linear-gradient(-135deg,#71b7e6,#9b59b6); 
+
+form .button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+body.dark-mode {
+    background-color: rgb(53, 49, 49);
+    color: white;
+    background-image: none;
 }

@@ -53,11 +53,17 @@
     flex-shrink: 60%;
 }
 
-.center{ 
-    display:flex;  
-    justify-content: center;  
-    align-items: center;  
-    font-size:25px;
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
     font-weight: 900;
     text-align: center;
+}
+
+body.dark-mode {
+    background-color: rgb(53, 49, 49);
+    color: white;
+    background-image: none;
 }

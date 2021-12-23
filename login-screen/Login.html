@@ -10,7 +10,7 @@
     <script src="../http.js"></script>
 </head>
 
-<body>
+<body class="page" onload="TestdarkMode()">
     <div class="container">
         <div class="title">Login</div>
         <form action="#">
@@ -53,6 +53,17 @@
                     alert("Wrong login credentials.\nPlease try again.");
                 }
             });
+        }
+        if (sessionStorage.getItem('DarkMod')) {
+            flag = sessionStorage.getItem('DarkMod')
+            sessionStorage.setItem('DarkMod', flag);
+        }
+
+        function TestdarkMode() {
+            if (flag == 1) {
+                var element = document.body;
+                element.classList.toggle("dark-mode")
+            }
         }
     </script>
 </body>

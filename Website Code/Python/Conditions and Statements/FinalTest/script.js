@@ -1,5 +1,4 @@
-const quizData = [
-    {
+const quizData = [{
         question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
         a: "A = 50\nB = 70\nif A > B",
         b: "A = 70\nB = 50\nif B > A",
@@ -67,11 +66,10 @@ let score = 0
 
 loadQuiz()
 var heart
-if (localStorage.getItem("heart")){
+if (localStorage.getItem("heart")) {
     heart = localStorage.getItem("heart")
-}
-    else
-        heart = 3
+} else
+    heart = 3
 
 function loadQuiz() {
 
@@ -93,7 +91,7 @@ function deselectAnswers() {
 function getSelected() {
     let answer
     answerEls.forEach(answerEl => {
-        if(answerEl.checked) {
+        if (answerEl.checked) {
             answer = answerEl.id
         }
     })
@@ -103,47 +101,45 @@ function getSelected() {
 
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
-    if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
-           score++
-       }
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++
+        }
 
-       currentQuiz++
+        currentQuiz++
 
-       if(currentQuiz < quizData.length) {
-           loadQuiz()
-       } else {
-           if (score > 4){
+        if (currentQuiz < quizData.length) {
+            loadQuiz()
+        } else {
+            if (score > 4) {
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-           }
-           else{
-               heart--
-               if (heart > 0) {
-                   localStorage.setItem("heart",heart)
-                   quiz.innerHTML = `
+            } else {
+                heart--
+                if (heart > 0) {
+                    localStorage.setItem("heart", heart)
+                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
                    <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
                    <button class="reload" onclick="location.reload()">Reload</button>
                    </div>
                    `
-               }
-               else {
-                   localStorage.setItem("heart",3)  
-                   quiz.innerHTML = `
+                } else {
+                    localStorage.setItem("heart", 3)
+                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You Failed 😢</h2>
                    <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                    </div>
                    `
-               }
-           }
-       }
+                }
+            }
+        }
     }
 })
 
@@ -187,7 +183,18 @@ run_clock('clockdiv', deadline);
 
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+}
+if (sessionStorage.getItem('DarkMod')) {
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod', flag);
+}
+
+function TestdarkMode() {
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }

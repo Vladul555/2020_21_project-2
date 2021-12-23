@@ -8,7 +8,7 @@
     <script src="../http.js"></script>
 </head>
 
-<body>
+<body class="page" onload="TestdarkMode()">
     <div class="container">
         <div class="title">Registration</div>
         <form action="#">
@@ -16,7 +16,7 @@
             <div class="button">
                 <a href="../Registration screen/Registration.html">
                     <input type="button" value="Register as a free user"></a>
-                
+
             </div>
             <div class="button">
                 <a href="../Registration screen/Registration_For_Premium.html">
@@ -24,6 +24,19 @@
             </div>
         </form>
     </div>
+    <script>
+        if (sessionStorage.getItem('DarkMod')) {
+            flag = sessionStorage.getItem('DarkMod')
+            sessionStorage.setItem('DarkMod', flag);
+        }
+
+        function TestdarkMode() {
+            if (flag == 1) {
+                var element = document.body;
+                element.classList.toggle("dark-mode")
+            }
+        }
+    </script>
 </body>
 
 </html>
