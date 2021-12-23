@@ -61,3 +61,10 @@
     font-weight: 900;
     text-align: center;
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    color: white;
+    background-image: none;
+  }
+  

@@ -7,6 +7,9 @@
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
   }
+  body.dark-mode {
+    filter: invert(1);
+    }
   
   /* Header/logo Title */
   .header {

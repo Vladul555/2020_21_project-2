@@ -10,7 +10,7 @@
     <script src="../http.js"></script>
 </head>
 
-<body>
+<body class="page" onload="TestdarkMode()">
     <div class="container">
         <div class="title">Login</div>
         <form action="#">
@@ -30,7 +30,7 @@
             <div class=" button input-box">
                 <input type="button" value="Login" onclick="logUser()">
             </div>
-            <div class="text">Don't have an account?<br> <a href="../Registration screen/Registration.html">Register here.</a></div>
+            <div class="text">Don't have an account?<br> <a href="../Registration screen/Premium_or_Free.html">Register here.</a></div>
         </form>
     </div>
     <script>
@@ -41,7 +41,11 @@
                 if (value.data._id) {
                     sessionStorage.setItem("id", value.data._id)
                     sessionStorage.setItem("user", value.data.UserType)
-                    if (value.data.UserType !== userTypes["Admin"])
+                    sessionStorage.setItem("ban", value.data.bannedStatus)
+                    if (value.data.bannedStatus) {
+                        alert("Your user has been banned, to unban your user, please contect the admin")
+                        window.location.reload()
+                    } else if (value.data.UserType !== userTypes["Admin"])
                         window.location.href = "../Website Code/Main Menu/index.html"
                     else
                         window.location.href = "../Website Code/Main Menu/Admin.html"
@@ -51,6 +55,7 @@
             });
         }
     </script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>

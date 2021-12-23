@@ -82,3 +82,8 @@
     font-weight: bold;
     font-family:Arial, Helvetica, sans-serif;
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    background-image: none;
+  }

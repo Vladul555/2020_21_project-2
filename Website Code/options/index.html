@@ -12,10 +12,10 @@
     <title>Options</title>
 
 </head>
-<body class="page">
+<body class="page" onload="TestdarkMode()">
     
 <nav class="navbar">
-    <label class="logo ">Glyph</label>
+    <label class="logo">Glyph</label>
     
         </li>
         <li class="list">Change Password
@@ -39,17 +39,22 @@
             <input type="radio" id="nb" value="nb"> NB
 
         </li>
-        
+        </li>
+        <li class="list">
+            <button class= "buttons" id="drkBtn" onclick="darkMode()">DarkMode</button>
+
+        </li>
         <li class="list">
             <button class="buttons" onclick="updateUserOps()">Accept</button>
-        </li>
+        
         <li class="list">
             <a href="../Main Menu/index.html">
                 <button class="buttons" id="Back">Back</button></a>
 
         </li>
 </nav>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>

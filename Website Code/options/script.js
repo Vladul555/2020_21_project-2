@@ -1,3 +1,9 @@
+
+var flag = 0;//lightmode if 0 darkmode if 1
+if(sessionStorage.getItem('DarkMod'))
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod',flag);
+
 function updateUserOps() {
   let Password = document.getElementById('pass').value;
   let FullName = document.getElementById('fname').value;
@@ -31,4 +37,30 @@ document.onmousemove = function(){
 function showChangeBox(){
   var commentArea = document.getElementById("pass");
   commentArea.setAttribute("style", "display:block;");
+}
+
+
+function darkMode() {
+  var content = document.getElementById("drkBtn");
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  if (flag == 0){
+    content.innerText = "Dark Mode is ON";
+    flag = 1;
+    sessionStorage.setItem('DarkMod',flag);
+  }
+  else{
+    content.innerText = "DarkMode";
+    flag = 0;
+    sessionStorage.setItem('DarkMod',flag);
+  }
+}
+
+function TestdarkMode() {
+  if (flag == 1){
+    var content = document.getElementById("drkBtn");
+    var element = document.body;
+    content.innerText = "Dark Mode is ON";
+    element.classList.toggle("dark-mode");
+  }
 }

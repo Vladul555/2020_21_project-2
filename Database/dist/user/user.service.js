@@ -23,8 +23,8 @@ let UserService = class UserService {
         this.userModel = userModel;
     }
     async create(createUserDto) {
-        createUserDto['numOfCourses'] = 0;
         const createdUser = new this.userModel(createUserDto);
+        console.log(createUserDto);
         return createdUser.save();
     }
     async findAll() {
@@ -44,6 +44,18 @@ let UserService = class UserService {
         let count = user.numOfCourses;
         return this.userModel
             .updateOne({ _id: id }, { numOfCourses: ++count })
+            .exec();
+    }
+    async banUser(id) {
+        const user = await this.findOne(id);
+        return this.userModel
+            .updateOne({ _id: id }, { bannedStatus: true })
+            .exec();
+    }
+    async unbanUser(id) {
+        const user = await this.findOne(id);
+        return this.userModel
+            .updateOne({ _id: id }, { bannedStatus: false })
             .exec();
     }
     async login(username, password) {

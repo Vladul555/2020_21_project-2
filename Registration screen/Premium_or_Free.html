@@ -8,60 +8,23 @@
     <script src="../http.js"></script>
 </head>
 
-<body>
+<body class="page" onload="TestdarkMode()">
     <div class="container">
         <div class="title">Registration</div>
         <form action="#">
             <div class="user-details"></div>
             <div class="button">
-                <input type="button" value="Register as a free user">
+                <a href="../Registration screen/Registration.html">
+                    <input type="button" value="Register as a free user"></a>
+                
             </div>
             <div class="button">
-                <input type="button" value="Register as a premium user">
+                <a href="../Registration screen/Registration_For_Premium.html">
+                    <input type="button" value="Register as a premium user"></a>
             </div>
-            <a href="../Website Code/Main Menu/index.html">Back to the Main Menu.</a>
         </form>
     </div>
-    <script>
-        function regUser() {
-            FullName = document.getElementById("name").value;
-            Username = document.getElementById("user").value;
-            PhoneNumber = document.getElementById("phone").value;
-            Email = document.getElementById("email").value;
-            Password = document.getElementById("pass").value;
-            UserType = "Free" //"Free" usertype means free user, "Premium" would mean premium, "Admin" would be admin user
-            Gender = document.getElementById("dot-3").checked ? document.getElementById("dot-3").value : document.getElementById("dot-2").checked ? document.getElementById("dot-2").value : document.getElementById("dot-1").checked ? document.getElementById("dot-1").value : null;
-            let info = [
-                FullName,
-                Username,
-                PhoneNumber,
-                Email,
-                Password,
-                userTypes[UserType],
-                Gender
-            ]
-            let isValid = true;
-            for (let i = 0; i < info.length; i++) {
-                if (info[i] === "" || info[i] == null) {
-                    alert("Please fill all the fields of the form.");
-                    isValid = false;
-                    break;
-                }
-            }
-            isValid ? createUser({
-                FullName,
-                Username,
-                PhoneNumber,
-                Email,
-                Password,
-                UserType: userTypes[UserType],
-                Gender
-            }).then(value => {
-                window.location.href = "../login-screen/Login.html";
-            }) : null
-
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
