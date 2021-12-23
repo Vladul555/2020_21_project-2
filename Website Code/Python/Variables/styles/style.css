@@ -149,3 +149,9 @@ img{
   text-align: center;
   font-weight: 900;
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    background-image: none;
+    filter: invert(1);
+  }
