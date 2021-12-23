@@ -178,3 +178,9 @@
 .timerTitle {
   margin:0;
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    background-image: none;
+  }
+  

@@ -178,3 +178,10 @@
 .timerTitle {
   margin:0;
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    /* filter: invert(1); */
+    background-image: none;
+  }
+  
