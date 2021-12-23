@@ -8,4 +8,5 @@ export declare class UpdateUserDto {
     UserType?: userTypes;
     Gender?: string;
     numOfCourses?: number;
+    bannedStatus?: boolean;
 }

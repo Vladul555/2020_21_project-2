@@ -10,8 +10,9 @@ export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    createUserDto['numOfCourses'] = 0;
+    //createUserDto['numOfCourses'] = 0;
     const createdUser = new this.userModel(createUserDto);
+    console.log(createUserDto);
     return createdUser.save();
   }
 
@@ -32,6 +33,18 @@ export class UserService {
     let count = user.numOfCourses;
     return this.userModel
       .updateOne({ _id: id }, { numOfCourses: ++count })
+      .exec();
+  }
+  async banUser(id: string) {
+    const user = await this.findOne(id);
+    return this.userModel
+      .updateOne({ _id: id }, { bannedStatus: true })
+      .exec();
+  }
+  async unbanUser(id: string) {
+    const user = await this.findOne(id);
+    return this.userModel
+      .updateOne({ _id: id }, { bannedStatus: false })
       .exec();
   }
   async login(username: string, password: string) {

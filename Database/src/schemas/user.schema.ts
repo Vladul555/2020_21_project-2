@@ -20,8 +20,10 @@ export class User {
   private UserType: userTypes;
   @Prop({ required: true })
   public Gender: string;
-  @Prop()
+  @Prop({type:Number,default:0})
   public numOfCourses: number;
+  @Prop({type:Boolean,default:false})
+  public bannedStatus: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
