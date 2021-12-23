@@ -12,26 +12,42 @@ const Data = [
     mainText: "Print i as long as i is less than 4:\ni=1\nwhile i < 4:\n print(i,end=' ')\n i+=1\n\nOutput: 1 2 3 4",
    },
    { /*Page 4*/
+       title: "The For Loop",
+       mainText: "A For loop is used for iterating over a sequence\nWith the For loop we can execute a set of statements, once for each item in a list,tuple, set etc.",
+   },
+   { /*Page 5*/
+       title: "Example",
+       mainText: "fruits = ['apple', 'banana', 'cherry']\nfor x in fruits:\n print(x,end=' ')\n\nOutput: apple banana cherry",
+   },
+   { /*Page 6*/
+        title: "Looping Through a String",
+        mainText: "Even strings are iterable objects, they contain a sequence of characters",
+   },
+   { /*Page 7*/
+        title: "Example",
+        mainText: "We can loop through the letters in the word 'banana':\nfor x in 'banana'\nprint(x)\n\nOutput:\nb\na\nn\na\nn\na",
+   },
+   { /*Page 8*/
     title: "The Break Statement",
     mainText: "With the 'Break' statement we can stop the loop iterations even if the while condition is True",
    },
-   { /*Page 5*/
+   { /*Page 9*/
     title: "Example",
     mainText: "Exit the loop when i is 2:\ni=0\nwhile i < 5\n print(i,end=' ')\nif i == 2\n break\ni+=1\n\nOutput: 1 2",
    },
-   { /*Page 6*/
+   { /*Page 10*/
     title: "The Continue Statement",
     mainText: "With the 'Continue' statement we can stop the current iteration,and continue with the next:",
    },
-   {/*Page 7*/
+   {/*Page 11*/
        title: "Example",
        mainText: "i=0\nWhile i < 5\ni+=1\nif i == 3\n continue\nprint(i,end=' ')\n\nOutput: 1 2 4 5",
    },
-   {/*Page 8*/
+   {/*Page 12*/
        title: "The Else Statement",
        mainText: "With the 'Else' Statement we can run a block of code once when the condition no longer is True",
    },
-   {/*Page 9*/
+   {/*Page 13*/
     title: "Example",
     mainText: "Prints a message once the condition is False\n\ni=1\nwhile i < 6\nprint(i,end=' ')\ni+=1\n else:\nprint('i' is no longer less than 6 loop iterations finished)\n\nOutput: 1 2 3 4 5 6\ni is no longer less than 6",
     },
