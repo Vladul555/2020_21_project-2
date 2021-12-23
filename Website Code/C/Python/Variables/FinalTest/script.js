@@ -1,34 +1,42 @@
 const quizData = [
     {
-        question: "When was C developed?",
-        a: "1803-1805",
-        b: "2005-2009",
-        c: "1969-1973",
-        d: "1988-1994",
-        correct: "c",
-    },
-    {
-        question: "What C cannot do?",
-        a: "C can be used to connect to database systems",
-        b: "C can be used to developed database systems",
-        c: "C can be used in developing an operating system",
-        d: "C can be used for compiler production",
+        question: "Which is the corret way to assign the value 'volvo to carname",
+        a: "carname = 'volvo",
+        b: "car name = 'volvo",
+        c: "car-name = 'volvo'",
+        d: "All the above",
         correct: "a",
     },
     {
-        question: "What isn't correct about variables",
-        a: "A variable data type must be declare before it can be used",
-        b: "The value of a variable must match data the data type",
-        c: "The name of variables can contain numbers",
-        d: "The name of variables doesn't have to contain letters",
+        question: "A variable 'x' is created and we would like to assign 10 to it\nChoose the correct option",
+        a: "x be 50",
+        b: "x == 50",
+        c: "x equals 50",
+        d: "x = 50",
         correct: "d",
     },
     {
-        question: "What does Indendation do in C?",
-        a: "defines the value of variables",
-        b: "creates loops and conditions",
-        c: "Clarifies the link between control flow constructs",
-        d: "none of the above",
+        question: "What isn't correct about variables",
+        a: "type() is a function to determine variable type",
+        b: "Variables are created the moment you first declare them",
+        c: "Changing the type of a variable is possible after they have been set",
+        d: "Declaring a variable name may not start with a digit or underscore, and may not end with an underscore ",
+        correct: "b",
+    },
+    {
+        question: "Determine the correct Syntax to assign the same value to all 3 variables in one line of code",
+        a: "x == y == z",
+        b: "x = y = z",
+        c: "x === y === z",
+        d: "you cannot assign more than 2 variables the same value in one line of code",
+        correct: "b",
+    },
+    {
+        question: "Variable named myVar has been declared\nIn what way can we find the type of the variable",
+        a: "Using typeof(myVar)",
+        b: "Writing myVar.type ",
+        c: "Using type(myVar)",
+        d: "None of the above",
         correct: "c",
     },
 
@@ -98,7 +106,7 @@ submitBtn.addEventListener('click', () => {
        if(currentQuiz < quizData.length) {
            loadQuiz()
        } else {
-           if (score > 2){
+           if (score > 3){
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
@@ -174,16 +182,4 @@ var timeout;
 document.onmousemove = function(){
   clearTimeout(timeout);
   timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
-}
-
-if(sessionStorage.getItem('DarkMod')){
-    flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
-}
-
-function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
 }
