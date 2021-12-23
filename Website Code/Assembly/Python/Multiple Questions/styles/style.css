@@ -174,3 +174,8 @@
   background-color: rgb(235, 20, 152);
   color: white
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    background-image: none;
+ }
