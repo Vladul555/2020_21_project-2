@@ -30,6 +30,14 @@ export class UserController {
   updateCourses(@Param('id') id) {
     return this.userService.updateCourses(id);
   }
+  @Put('/:id/ban')
+  banUser(@Param('id') id){
+    return this.userService.banUser(id)
+  }
+  @Put('/:id/unban')
+  unbanUser(@Param('id') id){
+    return this.userService.unbanUser(id)
+  }
   @Post('/login')
   login(@Body() body){
     const {Username,Password}=body;

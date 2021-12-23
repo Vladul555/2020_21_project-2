@@ -37,6 +37,12 @@ let UserController = class UserController {
     updateCourses(id) {
         return this.userService.updateCourses(id);
     }
+    banUser(id) {
+        return this.userService.banUser(id);
+    }
+    unbanUser(id) {
+        return this.userService.unbanUser(id);
+    }
     login(body) {
         const { Username, Password } = body;
         return this.userService.login(Username, Password);
@@ -84,6 +90,20 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updateCourses", null);
+__decorate([
+    (0, common_1.Put)('/:id/ban'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "banUser", null);
+__decorate([
+    (0, common_1.Put)('/:id/unban'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "unbanUser", null);
 __decorate([
     (0, common_1.Post)('/login'),
     __param(0, (0, common_1.Body)()),

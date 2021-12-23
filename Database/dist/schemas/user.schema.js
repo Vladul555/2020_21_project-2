@@ -43,9 +43,13 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "Gender", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ type: Number, default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "numOfCourses", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: Boolean, default: false }),
+    __metadata("design:type", Boolean)
+], User.prototype, "bannedStatus", void 0);
 User = __decorate([
     (0, mongoose_1.Schema)()
 ], User);

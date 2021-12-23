@@ -12,6 +12,8 @@ export declare class UserController {
     }>;
     updateByID(id: any, body: any): Promise<import("mongodb").UpdateResult>;
     updateCourses(id: any): Promise<import("mongodb").UpdateResult>;
+    banUser(id: any): Promise<import("mongodb").UpdateResult>;
+    unbanUser(id: any): Promise<import("mongodb").UpdateResult>;
     login(body: any): Promise<import("../schemas/user.schema").User & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;
