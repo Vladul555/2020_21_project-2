@@ -1,35 +1,50 @@
-const quizData = [
-    {
-        question: "When was C developed?",
-        a: "1803-1805",
-        b: "2005-2009",
-        c: "1969-1973",
-        d: "1988-1994",
+const quizData = [{
+        question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
+        a: "A = 50\nB = 70\nif A > B",
+        b: "A = 70\nB = 50\nif B > A",
+        c: "A = 100\nB = 90\nif A > B",
+        d: "A = 1\nB = 1\n if A > B",
         correct: "c",
     },
     {
-        question: "What C cannot do?",
-        a: "C can be used to connect to database systems",
-        b: "C can be used to developed database systems",
-        c: "C can be used in developing an operating system",
-        d: "C can be used for compiler production",
+        question: "A must be equal to B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
+        a: "A = 50\nB = 70\nif A == B",
+        b: "A = 'Hello'\nB = 'Morning'\nif B == A",
+        c: "A = True\nB = True\nif A == B",
+        d: "A = 19\nB = 18\n if A == B",
+        correct: "c",
+    },
+    {
+        question: "Variables A must be Greater than B, and B must be Greater than C for us to print('Hello World')\nWhich option will accomplish the task?",
+        a: "A = 20\nB = 20\nC = 20\nif A = B = C",
+        b: "A = True\nB = True\nC = True\n if A > B and B > C",
+        c: "C = 1.2\nA = 1.9\nB = 1.5\nif A > B and B > C",
+        d: "B = 'Max'\nA = 1\nC = True\n if A >= B or B <= C",
+        correct: "c",
+    },
+    {
+        question: "Inorder for us to determine if 2 objects are not equal to one another we must use what condition?",
+        a: "!=",
+        b: "not=",
+        c: "=!",
+        d: "notEqual=",
         correct: "a",
     },
     {
-        question: "What isn't correct about variables",
-        a: "A variable data type must be declare before it can be used",
-        b: "The value of a variable must match data the data type",
-        c: "The name of variables can contain numbers",
-        d: "The name of variables doesn't have to contain letters",
+        question: "which if statement will return true for numbers outside the range of '100-1000'?",
+        a: "if x > 100 or x < 1000:",
+        b: "if x >= 100 and x <= 1000:",
+        c: "if x < 100 or x > 1000:",
+        d: "if x < 100 and x >= 1001",
         correct: "d",
     },
     {
-        question: "What does Indendation do in C?",
-        a: "defines the value of variables",
-        b: "creates loops and conditions",
-        c: "Clarifies the link between control flow constructs",
-        d: "none of the above",
-        correct: "c",
+        question: "which statement will return True?",
+        a: "x = 5\ny = 5\nif x >= y:",
+        b: "x = 10\ny = 10\nif y > x+1:",
+        c: "x = 'hello'\ny = 'john\nif type(x) != type(y)",
+        d: "x = 50\ny = 49\nif y >= x ",
+        correct: "a",
     },
 
 ];
@@ -51,10 +66,11 @@ let score = 0
 
 loadQuiz()
 var heart
-if (localStorage.getItem("heart")) {
-    heart = localStorage.getItem("heart")
-} else
-    heart = 3
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    if (sessionStorage.getItem("heart")) {
+        heart = sessionStorage.getItem("heart")
+    } else
+        heart = 3
 
 function loadQuiz() {
 
@@ -98,30 +114,39 @@ submitBtn.addEventListener('click', () => {
         } else {
             if (score > 2) {
                 quiz.innerHTML = `
+           <div  class="quiz-header">
+           <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+           <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+           </div>
+           `
+            } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+                heart--
+                if (heart > 0) {
+                    sessionStorage.setItem("heart", heart)
+                    quiz.innerHTML = `
                <div  class="quiz-header">
-               <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+               <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+               <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
+               <button class="reload" onclick="location.reload()">Reload</button>
+               </div>
+               `
+
+                } else {
+                    quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You Failed 😢</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-            } else {
-                heart--
-                if (heart > 0) {
-                    localStorage.setItem("heart", heart)
-                    quiz.innerHTML = `
-                   <div  class="quiz-header">
-                   <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-                   <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
-                   <button class="reload" onclick="location.reload()">Reload</button>
-                   </div>
-                   `
-                } else {
-                    quiz.innerHTML = `
-                   <div  class="quiz-header">
-                   <h2>You Failed 😢</h2>
-                   <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
-                   </div>
-                   `
                 }
+            } else {
+                quiz.innerHTML = `
+           <div  class="quiz-header">
+           <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
+           <h2 style='text-align: center'>You Failed 😢</h2>
+           <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+           </div>
+           `
             }
         }
     }
@@ -165,13 +190,11 @@ function run_clock(id, endtime) {
 }
 run_clock('clockdiv', deadline);
 
-
 var timeout;
 document.onmousemove = function() {
     clearTimeout(timeout);
     timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
-
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
     sessionStorage.setItem('DarkMod', flag);
@@ -188,4 +211,6 @@ if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
     document.getElementById('status__logo').src = "./images/FREE.png";
 else
     document.getElementById('status__logo').src = "./images/PRO.png";
+
+
 
