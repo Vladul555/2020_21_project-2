@@ -24,7 +24,7 @@ const quizData = [
         correct: "c",
     },
     {
-        question: "Determine the correct Syntax to defaine multiple variables in the same line of code",
+        question: "Determine the correct Syntax to define multiple variables in the same line of code",
         a: "int x = 5, y =13, z=24;",
         b: "int x = 5 = y =17 z=32;",
         c: "char x ==2, y ==15, z==38;",
