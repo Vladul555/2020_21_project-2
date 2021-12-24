@@ -177,7 +177,6 @@ if (sessionStorage.getItem('DarkMod')) {
 }
 
 function TestdarkMode() {
-
   if (flag == 1){
     var element = document.body;
     element.classList.toggle("dark-mode")
