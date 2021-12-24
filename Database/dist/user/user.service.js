@@ -15,9 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const mongoose_1 = require("mongoose");
 const common_1 = require("@nestjs/common");
-const mongoose_2 = require("@nestjs/mongoose");
+const mongoose_2 = require("../../node_modules/@nestjs/mongoose");
 const user_schema_1 = require("../schemas/user.schema");
 const update_user_dto_1 = require("../DTOs/users/update-user.dto");
+const nodemailer = require('nodemailer');
 let UserService = class UserService {
     constructor(userModel) {
         this.userModel = userModel;
@@ -57,6 +58,25 @@ let UserService = class UserService {
         return this.userModel
             .updateOne({ _id: id }, { bannedStatus: false })
             .exec();
+    }
+    async forgotPass(mail) {
+        const user = await this.userModel.findOne({ Email: mail });
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.mail.yahoo.com',
+            port: 587,
+            secure: false,
+            auth: { user: "glyph.donotreply@yahoo.com",
+                pass: "wdjiwdcuuisgsosl" },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+        let info = await transporter.sendMail({
+            from: '"Glyph password service" <glyph.donotreply@yahoo.com>',
+            to: user.Email,
+            subject: "Your Glyph password request",
+            text: "Your password is:" + user.Password
+        });
     }
     async login(username, password) {
         return this.userModel.findOne({ Username: username, Password: password });

@@ -9,3 +9,7 @@ function TestdarkMode() {
         element.classList.toggle("dark-mode")
     }
 }
+
+function readValue(mail) {
+    return forgotPass(mail)
+}
