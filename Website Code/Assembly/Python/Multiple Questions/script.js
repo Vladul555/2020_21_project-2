@@ -188,9 +188,9 @@ function TestdarkMode() {
   }
 }
 
-
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
-    document.getElementById('status__logo').src = "FREE.png";
-} else {
-    document.getElementById('status__logo').src = "PRO.png";
-}
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    document.getElementById('status__logo').src = "./images/FREE.png";
+else 
+    document.getElementById('status__logo').src = "./images/PRO.png";
+  
+    
