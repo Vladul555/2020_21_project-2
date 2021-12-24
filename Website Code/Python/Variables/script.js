@@ -80,7 +80,6 @@ loadData()
 
 /*function loads new data for each page of the theory*/
 function loadData() {
-
     {
         if (currentData == 0) {
             document.getElementById('previous').style.visibility = 'hidden';
