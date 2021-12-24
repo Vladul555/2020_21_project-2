@@ -34,14 +34,21 @@ document.onmousemove = function() {
     timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
 
-function showChangeBox() {
-    var commentArea = document.getElementById("pass");
-    commentArea.setAttribute("style", "display:block;");
-}
-if (sessionStorage.getItem('DarkMod')) {
-    flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod', flag);
-}
+function darkMode() {
+    var content = document.getElementById("drkBtn");
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    if (flag == 0){
+      content.innerText = "Dark Mode is ON";
+      flag = 1;
+      sessionStorage.setItem('DarkMod',flag);
+    }
+    else{
+      content.innerText = "DarkMode";
+      flag = 0;
+      sessionStorage.setItem('DarkMod',flag);
+    }
+  }
 
 function TestdarkMode() {
     if (flag == 1) {
