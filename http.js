@@ -39,4 +39,9 @@ function login(user, pass) {
     })
 }
 
+function forgotPass(email) {
+    return axios.post(url + "/user/forgot", {
+        Email: email
+    })
+}
 const userTypes = { "Free": 0, "Premium": 1, "Admin": 2 }

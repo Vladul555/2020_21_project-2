@@ -43,6 +43,10 @@ let UserController = class UserController {
     unbanUser(id) {
         return this.userService.unbanUser(id);
     }
+    forgotPass(body) {
+        const { Email } = body;
+        return this.userService.forgotPass(Email);
+    }
     login(body) {
         const { Username, Password } = body;
         return this.userService.login(Username, Password);
@@ -104,6 +108,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "unbanUser", null);
+__decorate([
+    (0, common_1.Post)('/forgot'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "forgotPass", null);
 __decorate([
     (0, common_1.Post)('/login'),
     __param(0, (0, common_1.Body)()),
