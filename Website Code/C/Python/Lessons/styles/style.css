@@ -9,8 +9,13 @@
     background-size: cover;
     position: relative;
 }
-
-.page::before {
+.crossCheck{
+    padding-right: 10px;
+}
+.list_return {
+    justify-content: center ;
+}
+.page::before{
     content: "";
     background-color: black;
     opacity: .4;
@@ -61,7 +66,6 @@
     border: solid 2px white;
     display: flex;
     text-align: center;
-    justify-content: center;
     align-items: center;
     border-radius: 25%;
     background-color: #2a9433;
