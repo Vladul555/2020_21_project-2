@@ -1,18 +1,18 @@
 const quizData = [
     {
-        question: "When was Assembly Created?",
-        a: "1991",
-        b: "2005",
-        c: "1803",
-        d: "1994",
+        question: "Which is the corret way to assign the value 'volvo to carname",
+        a: "carname = 'volvo",
+        b: "car name = 'volvo",
+        c: "car-name = 'volvo'",
+        d: "All the above",
         correct: "a",
     },
     {
-        question: "What Assembly cannot do?",
-        a: "Assembly can connect to database systems",
-        b: "Assembly can be used for rapid prototyping",
-        c: "Assembly can be used to handle big data and perform complex mathematics",
-        d: "Assembly can access hardware registers or write interrupt programs",
+        question: "A variable 'x' is created and we would like to assign 10 to it\nChoose the correct option",
+        a: "x be 50",
+        b: "x == 50",
+        c: "x equals 50",
+        d: "x = 50",
         correct: "d",
     },
     {
@@ -24,12 +24,20 @@ const quizData = [
         correct: "b",
     },
     {
-        question: "What is Indendation in Assembly?",
-        a: "A deep recess or notch on the edge or surface of something",
-        b: "To indicate a block of code",
-        c: "Anger or annoyance provoked by what is perceived as unfair treatment",
-        d: "none of the above",
+        question: "Determine the correct Syntax to assign the same value to all 3 variables in one line of code",
+        a: "x == y == z",
+        b: "x = y = z",
+        c: "x === y === z",
+        d: "you cannot assign more than 2 variables the same value in one line of code",
         correct: "b",
+    },
+    {
+        question: "Variable named myVar has been declared\nIn what way can we find the type of the variable",
+        a: "Using typeof(myVar)",
+        b: "Writing myVar.type ",
+        c: "Using type(myVar)",
+        d: "None of the above",
+        correct: "c",
     },
 
 
@@ -98,7 +106,7 @@ submitBtn.addEventListener('click', () => {
        if(currentQuiz < quizData.length) {
            loadQuiz()
        } else {
-           if (score > 2){
+           if (score > 3){
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
@@ -174,16 +182,4 @@ var timeout;
 document.onmousemove = function(){
   clearTimeout(timeout);
   timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
-}
-
-if(sessionStorage.getItem('DarkMod')){
-    flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
-}
-
-function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
 }

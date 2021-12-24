@@ -8,7 +8,7 @@
   margin: 0 auto;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   box-sizing: border-box;
-  background-image: url(../images/testbackground.jpg);
+  background-image: url(../images/testbackground.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 40% 15%;
@@ -174,3 +174,9 @@
   background-color: rgb(235, 20, 152);
   color: white
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    background-image: none;
+}
+  
