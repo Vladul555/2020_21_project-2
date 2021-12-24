@@ -6,7 +6,6 @@ import { CreateUserDto } from '../DTOs/users/create-user.dto';
 import { UpdateUserDto } from 'src/DTOs/users/update-user.dto';
 
 const nodemailer = require('nodemailer');
-
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}

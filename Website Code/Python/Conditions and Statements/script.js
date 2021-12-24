@@ -1,5 +1,4 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1 */
         title: "Python Conditions and If statements",
         mainText: "Python supports the usual logical conditions from mathematics\nEquals: a == b\nNot Equals: a != b\nLess than: a < b\nLess than or equal to: a <= b\nGreater than: a > b\nGreater than or equal to: a >= b\n\nThese conditions can be used in several ways most commonly in 'if statements' and loops\nAn 'if statement' is written by using the if keyword",
@@ -14,7 +13,7 @@ const Data = [
         /*Page 3*/
         title: "Elif",
         mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
- 
+
     },
     {
         /*Page 4*/
@@ -25,7 +24,7 @@ const Data = [
         /*Page 5*/
         title: "Else",
         mainText: "The Else keyword catches anything which isn't caught by the preceding conditions",
-    },  
+    },
     {
         /*Page 6*/
         title: "Example",
@@ -43,37 +42,37 @@ const Data = [
     },
     {
         /*Page 9*/
-        title:"Example",
-        mainText:"x = 200\ny = 33\nz = 500\nif x > y and z > x: print('both conditions are True')",
+        title: "Example",
+        mainText: "x = 200\ny = 33\nz = 500\nif x > y and z > x: print('both conditions are True')",
     },
     {
         /*Page 10*/
-        title:"Or",
+        title: "Or",
         mainText: "The 'or' keyword is a logical operator, and is used to combine conditional statments",
     },
     {
         /*Page 11*/
-        title:"Example",
+        title: "Example",
         mainText: "x = 200\ny = 33\nz = 500\nif x > y or z > x: print('both conditions are True')",
     },
     {
         /*Page 12*/
-        title:"Nested if",
-        mainText:"You can have if statements inside if statements, this is called nested if statements",
+        title: "Nested if",
+        mainText: "You can have if statements inside if statements, this is called nested if statements",
     },
     {
-        title:"Example",
-        mainText:"x = 41\nif x > 25: print('x is above 25')\nif x > 30: print('x is above 30')\nelse: print('x isn't above 30')",
+        title: "Example",
+        mainText: "x = 41\nif x > 25: print('x is above 25')\nif x > 30: print('x is above 30')\nelse: print('x isn't above 30')",
     },
     {
-        title:"Pass Statement",
-        mainText:"if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error",
+        title: "Pass Statement",
+        mainText: "if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error",
     },
     {
-        title:"Example",
-        mainText:"x = 33\ny = 200\nif y > x: pass",
+        title: "Example",
+        mainText: "x = 33\ny = 200\nif y > x: pass",
     },
-  ];
+];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
 const intro = document.getElementById('intro')
@@ -85,14 +84,14 @@ const previousBtn = document.getElementById('previous')
 let currentData = 0
 let skip = document.getElementById('skip')
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
-    skip.style.display= 'none'
+    skip.style.display = 'none'
 loadData()
 
 /*function loads new data for each page of the theory*/
-function loadData(){
+function loadData() {
 
     {
-        if (currentData == 0){
+        if (currentData == 0) {
             document.getElementById('previous').style.visibility = 'hidden';
         } else {
             document.getElementById('previous').style.visibility = 'visible';
@@ -106,12 +105,11 @@ function loadData(){
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
-       currentData++
-       if(currentData < Data.length) {
-           loadData()
-       } 
-       else {
-           intro.innerHTML = `
+    currentData++
+    if (currentData < Data.length) {
+        loadData()
+    } else {
+        intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
@@ -120,32 +118,39 @@ nextBtn.addEventListener('click', () => {
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
-       }
+    }
 })
 
 /*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
-    if(currentData > -1) {
-        if(currentData != 0)
+    if (currentData > -1) {
+        if (currentData != 0)
             currentData--
-        loadData()  
-    } 
+            loadData()
+    }
 })
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
-
-if(sessionStorage.getItem('DarkMod')){
+if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
+    sessionStorage.setItem('DarkMod', flag);
 }
 
 function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
+
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    document.getElementById('status__logo').src = "./images/FREE.png";
+else
+    document.getElementById('status__logo').src = "./images/PRO.png";
+
+
+
