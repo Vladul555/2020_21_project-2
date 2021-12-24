@@ -1,12 +1,11 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1 */
         title: "Introduction To C",
-        mainText: "C is a popular programming language, developed by Dennis Ritchie at AT&T Bell Labs, the USA, between 1969 and 1973." ,
-        opt1: "● C is used in general-purpose programming",
-        opt2: "● C is a mid-level structured oriented programming language",
-        opt3: "● C is used to develop system application software.",
-        opt4: "● C has been written in assembly language",
+        mainText: "C is a popular programming language. It was created by Guido van Rossum, and released in 1991.",
+        opt1: "● C is used in Software Development",
+        opt2: "● C is used in Web Development",
+        opt3: "● C is used in Mathematics",
+        opt4: "● C is used in System Scripting",
     },
     {
         /*Page 2 */
@@ -28,8 +27,8 @@ const Data = [
     },
     {
         /*Page 4*/
-        title:"Indendation",
-        mainText: "C uses indentation of blocks of code to convey program structure. Indendation of code in C is very important.",
+        title: "Indendation",
+        mainText: "C uses indentation to indicate a block of code.indentation in C is very important.",
         opt1: "● You have to use the same number of spaces in the same block of code, otherwise C will give you an error",
         opt2: "● The number of spaces is up to you as a programmer, but it has to be at least one",
         opt3: "● every line/operation of code ends with ';'",
@@ -63,15 +62,15 @@ let currentData = 0
 loadData()
 
 /*function loads new data for each page of the theory*/
-function loadData(){
-{
-    if (currentData == 0){
-        document.getElementById('previous').style.visibility = 'hidden';
-    } else {
-        document.getElementById('previous').style.visibility = 'visible';
+function loadData() {
+    {
+        if (currentData == 0) {
+            document.getElementById('previous').style.visibility = 'hidden';
+        } else {
+            document.getElementById('previous').style.visibility = 'visible';
+        }
     }
-}
-   
+
     const current_Text_Data = Data[currentData]
     title.innerText = current_Text_Data.title
     mainText.innerText = current_Text_Data.mainText
@@ -83,12 +82,11 @@ function loadData(){
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
-       currentData++
-       if(currentData < Data.length) {
-           loadData()
-       } 
-       else {
-           intro.innerHTML = `
+    currentData++
+    if (currentData < Data.length) {
+        loadData()
+    } else {
+        intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
@@ -97,36 +95,35 @@ nextBtn.addEventListener('click', () => {
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
-       }
+    }
 })
 
 /*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
-    if(currentData > -1) {
-        if(currentData != 0)
+    if (currentData > -1) {
+        if (currentData != 0)
             currentData--
-        loadData()  
-    } 
+            loadData()
+    }
 })
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
 
 function first_quastion() {
-    
-}
 
-if(sessionStorage.getItem('DarkMod')){
+}
+if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
+    sessionStorage.setItem('DarkMod', flag);
 }
 
 function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
