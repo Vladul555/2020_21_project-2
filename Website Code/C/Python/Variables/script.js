@@ -2,7 +2,7 @@ const Data = [
     {
         /*Page 1 */
         title: "Structure of code in C",
-        mainText: "code in C is made out of a main function where the code exsits in and is define like so:\n''int main(){\n'code goes here.'\n}\n abave the main code are standard library functions that are define like so:\n#include 'library_function's_name'.h",
+        mainText: "code in C is made out of a main function where the code exsits in and is define like so:\n''int main(){\n'code goes here.'\n}\n abave the main code are standard library functions that are define like so:\n#include <'library_function's_name'.h>",
     },
     {
         /*Page 2 */
@@ -62,7 +62,7 @@ const Data = [
     {
         /*Page 12*/
         title: "Example 2",
-        mainText: "char letter = 'a';\nprintf(''The first letter of the alphabet is '%c' '',letter);-->The first letter of the alphabet is 'a'\nchar sign = '@';\nprintf(''%c'',sign); --> @",
+        mainText: "char letter = 'a';\nprintf(''The first letter of the alphabet is %c'',letter);-->The first letter of the alphabet is 'a'\nchar sign = '@';\nprintf(''%c'',sign); --> @",
  
     },
     {

@@ -14,6 +14,7 @@ export declare class UserController {
     updateCourses(id: any): Promise<import("mongodb").UpdateResult>;
     banUser(id: any): Promise<import("mongodb").UpdateResult>;
     unbanUser(id: any): Promise<import("mongodb").UpdateResult>;
+    forgotPass(body: any): Promise<void>;
     login(body: any): Promise<import("../schemas/user.schema").User & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;
