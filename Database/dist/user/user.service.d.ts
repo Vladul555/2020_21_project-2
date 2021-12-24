@@ -21,4 +21,5 @@ export declare class UserService {
     login(username: string, password: string): Promise<User & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;
+    forgotPass(mail: string): Promise<void>;
 }
