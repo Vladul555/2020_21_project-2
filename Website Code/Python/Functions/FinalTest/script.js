@@ -1,14 +1,52 @@
 const quizData = [{
-    question: "",
-    a: "",
-    b: "",
-    c: "",
-    d: "",
-    correct: "",
+
+    question: "What is the correct function declartion syntax",
+    a: "define my_function()",
+    b: "def my_function()",
+    c: "function my_function()",
+    d: "Def my_function()",
+    correct: "b",
 },
-
-
-
+{
+    question: "What is the correct exection for:\ndef my_function():\nprint('Hello from a function')",
+    a: "my_function()",
+    b: "exe my_function()",
+    c: "execute.my_function()",
+    d: "start my_function()",
+    correct: "a",
+},
+{
+    question: "def my_function(fname, lname):\nprint(__)\n\nwhat is the correct way to print the full name?",
+    a: "print(fname+lname)",
+    b: "print(fname), print(lname)",
+    c: "print(fname + ' ' lname)",
+    d: "print(fname, lname)",
+    correct: "c",
+},
+{
+    question: "def my_function(x):\nWhat is the incorrect way to return the x parameter plus 5",
+    a: "return x + 5",
+    b: "y = 5\nreturn x + y",
+    c: "y = x + 5\nreturn y",
+    d: "return x.value + 5",
+    correct: "d",
+},
+{
+    question: "If you do not know the number of arguments that will be passed into your function, there is a prefix you can add in the function definition, which prefix?",
+    a: "def my_function(*args kids)",
+    b: "def my_function(*kids)",
+    c: "def my_function(*args_kids)",
+    d: "def my_function(args*kids)",
+    correct: "b",
+},
+{
+    question: "If you do not know the number of keyword arguments that will be passed into your function, there is a prefix you can add in the function definition, which prefix?",
+    a: "def my_function(**args_kid)",
+    b: "def my_function(*kid)",
+    c: "def my_function(**args.kid)",
+    d: "def my_function(**kid)",
+    correct: "d",
+},
 ];
 
 const quiz = document.getElementById('quiz')
@@ -29,10 +67,11 @@ let score = 0
 loadQuiz()
 var heart
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
-if (sessionStorage.getItem("heart")) {
-    heart = sessionStorage.getItem("heart")
-} else
-    heart = 3
+    if (sessionStorage.getItem("heart")) 
+        heart = sessionStorage.getItem("heart")
+    else
+        heart = 3
+    
 
 function loadQuiz() {
 
@@ -61,7 +100,6 @@ answerEls.forEach(answerEl => {
 return answer
 }
 
-
 submitBtn.addEventListener('click', () => {
 const answer = getSelected()
 if (answer) {
@@ -74,7 +112,7 @@ if (answer) {
     if (currentQuiz < quizData.length) {
         loadQuiz()
     } else {
-        if (score > 2) {
+        if (score > 4) {
             quiz.innerHTML = `
            <div  class="quiz-header">
            <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
@@ -157,4 +195,21 @@ var timeout;
 document.onmousemove = function() {
 clearTimeout(timeout);
 timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+}
+
+if(sessionStorage.getItem('DarkMod')){
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod',flag);
+}
+
+if(sessionStorage.getItem('DarkMod')){
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod',flag);
+}
+
+function TestdarkMode() {
+  if (flag == 1){
+    var element = document.body;
+    element.classList.toggle("dark-mode")
+  }
 }

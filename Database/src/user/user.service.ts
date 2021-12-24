@@ -5,6 +5,8 @@ import { User, UserDocument } from '../schemas/user.schema';
 import { CreateUserDto } from '../DTOs/users/create-user.dto';
 import { UpdateUserDto } from 'src/DTOs/users/update-user.dto';
 
+const nodemailer = require('nodemailer');
+
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
@@ -46,6 +48,26 @@ export class UserService {
     return this.userModel
       .updateOne({ _id: id }, { bannedStatus: false })
       .exec();
+  }
+  async forgotPass(mail:string) {
+    const user = await this.userModel.findOne({Email:mail});
+    let transporter = nodemailer.createTransport({
+     host: 'smtp.mail.yahoo.com',
+     port: 587,
+     secure: false,
+     auth: { user: "glyph.donotreply@yahoo.com",
+             pass: "wdjiwdcuuisgsosl"},
+     tls: {
+       rejectUnauthorized: false
+     }
+           });
+   let info = await transporter.sendMail({
+     from: '"Glyph password service" <glyph.donotreply@yahoo.com>',
+     to: user.Email,
+     subject: "Your Glyph password request",
+     text: "Your password is:" + user.Password 
+     });
+    
   }
   async login(username: string, password: string) {
     return this.userModel.findOne({ Username: username, Password: password });
