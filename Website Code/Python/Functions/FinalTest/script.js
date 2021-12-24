@@ -33,18 +33,18 @@ const quizData = [{
 },
 {
     question: "If you do not know the number of arguments that will be passed into your function, there is a prefix you can add in the function definition, which prefix?",
-    a: "def my_function(*args kids)\nprint('The youngest child is' + kids[2])",
-    b: "def my_function(*kids)\nprint('The youngest child is' + kids[2])",
-    c: "def my_function(*args_kids)\nprint('The youngest child is' + kids[2])",
-    d: "def my_function(args*kids)\nprint('The youngest child is' + kids[2])",
+    a: "def my_function(*args kids)",
+    b: "def my_function(*kids)",
+    c: "def my_function(*args_kids)",
+    d: "def my_function(args*kids)",
     correct: "b",
 },
 {
-    question: "?If you do not know the number of keyword arguments that will be passed into your function, there is a prefix you can add in the function definition, which prefix?",
-    a: "def my_function(**args_kid)\nprint('His last name is' + kid['lname'])",
-    b: "def my_function(*kid)\nprint('His last name is' + kid['lname'])",
-    c: "def my_function(**args.kid)\nprint('His last name is' + kid['lname'])",
-    d: "def my_function(**kid)\nprint('His last name is' + kid['lname'])",
+    question: "If you do not know the number of keyword arguments that will be passed into your function, there is a prefix you can add in the function definition, which prefix?",
+    a: "def my_function(**args_kid)",
+    b: "def my_function(*kid)",
+    c: "def my_function(**args.kid)",
+    d: "def my_function(**kid)",
     correct: "d",
 },
 ];
@@ -195,6 +195,11 @@ var timeout;
 document.onmousemove = function() {
 clearTimeout(timeout);
 timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+}
+
+if(sessionStorage.getItem('DarkMod')){
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod',flag);
 }
 
 if(sessionStorage.getItem('DarkMod')){
