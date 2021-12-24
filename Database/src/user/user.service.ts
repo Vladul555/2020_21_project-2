@@ -71,24 +71,4 @@ export class UserService {
   async login(username: string, password: string) {
     return this.userModel.findOne({ Username: username, Password: password });
   }
- async forgotPass(mail:string) {
-   const user = await this.userModel.findOne({Email:mail});
-   let transporter = nodemailer.createTransport({
-    host: 'smtp.mail.yahoo.com',
-    port: 587,
-    secure: false,
-    auth: { user: "glyph.donotreply@yahoo.com",
-            pass: "wdjiwdcuuisgsosl"},
-    tls: {
-      rejectUnauthorized: false
-    }
-          });
-  let info = await transporter.sendMail({
-    from: '"Glyph password service" <glyph.donotreply@yahoo.com>',
-    to: user.Email,
-    subject: "Your Glyph password request",
-    text: "Your password is:" + user.Password 
-    });
-   
- }
 }
