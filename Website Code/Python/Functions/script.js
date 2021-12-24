@@ -93,19 +93,18 @@ const nextBtn = document.getElementById('next')
 const previousBtn = document.getElementById('previous')
 
 let currentData = 0
-
 loadData()
 
 /*function loads new data for each page of the theory*/
 function loadData(){
-
-    {
-        if (currentData == 0){
-            document.getElementById('previous').style.visibility = 'hidden';
-        } else {
-            document.getElementById('previous').style.visibility = 'visible';
-        }
+    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+        let skip = document.getElementById("skip")
+        skip.style.display = 'none'
     }
+    if (currentData == 0)
+        document.getElementById('previous').style.visibility = 'hidden';
+    else
+        document.getElementById('previous').style.visibility = 'visible';
 
     const current_Text_Data = Data[currentData]
     title.innerText = current_Text_Data.title
