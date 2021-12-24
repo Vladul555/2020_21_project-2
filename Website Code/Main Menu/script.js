@@ -1,3 +1,15 @@
+if (sessionStorage.getItem('DarkMod')) {
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod', flag);
+}
+
+function hideSettings() {
+    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+        let setting = document.getElementById("setting")
+        setting.style.display = 'none'
+    }
+}
+
 var timeout;
 document.onmousemove = function() {
     clearTimeout(timeout);

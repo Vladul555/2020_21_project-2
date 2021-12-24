@@ -1,3 +1,8 @@
+var flag = 0; //lightmode if 0 darkmode if 1
+if (sessionStorage.getItem('DarkMod'))
+    flag = sessionStorage.getItem('DarkMod')
+sessionStorage.setItem('DarkMod', flag);
+
 function updateUserOps() {
     let Password = document.getElementById('pass').value;
     let FullName = document.getElementById('fname').value;

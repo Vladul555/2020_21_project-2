@@ -66,10 +66,11 @@ let score = 0
 
 loadQuiz()
 var heart
-if (localStorage.getItem("heart")) {
-    heart = localStorage.getItem("heart")
-} else
-    heart = 3
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    if (sessionStorage.getItem("heart")) {
+        heart = sessionStorage.getItem("heart")
+    } else
+        heart = 3
 
 function loadQuiz() {
 
@@ -111,33 +112,41 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizData.length) {
             loadQuiz()
         } else {
-            if (score > 4) {
+            if (score > 2) {
                 quiz.innerHTML = `
+           <div  class="quiz-header">
+           <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+           <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+           </div>
+           `
+            } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+                heart--
+                if (heart > 0) {
+                    sessionStorage.setItem("heart", heart)
+                    quiz.innerHTML = `
                <div  class="quiz-header">
-               <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
+               <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+               <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
+               <button class="reload" onclick="location.reload()">Reload</button>
+               </div>
+               `
+
+                } else {
+                    quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You Failed 😢</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-            } else {
-                heart--
-                if (heart > 0) {
-                    localStorage.setItem("heart", heart)
-                    quiz.innerHTML = `
-                   <div  class="quiz-header">
-                   <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-                   <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
-                   <button class="reload" onclick="location.reload()">Reload</button>
-                   </div>
-                   `
-                } else {
-                    localStorage.setItem("heart", 3)
-                    quiz.innerHTML = `
-                   <div  class="quiz-header">
-                   <h2>You Failed 😢</h2>
-                   <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
-                   </div>
-                   `
                 }
+            } else {
+                quiz.innerHTML = `
+           <div  class="quiz-header">
+           <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
+           <h2 style='text-align: center'>You Failed 😢</h2>
+           <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+           </div>
+           `
             }
         }
     }
@@ -180,7 +189,6 @@ function run_clock(id, endtime) {
     var timeinterval = setInterval(update_clock, 1000);
 }
 run_clock('clockdiv', deadline);
-
 
 var timeout;
 document.onmousemove = function() {

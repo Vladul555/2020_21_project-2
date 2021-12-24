@@ -17,6 +17,7 @@ export declare class UserService {
     updateCourses(id: string): Promise<import("mongodb").UpdateResult>;
     banUser(id: string): Promise<import("mongodb").UpdateResult>;
     unbanUser(id: string): Promise<import("mongodb").UpdateResult>;
+    forgotPass(mail: string): Promise<void>;
     login(username: string, password: string): Promise<User & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>;
