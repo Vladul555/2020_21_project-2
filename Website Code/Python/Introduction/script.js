@@ -122,3 +122,10 @@ function loadData() {
         }
     }
 }
+
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    document.getElementById('status__logo').src = "./images/FREE.png";
+else
+    document.getElementById('status__logo').src = "./images/PRO.png";
+
+
