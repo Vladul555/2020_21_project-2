@@ -63,12 +63,12 @@ if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     skip.style.display = 'none'
 }
 loadData()
-    /*function loads new data for each page of the theory*/
 function loadData() {
-
-    /*function loads new data for each page of the theory*/
-    function loadData() {
-
+        if (currentData == 0) {
+            document.getElementById('previous').style.visibility = 'hidden';
+        } else {
+            document.getElementById('previous').style.visibility = 'visible';
+        }
         const current_Text_Data = Data[currentData]
         title.innerText = current_Text_Data.title
         mainText.innerText = current_Text_Data.mainText
@@ -121,11 +121,12 @@ function loadData() {
             element.classList.toggle("dark-mode")
         }
     }
-}
+
 
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
     document.getElementById('status__logo').src = "./images/FREE.png";
 else
     document.getElementById('status__logo').src = "./images/PRO.png";
+
 
 
