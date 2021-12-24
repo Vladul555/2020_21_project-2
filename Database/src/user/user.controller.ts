@@ -38,9 +38,15 @@ export class UserController {
   unbanUser(@Param('id') id){
     return this.userService.unbanUser(id)
   }
+  @Post('/forgot')
+  forgotPass(@Body() body){
+    const {Email}=body;
+    return this.userService.forgotPass(Email);
+  }
   @Post('/login')
   login(@Body() body){
     const {Username,Password}=body;
     return this.userService.login(Username,Password);
   }
 }
+

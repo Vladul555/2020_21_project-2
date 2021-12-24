@@ -8,10 +8,10 @@
   margin: 0 auto;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   box-sizing: border-box;
-  background-image: url(../images/coding-developer-quotes-technology-wallpaper-preview.jpg);
+  background-image: url(../images/BackGround.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 10%;
 
 }
 
@@ -178,3 +178,9 @@
 .timerTitle {
   margin:0;
 }
+
+body.dark-mode {
+	background-color: rgb(53, 49, 49);
+    background-image: none;
+  }
+  

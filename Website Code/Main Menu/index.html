@@ -9,22 +9,20 @@
     <title>Main Menu</title>
 </head>
 
-<body class="page" onload="TestdarkMode()">
+<body class="page" onload="TestdarkMode(),hideSettings()">
 
     <nav class="navbar">
         <label class="logo">Glyph</label>
         <ul class="menu" id="menu">
             <li class="list">
-                <a href="../Courses/index.html"><button
-                    class="buttons"
-                    id="start" 
-                    >Start</button></a>
+                <a href="../Courses/index.html">
+                    <button class="buttons" id="start" >Start</button></a>
             </li>
             <li class="list">
                 <a href="../Upgrade/index.html">
                     <button class="buttons" id="upgrade">Upgrade</button></a>
             </li>
-            <li class="list">
+            <li class="list" id="setting">
                 <a href="../options/index.html">
                     <button class="buttons" id="options">Settings</button></a>
             </li>

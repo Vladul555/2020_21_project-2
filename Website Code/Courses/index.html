@@ -10,7 +10,7 @@
     <title>Courses</title>
 </head>
 
-<body class="page" onload="TestdarkMode()">
+<body class="page" onload="TestdarkMode(),hidePremiumCourses()">
 
 
     <nav class="navbar">
@@ -20,11 +20,13 @@
                 <a href="../Python/Lessons/index.html">
                     <button class="buttons" id="course1">Python</button></a>
             </li>
+
             <li class="list">
                 <a href="../C/Python/Lessons/index.html">
+
                     <button class="buttons" id="course2">C</button></a>
             </li>
-            <li class="list">
+            <li class="list" id='asm'>
                 <a href="../Assembly/Python/Lessons/index.html">
                     <button class="buttons" id="course3">Assembly</button></a>
             </li>

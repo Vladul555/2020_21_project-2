@@ -15,3 +15,13 @@ if (flag == 1){
   element.classList.toggle("dark-mode")
 }
 }
+
+function hidePremiumCourses(){
+  if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+      let asm = document.getElementById("asm")
+      asm.style.display = 'none'
+      let C = document.getElementById('C')
+      C.style.display = 'none'
+  }
+}
+
