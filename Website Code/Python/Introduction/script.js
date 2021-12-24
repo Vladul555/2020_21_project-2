@@ -66,30 +66,25 @@ loadData()
     /*function loads new data for each page of the theory*/
 function loadData() {
 
-    {
-        if (currentData == 0) {
-            document.getElementById('previous').style.visibility = 'hidden';
-        } else {
-            document.getElementById('previous').style.visibility = 'visible';
-        }
+    /*function loads new data for each page of the theory*/
+    function loadData() {
+
+        const current_Text_Data = Data[currentData]
+        title.innerText = current_Text_Data.title
+        mainText.innerText = current_Text_Data.mainText
+        option1.innerText = current_Text_Data.opt1
+        option2.innerText = current_Text_Data.opt2
+        option3.innerText = current_Text_Data.opt3
+        option4.innerText = current_Text_Data.opt4
     }
 
-    const current_Text_Data = Data[currentData]
-    title.innerText = current_Text_Data.title
-    mainText.innerText = current_Text_Data.mainText
-    option1.innerText = current_Text_Data.opt1
-    option2.innerText = current_Text_Data.opt2
-    option3.innerText = current_Text_Data.opt3
-    option4.innerText = current_Text_Data.opt4
-}
-
-/*Next Button changes the page content, when reaching the end a test button or reload appears */
-nextBtn.addEventListener('click', () => {
-    currentData++
-    if (currentData < Data.length) {
-        loadData()
-    } else {
-        intro.innerHTML = `
+    /*Next Button changes the page content, when reaching the end a test button or reload appears */
+    nextBtn.addEventListener('click', () => {
+        currentData++
+        if (currentData < Data.length) {
+            loadData()
+        } else {
+            intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
@@ -98,32 +93,32 @@ nextBtn.addEventListener('click', () => {
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
+        }
+    })
+
+    /*Previous button to return and read the last page*/
+    previousBtn.addEventListener('click', () => {
+        if (currentData > -1) {
+            if (currentData != 0)
+                currentData--
+                loadData()
+        }
+    })
+
+    var timeout;
+    document.onmousemove = function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
     }
-})
-
-/*Previous button to return and read the last page*/
-previousBtn.addEventListener('click', () => {
-    if (currentData > -1) {
-        if (currentData != 0)
-            currentData--
-            loadData()
+    if (sessionStorage.getItem('DarkMod')) {
+        flag = sessionStorage.getItem('DarkMod')
+        sessionStorage.setItem('DarkMod', flag);
     }
-})
 
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
-}
-
-if (sessionStorage.getItem('DarkMod')) {
-    flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod', flag);
-}
-
-function TestdarkMode() {
-    if (flag == 1) {
-        var element = document.body;
-        element.classList.toggle("dark-mode")
+    function TestdarkMode() {
+        if (flag == 1) {
+            var element = document.body;
+            element.classList.toggle("dark-mode")
+        }
     }
 }
