@@ -74,7 +74,9 @@ const nextBtn = document.getElementById('next')
 const previousBtn = document.getElementById('previous')
 
 let currentData = 0
-
+let skip = document.getElementById('skip')
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    skip.style.display= 'none'
 loadData()
 
 /*function loads new data for each page of the theory*/

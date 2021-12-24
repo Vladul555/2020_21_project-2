@@ -67,10 +67,11 @@ let score = 0
 loadQuiz()
 var heart
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
-if (sessionStorage.getItem("heart")) {
-    heart = sessionStorage.getItem("heart")
-} else
-    heart = 3
+    if (sessionStorage.getItem("heart")) 
+        heart = sessionStorage.getItem("heart")
+    else
+        heart = 3
+    
 
 function loadQuiz() {
 
@@ -98,7 +99,6 @@ answerEls.forEach(answerEl => {
 })
 return answer
 }
-
 
 submitBtn.addEventListener('click', () => {
 const answer = getSelected()
