@@ -61,7 +61,6 @@
     border: solid 2px white;
     display: flex;
     text-align: center;
-    justify-content: center;
     align-items: center;
     border-radius: 25%;
     background-color: #2a9433;
@@ -69,6 +68,7 @@
     background-image: url(../images/NavBack.gif);
     background-size: cover;
 }
+
 
 .buttons{
     background-color: transparent;
@@ -89,3 +89,14 @@ body.dark-mode {
     background-image: none;
   }
   
+.crossCheck{
+    padding-right: 10px;
+}
+
+.list_return {
+    justify-content: center ;
+}
+
+.c_return{
+    padding-right: 25px;
+}

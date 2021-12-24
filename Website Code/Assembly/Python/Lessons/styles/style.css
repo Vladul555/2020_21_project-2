@@ -61,7 +61,6 @@
     border: solid 2px white;
     display: flex;
     text-align: center;
-    justify-content: center;
     align-items: center;
     border-radius: 25%;
     background-color: #2a9433;
@@ -88,3 +87,11 @@ body.dark-mode {
     color: white;
     background-image: none;
  }
+
+ .crossCheck{
+    padding-right: 10px;
+}
+
+.list_return {
+    justify-content: center ;
+}
