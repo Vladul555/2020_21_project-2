@@ -1,5 +1,4 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1 */
         title: "Variables",
         mainText: "Variables are containers for storing data values\nPython has no command for declaring a variable\nA variable is created the moment you first assign a value to it",
@@ -14,7 +13,7 @@ const Data = [
         /*Page 3*/
         title: "Example 2",
         mainText: "x = 4 --> x is of type int\nx = 'Sally' --> x is of type str\nprint(x) --> Sally",
- 
+
     },
     {
         /*Page 4*/
@@ -63,8 +62,8 @@ const Data = [
         title: "Example 1",
         mainText: "x = 'awesome'\n   def myFunc():\n   print('Python is' + x)\nmyFunc()\nOutput: Python is awesome",
     },
-    
-  ];
+
+];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
 const intro = document.getElementById('intro')
@@ -76,14 +75,14 @@ const previousBtn = document.getElementById('previous')
 let currentData = 0
 let skip = document.getElementById('skip')
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
-    skip.style.display= 'none'
+    skip.style.display = 'none'
 loadData()
 
 /*function loads new data for each page of the theory*/
-function loadData(){
+function loadData() {
 
     {
-        if (currentData == 0){
+        if (currentData == 0) {
             document.getElementById('previous').style.visibility = 'hidden';
         } else {
             document.getElementById('previous').style.visibility = 'visible';
@@ -97,12 +96,11 @@ function loadData(){
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
-       currentData++
-       if(currentData < Data.length) {
-           loadData()
-       } 
-       else {
-           intro.innerHTML = `
+    currentData++
+    if (currentData < Data.length) {
+        loadData()
+    } else {
+        intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
@@ -111,32 +109,32 @@ nextBtn.addEventListener('click', () => {
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
-       }
+    }
 })
 
 /*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
-    if(currentData > -1) {
-        if(currentData != 0)
+    if (currentData > -1) {
+        if (currentData != 0)
             currentData--
-        loadData()  
-    } 
+            loadData()
+    }
 })
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
 
-if(sessionStorage.getItem('DarkMod')){
+if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
+    sessionStorage.setItem('DarkMod', flag);
 }
 
 function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
