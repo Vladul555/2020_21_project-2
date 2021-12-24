@@ -17,13 +17,20 @@
 .menu {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
+  display:flex;
   flex-direction: row;
-  align-items: center;
+  align-items:baseline;
   justify-content: space-between;
 }
 
-.menu__logo {
+/* .menu__logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 45px;
+  
+} */
+
+.status__logo {
   border-radius: 50%;
   width: 50px;
   height: 45px;
@@ -34,6 +41,7 @@
   display: flex;
   flex-direction: row;
   list-style: none;
+  text-align:right;
   margin-right: 10px;
   font-weight: bolder;
 }
