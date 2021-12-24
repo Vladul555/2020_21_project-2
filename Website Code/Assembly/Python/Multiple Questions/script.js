@@ -177,8 +177,17 @@ if (sessionStorage.getItem('DarkMod')) {
 }
 
 function TestdarkMode() {
-    if (flag == 1) {
-        var element = document.body;
-        element.classList.toggle("dark-mode")
-    }
+
+  if (flag == 1){
+    var element = document.body;
+    element.classList.toggle("dark-mode")
+  }
 }
+
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+    document.getElementById('status__logo').src = "./images/FREE.png";
+else 
+    document.getElementById('status__logo').src = "./images/PRO.png";
+  
+    
+
