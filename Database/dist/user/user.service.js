@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const mongoose_1 = require("mongoose");
 const common_1 = require("@nestjs/common");
-const mongoose_2 = require("@nestjs/mongoose");
+const mongoose_2 = require("../../node_modules/@nestjs/mongoose");
 const user_schema_1 = require("../schemas/user.schema");
 const update_user_dto_1 = require("../DTOs/users/update-user.dto");
 const nodemailer = require('nodemailer');
