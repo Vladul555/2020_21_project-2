@@ -39,55 +39,27 @@ const Data = [
     },
     {
         /*Page 8 */
-        title: "Examples",
+        title: "Example",
         mainText: "int test=5\n\nif(test<10){\n printf(''%d is lower than 10'',test);\n}\nelse{\nprintf(''%d is not lower than 10'',test);\n}\n-->'5 is lower than 10'\n\nif(test>10){\nprintf(''%d is higher than 10'',test);\n}\nelse{\nprintf(''%d is not higher than 10'',test);\n}\n-->'5 is not higher than 10'",
     },
     {
         /*Page 9*/
         title: "Else-if conditions",
-        mainText: "x = 99\ny = 89\nif y > x: print('y is greater than x')\nelif x == y: print('x and y are equal)\nelse: print('x is greater than y\n\nIn this example a is greater than b, so the first condition is not true, also the elif condition is not true, so we go to the else condition and print to screen that 'a is greater than b'"
+        mainText: "The 'else-if' condition execute a statement depending on the evaluation of 'if' expression and have an expression inside the parenthesis itself.\nWhen the first expression 'if' is evaluated to False and the expression in 'else if' evaluated to True C will execute the statements inside the body of 'else if'"
     },
     {
-        /*Page 7*/
-        title: "You can also have an else without the elif",
-        mainText: "x = 500\ny = 250\nif y > x: print('y is greater than x')\nelse: print('y is not greater than x')",
-    },
-    {
-        /*Page 8*/
-        title: "And",
-        mainText: "The 'and' keyword is a logical operator, and is used to combine conditional statements",
-    },
-    {
-        /*Page 9*/
+        /*Page 10 */
         title: "Example",
-        mainText: "x = 200\ny = 33\nz = 500\nif x > y and z > x: print('both conditions are True')",
-    },
-    {
-        /*Page 10*/
-        title: "Or",
-        mainText: "The 'or' keyword is a logical operator, and is used to combine conditional statments",
-    },
-    {
-        /*Page 11*/
-        title: "Example",
-        mainText: "x = 200\ny = 33\nz = 500\nif x > y or z > x: print('both conditions are True')",
+        mainText: "int test=7\n\nif(test>10){\n printf(''%d is higher than 10'',test);\n}\nelse if(test>5){\nprintf(''%d is lower than 10 but higher than 5'',test);\n}\n-->'7 is lower than 10 but higher than 5'",
     },
     {
         /*Page 12*/
-        title: "Nested if",
-        mainText: "You can have if statements inside if statements, this is called nested if statements",
+        title: "Nested if conditions",
+        mainText: "You can have 'if' condition inside an 'if' condition, this is called nested if statements",
     },
     {
         title: "Example",
-        mainText: "x = 41\nif x > 25: print('x is above 25')\nif x > 30: print('x is above 30')\nelse: print('x isn't above 30')",
-    },
-    {
-        title: "Pass Statement",
-        mainText: "if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error",
-    },
-    {
-        title: "Example",
-        mainText: "x = 33\ny = 200\nif y > x: pass",
+        mainText: "int x = 41\nif(x > 25){\n printf(''%d is above 25'',x);\nif(x > 30){\n printf('' and also is above 30'',x);\n}\nelse{\n printf(''but isn't above 30'',x);\n}\n}\n-->x is above 25 and also is above 30",
     },
 ];
 
