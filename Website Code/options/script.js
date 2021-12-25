@@ -1,4 +1,9 @@
 var flag = 0; //lightmode if 0 darkmode if 1
+var afkFlag = 1;
+if (sessionStorage.getItem('afk'))
+    afkFlag = sessionStorage.getItem('afk')
+sessionStorage.setItem('afk', afkFlag)
+
 if (sessionStorage.getItem('DarkMod'))
     flag = sessionStorage.getItem('DarkMod')
 sessionStorage.setItem('DarkMod', flag);
@@ -28,31 +33,53 @@ function updateUserOps() {
     updateUser(objson, sessionStorage.getItem('id')).then(value => { console.log(value) })
 }
 
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
-}
+if (Number(sessionStorage.getItem("afk")) === 1) {
+    var timeout;
+    document.onmousemove = function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+    }
+} else
+    clearTimeout(timeout)
 
 function darkMode() {
     var content = document.getElementById("drkBtn");
     var element = document.body;
     element.classList.toggle("dark-mode");
-    if (flag == 0){
-      content.innerText = "Dark Mode is ON";
-      flag = 1;
-      sessionStorage.setItem('DarkMod',flag);
+    if (flag == 0) {
+        content.innerText = "Dark Mode is ON";
+        flag = 1;
+        sessionStorage.setItem('DarkMod', flag);
+    } else {
+        content.innerText = "DarkMode";
+        flag = 0;
+        sessionStorage.setItem('DarkMod', flag);
     }
-    else{
-      content.innerText = "DarkMode";
-      flag = 0;
-      sessionStorage.setItem('DarkMod',flag);
-    }
-  }
+}
 
 function TestdarkMode() {
     if (flag == 1) {
         var element = document.body;
         element.classList.toggle("dark-mode")
+    }
+}
+
+function checkID() {
+    if (Number(sessionStorage.getItem("user")) === userTypes["Premium"])
+        document.getElementById("afk").style.display = "flex"
+}
+
+function afkToggle() {
+    var content = document.getElementById("afk");
+    // var element = document.body;
+    // element.classList.toggle("dark-mode");
+    if (afkFlag == 0) {
+        content.innerText = "Toggle AFK alerts - ON";
+        afkFlag = 1;
+        sessionStorage.setItem('afk', afkFlag);
+    } else {
+        content.innerText = "Toggle AFK alerts - OFF";
+        afkFlag = 0;
+        sessionStorage.setItem('afk', afkFlag);
     }
 }
