@@ -22,34 +22,29 @@ const Data = [
     },
     {
         /*Page 5*/
-        title: "if statement",
-        mainText: "The if statement evaluates the expression inside the parenthesis.\nIf the test expression is evaluated to true, statements inside the body of if are executed.\nIf the test expression is evaluated to false, statements inside the body of if are not executed.\n\nif(expression){\n  statement1;\n  statement2;\n}",
+        title: "if conditions",
+        mainText: "The if statement evaluates the expression inside the parenthesis.\nIf the expression is evaluated to true, statements inside the body of if tested are executed.\nIf the tested expression is evaluated to false, statements inside the body of if are not executed.\n\nif(expression){\n  statement1;\n  statement2;\n}",
 
     },
     {
         /*Page 6 */
         title: "Examples",
-        mainText: "int test=5\nif(test<10){\n printf(''%d'',test)\n}\n-->'5'\n\nif(test>10){\n printf(''%d'',test)\n}\n-->doesn't do anything",
+        mainText: "int test=5\n\nif(test<10){\n printf(''%d'',test);\n}\n-->'5'\n\nif(test>10){\n printf(''%d'',test);\n}\n-->doesn't do anything",
     },
     {
-        /*Page 3*/
-        title: "Else statement",
-        mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
+        /*Page 7*/
+        title: "Else conditions",
+        mainText: "The else condition execute a statement when the 'if' expression is False.\n\nWhen the testd expression in 'if' is evaluated to True:\n● statements inside the body of 'if' are executed.\n ● statements inside the body of 'else' are skipped from execution.\n\nWhen the testd expression in 'if' is evaluated to False:\n● statements inside the body of 'if' are skipped from execution\n● statements inside the body of 'else' are executed",
 
     },
     {
-        /*Page 4*/
-        title: "Example",
-        mainText: "int a=5, b=3, c=0;\n(a>b || c>b)-->T||F-->1\n(a>b && c>b)-->T&&F-->0\nif x > y: print('x is greater than y)\nelif x == y: print('x and y are euqal')\n\nIn this example a is equal to b, so the first condition is not true, but the elif condition is true, so we print to screen that 'a and b are equal'",
+        /*Page 8 */
+        title: "Examples",
+        mainText: "int test=5\n\nif(test<10){\n printf(''%d is lower than 10'',test);\n}\nelse{\nprintf(''%d is not lower than 10'',test);\n}\n-->'5 is lower than 10'\n\nif(test>10){\nprintf(''%d is higher than 10'',test);\n}\nelse{\nprintf(''%d is not higher than 10'',test);\n}\n-->'5 is not higher than 10'",
     },
     {
-        /*Page 5*/
-        title: "Else",
-        mainText: "The Else keyword catches anything which isn't caught by the preceding conditions",
-    },
-    {
-        /*Page 6*/
-        title: "Example",
+        /*Page 9*/
+        title: "Else-if conditions",
         mainText: "x = 99\ny = 89\nif y > x: print('y is greater than x')\nelif x == y: print('x and y are equal)\nelse: print('x is greater than y\n\nIn this example a is greater than b, so the first condition is not true, also the elif condition is not true, so we go to the else condition and print to screen that 'a is greater than b'"
     },
     {
