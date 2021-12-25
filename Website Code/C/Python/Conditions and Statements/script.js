@@ -21,14 +21,19 @@ const Data = [
         mainText: "int a=5, b=3, c=0;\n(a>b || c>b)-->T||F-->1\n(a>b && c>b)-->T&&F-->0\n(a!=2 || !c)-->T||F-->1",
     },
     {
-        /*Page 3*/
+        /*Page 5*/
         title: "if statement",
-        mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
+        mainText: "The if statement evaluates the expression inside the parenthesis.\nIf the test expression is evaluated to true, statements inside the body of if are executed.\nIf the test expression is evaluated to false, statements inside the body of if are not executed.\n\nif(expression){\n  statement1;\n  statement2;\n}",
 
     },
     {
+        /*Page 6 */
+        title: "Examples",
+        mainText: "int test=5\nif(test<10){\n printf(''%d'',test)\n}\n-->'5'\n\nif(test>10){\n printf(''%d'',test)\n}\n-->doesn't do anything",
+    },
+    {
         /*Page 3*/
-        title: "Elif",
+        title: "Else statement",
         mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
 
     },
