@@ -88,16 +88,25 @@ return answer
 
 submitBtn.addEventListener('click', () => {
 const answer = getSelected()
-if (answer) {
-    if (answer === quizData[currentQuiz].correct) {
-        score++
-    }
-
-    currentQuiz++
-
-    if (currentQuiz < quizData.length) {
-        loadQuiz()
-    } else {
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++
+            currentQuiz++
+        }
+        else {
+            if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+                let reTry= window.confirm("Incorrect Question\nTry Again?")
+                if (reTry == true) // when pressing OK
+                    loadQuiz()
+                else { // when pressing cancel
+                    currentQuiz++
+                }
+            }
+        }
+        if (currentQuiz < quizData.length) {
+            loadQuiz()
+        }
+    else {
         if (score > 2) {
             quiz.innerHTML = `
            <div  class="quiz-header">
