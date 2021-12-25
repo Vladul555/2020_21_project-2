@@ -21,7 +21,7 @@
     justify-content: space-between;
 }
 
-.menu__logo {
+.status__logo  {
     border-radius: 50%;
     width: 50px;
     height: 45px;
@@ -180,6 +180,5 @@
 
 body.dark-mode {
     background-color: rgb(53, 49, 49);
-    color: white;
     background-image: none;
 }

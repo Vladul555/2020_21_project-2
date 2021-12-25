@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiple Questions</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="../../../../http.js"></script>
     <script src="/http.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Quiz App</title>
@@ -15,10 +16,10 @@
 <body class="page" onload="TestdarkMode()">
 
     <nav class="menu">
-        <img class="menu__logo" src="./images/logo5.jpeg">
+        <img class = "status__logo" id="status__logo" src="./images/FREE.png">
         <ul class="menu__ul">
-            <li class="menu__li"><a class="menu__link" href="../../Main Menu/index.html">Main Menu</a></li>
-            <li class="menu__li"><a class="menu__link" href="../../Courses/index.html">Courses</a></li>
+            <li class="menu__li"><a class="menu__link" href="../../../Main Menu/index.html">Main Menu</a></li>
+            <li class="menu__li"><a class="menu__link" href="../../../Courses/index.html">Courses</a></li>
         </ul>
     </nav>
     <h2 class="timerTitle">Finish the course in the remaining time!</h2>
@@ -56,6 +57,7 @@
             <fieldset class="submit-holder">
                 <input class="button" type="submit" id="submit">
             </fieldset>
+            <button class="button" id="Copy" onclick="Copy_text()">Copy</button>
         </div>
     </section>
 

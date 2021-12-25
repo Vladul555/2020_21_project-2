@@ -1,10 +1,11 @@
-const quizData = [{
-        question: "When was C Created?",
-        a: "1991",
-        b: "2005",
-        c: "1803",
-        d: "1994",
-        correct: "a",
+const quizData = [
+    {
+        question: "When was C developed?",
+        a: "1803-1805",
+        b: "2005-2009",
+        c: "1969-1973",
+        d: "1988-1994",
+        correct: "c",
     },
     {
         question: "What C cannot do?",
@@ -30,7 +31,6 @@ const quizData = [{
         d: "none of the above",
         correct: "c",
     },
-
 
 ];
 
@@ -182,4 +182,26 @@ function TestdarkMode() {
         var element = document.body;
         element.classList.toggle("dark-mode")
     }
+}
+
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+    document.getElementById('status__logo').src = "./images/FREE.png";
+    //document.getElementById('Copy').style.visibility = 'hidden';
+}
+else{
+    document.getElementById('status__logo').src = "./images/PRO.png";
+    document.getElementById('Copy').style.visibility = 'visible';
+}
+
+function Copy_text() {
+    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    var el = document.createElement('textarea');
+    el.value = copyText;
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert("the question was copied to the clipboard!");
 }
