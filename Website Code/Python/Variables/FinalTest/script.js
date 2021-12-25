@@ -101,7 +101,7 @@ submitBtn.addEventListener('click', () => {
         }
         else {
             if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
-                let reTry= window.confirm("Incorrect Question\nTry Again?")
+                let reTry= window.confirm("Incorrect Answer\nTry Again?")
                 if (reTry == true) // when pressing OK
                     loadQuiz()
                 else { // when pressing cancel
