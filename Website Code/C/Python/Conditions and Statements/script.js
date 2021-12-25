@@ -13,7 +13,18 @@ const Data = [
     {
         /*Page 3 */
         title: "Logical operators",
-        mainText: "int a = 2, b;\n((b = 2) == a)-->1\n\nint x=2;\nint y = (x>5)+1;-->(0+1)=1\n\nchar name1[] = ''John'',name2[]==''vlad'';\n(name1!=name2)-->1",
+        mainText: "C uses logical operators to create complicated logical expressions between 2 conditions that use assignment operators, these logical operators are:\n\n'OR' operator that return the value '1' if at least one of the conditions is ture.\n'OR' operator symbolized by '||'.\n\n'AND' operator that return the value '1' if both of the conditions is ture.\n'AND' operator symbolized by '&&'.\n\n'NOT' operator that return the value '1' if the conditions is false.\n'NOT' operator symbolized by '!'.",
+    },
+    {
+        /*Page 4 */
+        title: "Examples",
+        mainText: "int a=5, b=3, c=0;\n(a>b || c>b)-->T||F-->1\n(a>b && c>b)-->T&&F-->0\n(a!=2 || !c)-->T||F-->1",
+    },
+    {
+        /*Page 3*/
+        title: "if statement",
+        mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
+
     },
     {
         /*Page 3*/
@@ -24,7 +35,7 @@ const Data = [
     {
         /*Page 4*/
         title: "Example",
-        mainText: "x = 55\ny = 23\nif x > y: print('x is greater than y)\nelif x == y: print('x and y are euqal')\n\nIn this example a is equal to b, so the first condition is not true, but the elif condition is true, so we print to screen that 'a and b are equal'",
+        mainText: "int a=5, b=3, c=0;\n(a>b || c>b)-->T||F-->1\n(a>b && c>b)-->T&&F-->0\nif x > y: print('x is greater than y)\nelif x == y: print('x and y are euqal')\n\nIn this example a is equal to b, so the first condition is not true, but the elif condition is true, so we print to screen that 'a and b are equal'",
     },
     {
         /*Page 5*/
