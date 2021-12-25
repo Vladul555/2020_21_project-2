@@ -124,8 +124,24 @@ function TestdarkMode() {
     }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
     document.getElementById('status__logo').src = "./images/FREE.png";
-else
+    //document.getElementById('Copy').style.visibility = 'hidden';
+}
+else{
     document.getElementById('status__logo').src = "./images/PRO.png";
-
+    document.getElementById('Copy').style.visibility = 'visible';
+}
+       
+function Copy_text() {
+    var copyText = Data[currentData].title + Data[currentData].mainText + Data[currentData].opt1 + Data[currentData].opt2 + Data[currentData].opt3 + Data[currentData].opt4;
+    var el = document.createElement('textarea');
+    el.value = copyText;
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert("the question was copied to the clipboard!");
+}
