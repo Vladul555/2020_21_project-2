@@ -1,14 +1,19 @@
 const Data = [
     {
         /*Page 1 */
-        title: "C logical operators",
-        mainText: "C supports the usual logical operators from mathematics.\nEquals:  == \nNot Equals: != \nLess than: <\nLess than or equal to: <=\nGreater than: >\nGreater than or equal to: >=\n\nThese conditions can be used in several ways most commonly betwen two variable in 'if statements' and loops, those conditions will mostly returns the value '1' if Ture or '0' if False",
+        title: "C assignment operators",
+        mainText: "C supports the usual assignment operators from mathematics.\nEquals:  == \nNot Equals: != \nLess than: <\nLess than or equal to: <=\nGreater than: >\nGreater than or equal to: >=\n\nThese conditions can be used in several ways most commonly betwen two variable in 'if statements' and loops, those conditions will mostly returns the value '1' if Ture or '0' if False",
 
     },
     {
         /*Page 2 */
         title: "Examples",
-        mainText: "int a = 2, b;\n((b = 2) == a)-->1\n\nint x=2;\nint y = (x>5)+1;-->(0+1)=1\n\nchar str = 'John'\nb = 2.0\nif type(a) != type(b): print(variables are of different types) ",
+        mainText: "int a = 2, b;\n((b = 2) == a)-->1\n\nint x=2;\nint y = (x>5)+1;-->(0+1)=1\n\nchar name1[] = ''John'',name2[]==''vlad'';\n(name1!=name2)-->1",
+    },
+    {
+        /*Page 3 */
+        title: "Logical operators",
+        mainText: "int a = 2, b;\n((b = 2) == a)-->1\n\nint x=2;\nint y = (x>5)+1;-->(0+1)=1\n\nchar name1[] = ''John'',name2[]==''vlad'';\n(name1!=name2)-->1",
     },
     {
         /*Page 3*/
