@@ -1,4 +1,21 @@
-const quizData = [{
+const quizData = [
+    {
+        question: "You are given the code segment:\n int A = 50,B = 70;\nWhich of those expression will return True?",
+        a: "A > B",
+        b: "B != A",
+        c: "B <= A",
+        d: "A == B",
+        correct: "b",
+    },
+    {
+        question: "You are given the code segment:\n int x = 10,y = 7,z =5;\nWhich of those logical expressions will return False?",
+        a: "(x<y || y>z)",
+        b: "(x>=z && y>=z)",
+        c: "(x!=z && y<=x)",
+        d: "(x==y || !z)",
+        correct: "d",
+    },
+    {
         question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
         a: "A = 50\nB = 70\nif A > B",
         b: "A = 70\nB = 50\nif B > A",
