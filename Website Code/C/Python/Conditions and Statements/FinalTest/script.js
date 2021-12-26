@@ -16,27 +16,11 @@ const quizData = [
         correct: "d",
     },
     {
-        question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 50\nB = 70\nif A > B",
-        b: "A = 70\nB = 50\nif B > A",
-        c: "A = 100\nB = 90\nif A > B",
-        d: "A = 1\nB = 1\n if A > B",
-        correct: "c",
-    },
-    {
-        question: "A must be equal to B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 50\nB = 70\nif A == B",
-        b: "A = 'Hello'\nB = 'Morning'\nif B == A",
-        c: "A = True\nB = True\nif A == B",
-        d: "A = 19\nB = 18\n if A == B",
-        correct: "c",
-    },
-    {
-        question: "Variables A must be Greater than B, and B must be Greater than C for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 20\nB = 20\nC = 20\nif A = B = C",
-        b: "A = True\nB = True\nC = True\n if A > B and B > C",
-        c: "C = 1.2\nA = 1.9\nB = 1.5\nif A > B and B > C",
-        d: "B = 'Max'\nA = 1\nC = True\n if A >= B or B <= C",
+        question: "Which of those is a proper syntax for an 'if' expression that prints out 'Hello World'.\nint A=57,B=32,c=5;",
+        a: "if(A == B){\nprint(''Hello World'');\n}",
+        b: "if(C != A){\nprintf(''Hello World'')\n}",
+        c: "if(A <=B||B>C){\nprintf(''Hello World'');\n}",
+        d: "if(A>C && B>C){\nprintf(Hello World);\n}",
         correct: "c",
     },
     {
@@ -129,7 +113,7 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizData.length) {
             loadQuiz()
         } else {
-            if (score > 2) {
+            if (score >3) {
                 quiz.innerHTML = `
            <div  class="quiz-header">
            <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
