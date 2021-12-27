@@ -153,6 +153,6 @@ body {
 
 body.dark-mode {
     background-color: rgb(53, 49, 49);
-    color: white;
     background-image: none;
+    filter: invert(1);
 }
