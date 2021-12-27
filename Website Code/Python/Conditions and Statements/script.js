@@ -158,7 +158,7 @@ else{
 }
 
 function Copy_text() {
-    var copyText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ' +  Data[currentData].opt1 +'. ' +  Data[currentData].opt2 +'. ' +  Data[currentData].opt3 +'. ' +  Data[currentData].opt4 + '. ';
+    var copyText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ' ;
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
@@ -171,7 +171,7 @@ function Copy_text() {
 }
 
 function Download_file() {
-    let downloadText = Data[currentData].title + Data[currentData].mainText + Data[currentData].opt1 + Data[currentData].opt2 + Data[currentData].opt3 + Data[currentData].opt4;
+    var downloadText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ' ;
     // Convert the text to BLOB.
     const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
     const sFileName = 'formData.txt';	   // The file to save the data.
@@ -187,7 +187,6 @@ function Download_file() {
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
-
     newLink.click(); 
 }
 
