@@ -167,9 +167,26 @@ run_clock('clockdiv', deadline);
 
 
 var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+if (sessionStorage.getItem('afk') == "false")
+    afkFlag = false;
+else
+    afkFlag = true;
+sessionStorage.setItem('afk', afkFlag)
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
@@ -182,10 +199,10 @@ function TestdarkMode() {
         element.classList.toggle("dark-mode")
     }
 }
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
     //document.getElementById('Copy').style.visibility = 'hidden';
-    //document.getElementById('Download').style.visibility = 'hidden';
+    d//ocument.getElementById('Download').style.visibility = 'hidden';
 }
 else{
     document.getElementById('status__logo').src = "./images/PRO.png";
@@ -193,7 +210,7 @@ else{
     document.getElementById('Download').style.visibility = 'visible';
 }     
 function Copy_text() {
-    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');

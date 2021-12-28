@@ -1,5 +1,4 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1*/
         title: "Python Functions",
         mainText: "A function is a block of code which only runs when it is called.\nYou can pass data, known as parameters\ninto a function A function can return data as a result.",
@@ -83,7 +82,7 @@ const Data = [
         title: "In This Example",
         mainText: "tri_recursion() is a function that we have defined to call itself ('recurse').\nWe use the k variable as the data, which decrements (-1) every time we recurse.\n    The recursion ends when the condition is not greater than 0 (i.e. when it is 0).",
     },
-  ];
+];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
 const intro = document.getElementById('intro')
@@ -96,8 +95,8 @@ let currentData = 0
 loadData()
 
 /*function loads new data for each page of the theory*/
-function loadData(){
-    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+function loadData() {
+    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
         let skip = document.getElementById("skip")
         skip.style.display = 'none'
     }
@@ -113,12 +112,11 @@ function loadData(){
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
-       currentData++
-       if(currentData < Data.length) {
-           loadData()
-       } 
-       else {
-           intro.innerHTML = `
+    currentData++
+    if (currentData < Data.length) {
+        loadData()
+    } else {
+        intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
@@ -127,53 +125,65 @@ nextBtn.addEventListener('click', () => {
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
-       }
+    }
 })
 
 /*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
-    if(currentData > -1) {
-        if(currentData != 0)
+    if (currentData > -1) {
+        if (currentData != 0)
             currentData--
-        loadData()  
-    } 
+            loadData()
+    }
 })
 
-var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 
-if(sessionStorage.getItem('DarkMod')){
+if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
+    sessionStorage.setItem('DarkMod', flag);
 }
 
 function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
     //document.getElementById('Copy').style.visibility = 'hidden';
     //document.getElementById('Download').style.visibility = 'hidden';
 }
-else{
+else {
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
     document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
-    var copyText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ' +  Data[currentData].opt1 +'. ' +  Data[currentData].opt2 +'. ' +  Data[currentData].opt3 +'. ' +  Data[currentData].opt4 + '. ';
+    var copyText = Data[currentData].title + ' ' + Data[currentData].mainText + '. ' + Data[currentData].opt1 + '. ' + Data[currentData].opt2 + '. ' + Data[currentData].opt3 + '. ' + Data[currentData].opt4 + '. ';
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
-    el.style = {position: 'absolute', left: '-9999px'};
+    el.style = { position: 'absolute', left: '-9999px' };
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
