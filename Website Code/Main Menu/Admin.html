@@ -9,8 +9,8 @@
     <script src="../../http.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        if (sessionStorage.getItem("UserType") !== userTypes["Admin"])
-            window.location.href = "../Main Menu/index.html" //kick out the user to the regular menu if not an admin
+        // if (sessionStorage.getItem("UserType") !== userTypes["Admin"])
+        //     window.location.href = "../Main Menu/index.html" //kick out the user to the regular menu if not an admin
     </script>
     <title>Main Menu</title>
 </head>
@@ -25,18 +25,23 @@
                     <button class="buttons" id="start" onclick="getUsers()">Show users</button>
                 </li>
                 <li class="list">
-                    <button class="buttons" id="upgrade" onclick="ShowField()">Delete User</button>
+                    <button class="buttons" id="delete" onclick="ShowField()">Delete User</button>
                 </li>
                 <li class="list">
-                    <button class="buttons" id="upgrade" onclick="ShowFieldBan()">Ban User</button>
+                    <button class="buttons" id="ban" onclick="ShowFieldBan()">Ban User</button>
                 </li>
                 <li class="list">
-                    <button class="buttons" onclick="ShowFieldUnban()">Unban User</button>
+                    <button class="buttons" id="unban" onclick="ShowFieldUnban()">Unban User</button>
+                </li>
+                <li class="list">
+                    <button class="buttons" id="upgrade" onclick="ShowFieldUpdate()">Update user type</button>
                 </li>
                 <input type="text" placeholder="Enter hash ID" id="id" style="visibility: hidden; align-self: center;"> <br><br>
-                <input type="button" class="buttons" value="Submit ID" id="delbut" style="visibility: hidden; align-self: center;" onclick="deleteUserAdmin(document.getElementById('id').value)">
-                <input type="button" class="buttons" value="Submit ID" id="banbut" style="visibility: hidden; align-self: center;" onclick="banUserAdmin(document.getElementById('id').value)">
-                <input type="button" class="buttons" value="Submit ID" id="unbanbut" style="visibility: hidden; align-self: center;" onclick="unbanUserAdmin(document.getElementById('id').value)">
+                <input type="text" placeholder="Enter new user type" id="newType" style="visibility: hidden; align-self: center;"> <br><br>
+                <input type="button" class="buttons" value="Submit ID for deletion" id="delbut" style="visibility: hidden; align-self: center;" onclick="deleteUserAdmin(document.getElementById('id').value)"><br>
+                <input type="button" class="buttons" value="Submit ID for banning" id="banbut" style="visibility: hidden; align-self: center;" onclick="banUserAdmin(document.getElementById('id').value)"><br>
+                <input type="button" class="buttons" value="Submit ID unbanning" id="unbanbut" style="visibility: hidden; align-self: center;" onclick="unbanUserAdmin(document.getElementById('id').value)"><br>
+                <input type="button" class="buttons" value="Submit ID for updating" id="upbut" style="visibility: hidden; align-self: center;" onclick="updateUserAdmin(document.getElementById('id').value)"><br>
             </ul>
             <table class="table" id="table" style='visibility: hidden;'>
                 <tr>
