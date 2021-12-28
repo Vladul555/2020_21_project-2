@@ -1,5 +1,4 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1 */
         title: "Python Conditions and If statements",
         mainText: "Python supports the usual logical conditions from mathematics\nEquals: a == b\nNot Equals: a != b\nLess than: a < b\nLess than or equal to: a <= b\nGreater than: a > b\nGreater than or equal to: a >= b\n\nThese conditions can be used in several ways most commonly in 'if statements' and loops\nAn 'if statement' is written by using the if keyword",
@@ -131,10 +130,22 @@ previousBtn.addEventListener('click', () => {
     }
 })
 
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
@@ -148,27 +159,23 @@ function TestdarkMode() {
     }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
     //document.getElementById('Copy').style.visibility = 'hidden';
-}
-else{
+} else {
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
 }
 
 function Copy_text() {
-    var copyText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ' +  Data[currentData].opt1 +'. ' +  Data[currentData].opt2 +'. ' +  Data[currentData].opt3 +'. ' +  Data[currentData].opt4 + '. ';
+    var copyText = Data[currentData].title + ' ' + Data[currentData].mainText + '. ' + Data[currentData].opt1 + '. ' + Data[currentData].opt2 + '. ' + Data[currentData].opt3 + '. ' + Data[currentData].opt4 + '. ';
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
-    el.style = {position: 'absolute', left: '-9999px'};
+    el.style = { position: 'absolute', left: '-9999px' };
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
     alert("the question was copied to the clipboard!");
 }
-
-
-

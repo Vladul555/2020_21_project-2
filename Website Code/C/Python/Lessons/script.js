@@ -1,7 +1,19 @@
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
@@ -9,9 +21,10 @@ if (sessionStorage.getItem('DarkMod')) {
 }
 
 function TestdarkMode() {
-if (flag == 1){
-  var element = document.body;
-  element.classList.toggle("dark-mode")}
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
 
 let lsn1 = document.getElementById("lsn1")
@@ -21,12 +34,12 @@ let lsn4 = document.getElementById("lsn4")
 let lsn5 = document.getElementById("lsn5")
 
 if (lsn1)
-  lsn1.src="./images/checked.png"
+    lsn1.src = "./images/checked.png"
 if (lsn2)
-  lsn2.src="./images/checked.png"
+    lsn2.src = "./images/checked.png"
 if (lsn3)
-  lsn3.src="./images/checked.png"
+    lsn3.src = "./images/checked.png"
 if (lsn4)
-  lsn4.src="./images/checked.png"
+    lsn4.src = "./images/checked.png"
 if (lsn5)
-  lsn5.src="./images/checked.png"
+    lsn5.src = "./images/checked.png"

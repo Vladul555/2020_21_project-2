@@ -88,6 +88,25 @@ a {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.disabled {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    color: darkgrey;
+    border: solid 2px white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+    background-color: rgb(87, 87, 87);
+    padding: 5px 10px;
+    background-image: none;
+    background-size: cover;
+}
+
 body.dark-mode {
     background-color: rgb(53, 49, 49);
     color: white;

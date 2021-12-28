@@ -10,10 +10,22 @@ function hideSettings() {
     }
 }
 
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 
 let alertMsg = [
@@ -47,5 +59,13 @@ function TestdarkMode() {
     if (flag == 1) {
         var element = document.body;
         element.classList.toggle("dark-mode")
+    }
+}
+
+function checkID() {
+    if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
+        document.getElementById("disUp").classList.add("disabled");
+        document.getElementById("upgrade").style.textDecorationLine = "line-through";
+        document.getElementById("upgrade").disabled = true;
     }
 }
