@@ -43,6 +43,13 @@ function ShowFieldUnban() {
     document.getElementById("unbanbut").style.visibility = 'visible';
 }
 
+function ShowFieldUpdate() {
+    document.getElementById("id").style.visibility = 'visible';
+    document.getElementById("newType").style.visibility = 'visible';
+    document.getElementById("upbut").style.visibility = 'visible';
+}
+
+
 function deleteUserAdmin(id) {
     for (const user of users)
         if (user._id === id)
@@ -64,6 +71,22 @@ function banUserAdmin(id) {
     }
 }
 
+function updateUserAdmin(id) {
+    for (const user of users)
+        if (user._id === id) {
+            let UserType = document.getElementById('newType').value;
+            let objson;
+            if (UserType === "Admin")
+                if (window.confirm("You are about to upgrade a user to become an Admin status.\nPlease confrim to continue.") === true) {
+                    objson = { UserType: userTypes[UserType] }
+                } else null;
+            else
+                objson = { UserType: userTypes[UserType] }
+            if (objson !== null)
+                updateUser(objson, id);
+        }
+}
+
 function unbanUserAdmin(id) {
     for (const user of users) {
         if (user._id === id && user.bannedStatus)
@@ -72,6 +95,8 @@ function unbanUserAdmin(id) {
             window.alert("This user is not banned.")
     }
 }
+
+
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
     sessionStorage.setItem('DarkMod', flag);
