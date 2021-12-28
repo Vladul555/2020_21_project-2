@@ -45,32 +45,24 @@ const Data = [
    },
    { /*Page 12*/
     title: "Example",
-    mainText: "#include <stdio.h>\n\nint main(){\nint i = 1;\nwhile (i <= 5){\nprintf(''%d\n'', i);\n++i;\n}\nreturn 0;\n}\n\noutput:\n'1\n2\n3\n4\n5'",
+    mainText: "#include <stdio.h>\n\nint main(){\nint num,sum=0;\ndo{\nprintf(''Enter a number: '');\n scanf(''%d'',&num);\nsum += num;\n}while(num!=0);\nprintf(''Sum = %d'',sum);\nreturn 0;\n}",
    },
-   { /*Page 8*/
-    title: "The Break Statement",
-    mainText: "With the 'Break' statement we can stop the loop iterations even if the while condition is True",
+   { /*Page 13*/
+    title: "C Break Statement",
+    mainText: "The 'break' statement ends the loop immediately when it is encountered. Its syntax is:\nbreak;",
    },
-   { /*Page 9*/
+   { /*Page 14*/
     title: "Example",
-    mainText: "Exit the loop when i is 2:\ni=0\nwhile i < 5\n print(i,end=' ')\nif i == 2\n break\ni+=1\n\nOutput: 1 2",
+    mainText: "#include <stdio.h>\n\nint main(){\nint i;\nfloat num, sum = 0.0;\nfor(i = 1; i <= 10; ++i){\nprintf(''Enter nubmer %d: '', i);\nscanf(''%f'',&num);\nif (number < 0.0){\n break;\n}\nsum += number;\n}printf(''Sum = %.2f'',sum);\nreturn 0;\n}",
    },
-   { /*Page 10*/
-    title: "The Continue Statement",
-    mainText: "With the 'Continue' statement we can stop the current iteration,and continue with the next:",
+   { /*Page 15*/
+    title: "C Continue Statement",
+    mainText: "The 'continue' statement skips the current iteration of the loop and continues with the next iteration. Its syntax is:\ncontinue;",
    },
-   {/*Page 11*/
+   {/*Page 16*/
        title: "Example",
-       mainText: "i=0\nWhile i < 5\ni+=1\nif i == 3\n continue\nprint(i,end=' ')\n\nOutput: 1 2 4 5",
+       mainText: "#include <stdio.h>\nint main(){\nint i\nfloat num, sum = 0.0;\n for(i = 1; i <= 10; ++i){\nprintf(''Enter a number %d: '', i);\nscanf(''%f'',&num);\nif(number < 0.0){\ncontinue;\n}\nsum += number;\n}\nprintf(''Sum = %.2f'',sum);\nreturn 0;\n}",
    },
-   {/*Page 12*/
-       title: "The Else Statement",
-       mainText: "With the 'Else' Statement we can run a block of code once when the condition no longer is True",
-   },
-   {/*Page 13*/
-    title: "Example",
-    mainText: "Prints a message once the condition is False\n\ni=1\nwhile i < 6\nprint(i,end=' ')\ni+=1\n else:\nprint('i' is no longer less than 6 loop iterations finished)\n\nOutput: 1 2 3 4 5 6\ni is no longer less than 6",
-    },
   ];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
