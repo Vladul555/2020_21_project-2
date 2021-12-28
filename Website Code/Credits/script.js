@@ -16,6 +16,7 @@ function afkToggle() {
     }
 }
 
+
 let alertMsg = [
     { txt: "Tired of not enough content\nSign up now and be a premium user!" },
     { txt: "Have you heard of our premium user?\nIt's full of new courses!" },
@@ -38,10 +39,10 @@ function alert5min() {
 if (premium) { alert5min(); }
 setInterval(alert5min, 5 * 60 * 1000);
 
-if (sessionStorage.getItem('DarkMod')) {
+if (sessionStorage.getItem('DarkMod'))
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod', flag);
-}
+sessionStorage.setItem('DarkMod', flag);
+
 
 function TestdarkMode() {
     if (flag == 1) {

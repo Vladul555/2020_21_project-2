@@ -20,73 +20,45 @@ const Data = [{
         mainText: "int a=5, b=3, c=0;\n(a>b || c>b)-->T||F-->1\n(a>b && c>b)-->T&&F-->0\n(a!=2 || !c)-->T||F-->1",
     },
     {
-        /*Page 3*/
-        title: "if statement",
-        mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
-
-    },
-    {
-        /*Page 3*/
-        title: "Elif",
-        mainText: "The elif keyword is pythons way of saying 'if the previous conditions were not true, then try this condition'",
-
-    },
-    {
-        /*Page 4*/
-        title: "Example",
-        mainText: "int a=5, b=3, c=0;\n(a>b || c>b)-->T||F-->1\n(a>b && c>b)-->T&&F-->0\nif x > y: print('x is greater than y)\nelif x == y: print('x and y are euqal')\n\nIn this example a is equal to b, so the first condition is not true, but the elif condition is true, so we print to screen that 'a and b are equal'",
-    },
-    {
         /*Page 5*/
-        title: "Else",
-        mainText: "The Else keyword catches anything which isn't caught by the preceding conditions",
+        title: "if conditions",
+        mainText: "The if statement evaluates the expression inside the parenthesis.\nIf the expression is evaluated to true, statements inside the body of if tested are executed.\nIf the tested expression is evaluated to false, statements inside the body of if are not executed.\n\nif(expression){\n  statement1;\n  statement2;\n}",
+
     },
     {
-        /*Page 6*/
-        title: "Example",
-        mainText: "x = 99\ny = 89\nif y > x: print('y is greater than x')\nelif x == y: print('x and y are equal)\nelse: print('x is greater than y\n\nIn this example a is greater than b, so the first condition is not true, also the elif condition is not true, so we go to the else condition and print to screen that 'a is greater than b'"
+        /*Page 6 */
+        title: "Examples",
+        mainText: "int test=5\n\nif(test<10){\n printf(''%d'',test);\n}\n-->'5'\n\nif(test>10){\n printf(''%d'',test);\n}\n-->doesn't do anything",
     },
     {
         /*Page 7*/
-        title: "You can also have an else without the elif",
-        mainText: "x = 500\ny = 250\nif y > x: print('y is greater than x')\nelse: print('y is not greater than x')",
+        title: "Else conditions",
+        mainText: "The else condition execute a statement when the 'if' expression is False.\n\nWhen the testd expression in 'if' is evaluated to True:\n● statements inside the body of 'if' are executed.\n ● statements inside the body of 'else' are skipped from execution.\n\nWhen the testd expression in 'if' is evaluated to False:\n● statements inside the body of 'if' are skipped from execution\n● statements inside the body of 'else' are executed",
+
     },
     {
-        /*Page 8*/
-        title: "And",
-        mainText: "The 'and' keyword is a logical operator, and is used to combine conditional statements",
+        /*Page 8 */
+        title: "Example",
+        mainText: "int test=5\n\nif(test<10){\n printf(''%d is lower than 10'',test);\n}\nelse{\nprintf(''%d is not lower than 10'',test);\n}\n-->'5 is lower than 10'\n\nif(test>10){\nprintf(''%d is higher than 10'',test);\n}\nelse{\nprintf(''%d is not higher than 10'',test);\n}\n-->'5 is not higher than 10'",
     },
     {
         /*Page 9*/
-        title: "Example",
-        mainText: "x = 200\ny = 33\nz = 500\nif x > y and z > x: print('both conditions are True')",
+        title: "Else-if conditions",
+        mainText: "The 'else-if' condition execute a statement depending on the evaluation of 'if' expression and have an expression inside the parenthesis itself.\nWhen the first expression 'if' is evaluated to False and the expression in 'else if' evaluated to True C will execute the statements inside the body of 'else if'"
     },
     {
-        /*Page 10*/
-        title: "Or",
-        mainText: "The 'or' keyword is a logical operator, and is used to combine conditional statments",
-    },
-    {
-        /*Page 11*/
+        /*Page 10 */
         title: "Example",
-        mainText: "x = 200\ny = 33\nz = 500\nif x > y or z > x: print('both conditions are True')",
+        mainText: "int test=7\n\nif(test>10){\n printf(''%d is higher than 10'',test);\n}\nelse if(test>5){\nprintf(''%d is lower than 10 but higher than 5'',test);\n}\n-->'7 is lower than 10 but higher than 5'",
     },
     {
         /*Page 12*/
-        title: "Nested if",
-        mainText: "You can have if statements inside if statements, this is called nested if statements",
+        title: "Nested if conditions",
+        mainText: "You can have 'if' condition inside an 'if' condition, this is called nested if statements",
     },
     {
         title: "Example",
-        mainText: "x = 41\nif x > 25: print('x is above 25')\nif x > 30: print('x is above 30')\nelse: print('x isn't above 30')",
-    },
-    {
-        title: "Pass Statement",
-        mainText: "if statements cannot be empty, but if you for some reason have an if statement with no content, put in the pass statement to avoid getting an error",
-    },
-    {
-        title: "Example",
-        mainText: "x = 33\ny = 200\nif y > x: pass",
+        mainText: "int x = 41\nif(x > 25){\n printf(''%d is above 25'',x);\nif(x > 30){\n printf('' and also is above 30'',x);\n}\nelse{\n printf(''but isn't above 30'',x);\n}\n}\n-->x is above 25 and also is above 30",
     },
 ];
 
@@ -178,10 +150,13 @@ function TestdarkMode() {
 
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
-    // document.getElementById('Copy').style.visibility = 'hidden';
-} else {
+    //document.getElementById('Copy').style.visibility = 'hidden';
+    //document.getElementById('Download').style.visibility = 'hidden';
+}
+else{
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
+    document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
@@ -194,5 +169,25 @@ function Copy_text() {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-    alert("the question was copied to the clipboard!");
+}
+
+function Download_file() {
+    let downloadText = Data[currentData].title + ' ' + Data[currentData].mainText + '. ';
+    // Convert the text to BLOB.
+    const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
+    const sFileName = 'formData.txt';	   // The file to save the data.
+
+    let newLink = document.createElement("a");
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null) {
+        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    }
+    else {
+        newLink.href = window.URL.createObjectURL(textToBLOB);
+        newLink.style.display = "none";
+        document.body.appendChild(newLink);
+    }
+
+    newLink.click(); 
 }

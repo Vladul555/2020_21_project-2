@@ -1,50 +1,51 @@
-const quizData = [{
-        question: "A must be greater than B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 50\nB = 70\nif A > B",
-        b: "A = 70\nB = 50\nif B > A",
-        c: "A = 100\nB = 90\nif A > B",
-        d: "A = 1\nB = 1\n if A > B",
-        correct: "c",
+const quizData = [
+    {
+        question: "You are given the code segment:\n int A = 50,B = 70;\nWhich of those expression will return True?",
+        a: "A > B",
+        b: "B != A",
+        c: "B <= A",
+        d: "A == B",
+        correct: "b",
     },
     {
-        question: "A must be equal to B Inorder for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 50\nB = 70\nif A == B",
-        b: "A = 'Hello'\nB = 'Morning'\nif B == A",
-        c: "A = True\nB = True\nif A == B",
-        d: "A = 19\nB = 18\n if A == B",
-        correct: "c",
-    },
-    {
-        question: "Variables A must be Greater than B, and B must be Greater than C for us to print('Hello World')\nWhich option will accomplish the task?",
-        a: "A = 20\nB = 20\nC = 20\nif A = B = C",
-        b: "A = True\nB = True\nC = True\n if A > B and B > C",
-        c: "C = 1.2\nA = 1.9\nB = 1.5\nif A > B and B > C",
-        d: "B = 'Max'\nA = 1\nC = True\n if A >= B or B <= C",
-        correct: "c",
-    },
-    {
-        question: "Inorder for us to determine if 2 objects are not equal to one another we must use what condition?",
-        a: "!=",
-        b: "not=",
-        c: "=!",
-        d: "notEqual=",
-        correct: "a",
-    },
-    {
-        question: "which if statement will return true for numbers outside the range of '100-1000'?",
-        a: "if x > 100 or x < 1000:",
-        b: "if x >= 100 and x <= 1000:",
-        c: "if x < 100 or x > 1000:",
-        d: "if x < 100 and x >= 1001",
+        question: "You are given the code segment:\n int x = 10,y = 7,z =5;\nWhich of those logical expressions will return False?",
+        a: "(x<y || y>z)",
+        b: "(x>=z && y>=z)",
+        c: "(x!=z && y<=x)",
+        d: "(x==y || !z)",
         correct: "d",
     },
     {
-        question: "which statement will return True?",
-        a: "x = 5\ny = 5\nif x >= y:",
-        b: "x = 10\ny = 10\nif y > x+1:",
-        c: "x = 'hello'\ny = 'john\nif type(x) != type(y)",
-        d: "x = 50\ny = 49\nif y >= x ",
+        question: "Which of those is a proper syntax for an 'if' expression that prints out 'Hello World'.\nint A=57,B=32,c=5;",
+        a: "if(A == B){\nprint(''Hello World'');\n}",
+        b: "if(C != A){\nprintf(''Hello World'');\n}",
+        c: "if(A <=B||B>C){\nprintf(''Hello World'');\n}",
+        d: "if(A>C && B>C){\nprintf(Hello World);\n}",
+        correct: "c",
+    },
+    {
+        question: "Which of those code segments execute the statements of 'else'?\nfloat A=37.23,B=52.64",
+        a: "if(A == B){\nprintf(''%d equles %d'',A,B);\n}\nelse{\nprintf(''%d does not equals %d'',A,B);\n}",
+        b: "if(B != A){\nprintf(''%d does not equals %d'',B,A);\n}\nelse{\nprintf(''%d equles %d'',B,A);\n}",
+        c: "if(A >B||B>0){\nprintf(''%d and %d are numbers'',A,B);\n}\nelse{\nprintf(''%d is smaller than 0 and %d is smaller than %d'',B,A,B);\n}",
+        d: "if(A<B && B>50){\nprintf(''%d is smaller than %d and %d bigger than 50'',A,B,B);\n}\nelse{\nprintf(''%d is smaller than %d and smaller than 50'',B,A);\n}",
         correct: "a",
+    },
+    {
+        question: "which of those code segments execute the statements of 'else-if'?\nint x=30,y=12,z=25;",
+        a: "if(x == y){\nprintf(''%d equles %d'',x,y);\n}\nelse if(y==z){\nprintf(''%d equals %d'',y,z);\n}",
+        b: "if(y<=z){\nprintf(''%d is smaller than or equle to %d'',y,z);\n}\nelse if(x>=y){\nprintf(''%d is larger than or equle to %d'',x,y);\n}",
+        c: "if(x>z||y=z){\nprintf(''%d is bigger than %d and/or %d equles %d'',x,z,y,z);\n}\nelse if(x!=z){\nprintf(''%d does not equals %d'',x,z);\n}",
+        d: "if(x!=z&&y<z){\nprintf(''%d does not equals %d and %d is smaller than %d'',x,z,y,z);\n}\nelse if(y>=z){\nprintf(''%d larger than or equle to %d'',y,z);\n}",
+        correct: "b",
+    },
+    {
+        question: "which statement is correct about 'Nested if' conditions?",
+        a: "'Nested if' is an 'if' condition that execute their statemets when the expression is evaluated False",
+        b: "'Nested if' is a collection of 'if' conditions.",
+        c: "'Nested if' an 'if' condition that exists insade an 'else' expression",
+        d: "'nested if' is an 'if' condition that have 'if' conditions inside of it.",
+        correct: "d",
     },
 
 ];
@@ -112,7 +113,7 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizData.length) {
             loadQuiz()
         } else {
-            if (score > 2) {
+            if (score >3) {
                 quiz.innerHTML = `
            <div  class="quiz-header">
            <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
@@ -210,10 +211,12 @@ function TestdarkMode() {
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
     document.getElementById('status__logo').src = "./images/FREE.png";
     //document.getElementById('Copy').style.visibility = 'hidden';
+    //document.getElementById('Download').style.visibility = 'hidden';
 }
 else{
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
+    document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
@@ -229,3 +232,23 @@ function Copy_text() {
     alert("the question was copied to the clipboard!");
 }
 
+function Download_file() {
+    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    // Convert the text to BLOB.
+    const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
+    const sFileName = 'formData.txt';	   // The file to save the data.
+
+    let newLink = document.createElement("a");
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null) {
+        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    }
+    else {
+        newLink.href = window.URL.createObjectURL(textToBLOB);
+        newLink.style.display = "none";
+        document.body.appendChild(newLink);
+    }
+
+    newLink.click(); 
+}
