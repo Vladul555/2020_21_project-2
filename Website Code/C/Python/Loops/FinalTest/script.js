@@ -1,5 +1,13 @@
 const quizData = [
     {
+        question: "What is the correct definition of C loops",
+        a: "A function that swap the placement of the lines of code in the program ",
+        b: "A code command that make the code run multiple times",
+        c: "A statement that evaluates the expression inside the parenthesis and execute the statements inside the body oncc",
+        d: "A function that is used to repeat a block of code until the specified condition is met",
+        correct: "d",
+    },
+    {
         question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
         a: "1 2 3 4 5",
         b: "0 1 2 3 4 5",
