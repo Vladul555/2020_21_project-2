@@ -36,7 +36,7 @@ const quizData = [
         a: "Stopping the loop even if statement is True",
         b: "Skipping the current iteration of the loop and continues with the next iteration",
         c: "Exiting the loop cycle and continuing to the next line of code",
-        d: "Ends the loop immediately and continuing to the next line of code",
+        d: "Update the 'updatedExpression' in 'for loops and continuing to the next line of code",
         correct: "b",
     },
     {
