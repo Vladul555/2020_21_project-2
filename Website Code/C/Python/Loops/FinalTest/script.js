@@ -3,40 +3,48 @@ const quizData = [
         question: "What is the correct definition of C loops",
         a: "A function that swap the placement of the lines of code in the program ",
         b: "A code command that make the code run multiple times",
-        c: "A statement that evaluates the expression inside the parenthesis and execute the statements inside the body oncc",
+        c: "A statement that evaluates the expression inside the parenthesis and execute the statements inside the body once",
         d: "A function that is used to repeat a block of code until the specified condition is met",
         correct: "d",
     },
     {
-        question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
+        question: "What is the output of:\nfor (int i = 0;i < 6;i++){\nprintf(''%d '',i);\n}",
         a: "1 2 3 4 5",
         b: "0 1 2 3 4 5",
         c: "6 5 4 3 2 1",
-        d: "1 2 3 4 5 6",
-        correct: "d",
+        d: "none of the above",
+        correct: "b",
     },
     {
-        question: "What is the output of:\ni=1\nwhile i < 5\nif == 3:\nbreak\n i += 1\nprint(i,end= ' ')",
-        a: "1 2 3 4",
-        b: "1 2 4 5",
-        c: "1 2 3",
-        d: "0 1 2 4 5",
+        question: "Which statement isn't correct about 'while' loops?",
+        a: "The loop run until the expression is evaluated to 'false'",
+        b: "If the expression is evaluated 'True' the statements inside the body of the loop are executed",
+        c: "The body of 'while' loop is executed once and then the 'testExpression' is evaluated",
+        d: "A The 'while' loop evaluates the 'expression' inside the parentheses",
         correct: "c",
     },
     {
-        question: "What is the purpose of the 'Continue' Statement",
-        a: "Skipping the current iteration to the following",
-        b: "Stopping the loop even if statement is True",
-        c: "Exiting the loop cycle and continuing to the next line of code",
-        d: "Skipping the current statement and continuing to the next",
+        question: "What is the output of:\nint i=0;\ndo{\nif(i== 3){\nbreak\n}\n i++ \nprintf(''%d ',i);\n}\nwhile (i < 5);",
+        a: "1 2 3",
+        b: "0 1 2 3 4 ",
+        c: "1 2 3 4 5",
+        d: "none of the above",
         correct: "a",
     },
     {
+        question: "What is the purpose of the 'Continue' Statement",
+        a: "Stopping the loop even if statement is True",
+        b: "Skipping the current iteration to the following",
+        c: "Exiting the loop cycle and continuing to the next line of code",
+        d: "Skipping the current statement and continuing to the next",
+        correct: "b",
+    },
+    {
         question: "Which answer is False",
-        a: "For loops are used when the programmer knows how many times the loop should run ",
-        b: "Within Python there are 2 primitive loops: While & For",
-        c: "Do While is used in Python to execute a statement prior the iteration",
-        d: "While iterations run undelessly until the statement is False",
+        a: "'For' loops are used when the programmer knows how many times the loop should run ",
+        b: "The 'break' statement ends the loop entirely.Within Python there are 2 primitive loops: While & For",
+        c: "'Do-While' is used in C to execute a statement prior the iteration",
+        d: "'While' loops runs endlessly until the expression is evaluated False",
         correct: "c",
     },
 ];
@@ -115,7 +123,7 @@ const answer = getSelected()
             loadQuiz()
         }
     else {
-        if (score > 2) {
+        if (score > 3) {
             quiz.innerHTML = `
            <div  class="quiz-header">
            <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
