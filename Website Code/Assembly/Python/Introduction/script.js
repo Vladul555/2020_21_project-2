@@ -1,33 +1,29 @@
 const Data = [{
         /*Page 1 */
-        title: "Introduction To Assembly",
-        mainText: "Assembly is a popular programming language. It was created by Guido van Rossum, and released in 1991.",
-        opt1: "● Assembly is used in Software Development",
-        opt2: "● Assembly is used in Web Development",
-        opt3: "● Assembly is used in Mathematics",
-        opt4: "● Assembly is used in System Scripting",
+        title: "What is Assembly Language?",
+        mainText: "Each personal computer has a microprocessor that manages the computer's arithmetical, logical, and control activities.",
+        opt1: "● Assembly is a low-level language designed for a specific family of processors that represents various instructions in symbolic code and a more understandable form.",
+        opt2: "● Each family of processors has its own set of instructions for handling various operations such as getting input from keyboard, displaying information on screen and performing various other jobs. These set of instructions are called 'machine language instructions'.",
+        opt3: "● A processor understands only machine language instructions, which are strings of 1's and 0's.",
+        opt4: "● Machine language is too obscure and complex for using in software development.",
     },
     {
         /*Page 2 */
-        title: "What can Assembly do?",
-        mainText: "Find out some of the top uses for Assembly, as we explore why it’s such a popular and diverse programming language.",
-        opt1: "● Assembly can connect to database systems. It can also read and modify files",
-        opt2: "● Assembly can be used to handle big data and perform complex mathematics.",
-        opt3: "● Assembly can be used on a server to create web applications and alongside software to create workflows.",
-        opt4: "● Assembly can be used for rapid prototyping, or for production-ready software development.",
+        title: "Advantages of Assembly Language",
+        mainText: "Having an understanding of assembly language makes one aware of the advantages of using assembly language.",
+        opt1: "● Assembly allows hardware-specific complex jobs in an easier way",
+        opt2: "● Assembly requires less memory and execution time.",
+        opt3: "● Assembly is suitable for time-critical jobs.",
+        opt4: "● Assembly is most suitable for writing interrupt service routines and other memory resident programs.",
     },
     {
         /*Page 3*/
-        title: "Why Assembly?",
-        mainText: "The python language is one of the most accessible programming languages available.",
-        opt1: "● Assembly has syntax that allows developers to write programs with fewer lines than some other programming languages.",
-        opt2: "● Assembly has simplified syntax and not complicated, which gives more emphasis on natural language.",
-        opt3: "● Assembly runs on an interpreter system, meaning that code can be executed as soon as it is written. This means that prototyping can be very quick.",
-        opt4: "● Assembly has a simple syntax similar to the English language.",
+        title: "Basic Features of PC Hardware",
+        mainText: "The main internal hardware of a PC consists of processor, memory, and registers.\n Registers are processor components that hold data and address.\nTo execute a program the system copies it from the external device into the internal memory. The processor executes the program instructions.",
     },
     {
         /*Page 4*/
-        title: "Indendation",
+        title: "Binary Number System",
         mainText: "Assembly uses indentation to indicate a block of code.indentation in Assembly is very important.",
         opt1: "● You have to use the same number of spaces in the same block of code, otherwise Assembly will give you an error",
         opt2: "● The number of spaces is up to you as a programmer, but it has to be at least one",
