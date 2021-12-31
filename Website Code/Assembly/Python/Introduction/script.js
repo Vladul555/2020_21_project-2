@@ -19,20 +19,24 @@ const Data = [{
     {
         /*Page 3*/
         title: "Basic Features of PC Hardware",
-        mainText: "The main internal hardware of a PC consists of processor, memory, and registers.\n Registers are processor components that hold data and address.\nTo execute a program the system copies it from the external device into the internal memory. The processor executes the program instructions.",
+        mainText: "The main internal hardware of a PC consists of processor, memory, and registers.",
+        opt1: "● Registers are processor components that hold data and address.",
+        opt2: "● To execute a program the system copies it from the external device into the internal memory, The processor executes the program instructions.",
+        opt3: "● The fundamental unit of computer storage is a 'bit' it could be ON (1) or OFF (0) and a group of 8 related bits makes a byte on most of the modern computers.",
+        opt4: "● A processor supports the following data sizes:\n- Word: a 2-byte data item\n- Doubleword: a 4-byte (32 bit) data item\n- Doubleword: a 4-byte (32 bit) data item\n- Paragraph: a 16-byte (128 bit) area\n- Kilobyte: 1024 bytes\n- Megabyte: 1,048,576 bytes",
     },
     {
         /*Page 4*/
         title: "Binary Number System",
-        mainText: "Assembly uses indentation to indicate a block of code.indentation in Assembly is very important.",
-        opt1: "● You have to use the same number of spaces in the same block of code, otherwise Assembly will give you an error",
-        opt2: "● The number of spaces is up to you as a programmer, but it has to be at least one",
-        opt3: "● Assembly will give you an error if you skip the indentation",
+        mainText: "Every number system uses positional notation, each position in which a digit is written has a different positional value.\nEach position is power of the base, which is 2 for binary number system and these powers begin at 0 and increase by 1.\nThe following table shows the positional values for an 8-bit binary number.",
+        opt1: "Bit number: 0 ,Position value: 1, Bit value 1\nBit number: 1 ,Position value:2, Bit value 1\nBit number: 2 ,Position value: 4, Bit value 1\nBit number: 3 ,Position value: 8, Bit value 1\nBit number: 4 ,Position value: 16, Bit value 1\nBit number: 5 ,Position value: 32, Bit value 1\nBit number: 6 ,Position value: 64, Bit value 1\nBit number: 7 ,Position value: 128, Bit value 1",
+        opt2: "\nThe value of a binary number is based on the presence of 1 'bits' and their positional value.\nthe value of a given binary number is:\n1 + 2 + 4 + 8 +16 + 32 + 64 + 128 = 255",
+        opt3: "",
         opt4: "",
     },
     {
         /*Page 5*/
-        title: "Variables",
+        title: "Hexadecimal Number System",
         mainText: "Variables are containers for storing data values.",
         opt1: "● A variable is created the moment you first assign a value to it",
         opt2: "● Variables do not need to be declared with any particular type, and can even change type after they have been set",
