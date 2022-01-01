@@ -37,13 +37,30 @@ const Data = [{
     {
         /*Page 5*/
         title: "Hexadecimal Number System",
-        mainText: "Variables are containers for storing data values.",
-        opt1: "● A variable is created the moment you first assign a value to it",
-        opt2: "● Variables do not need to be declared with any particular type, and can even change type after they have been set",
-        opt3: "● You can get the data type of a variable with the type() function",
+        mainText: "Hexadecimal number system uses the base 16. The digits in this system range from 0 to 15 with the letters A through F is used to represent the hexadecimal digits corresponding to decimal values 10 through 15.",
+        opt1: "● Hexadecimal numbers in computing is used for abbreviating lengthy binary representations",
+        opt2: "● Hexadecimal number system represents a binary data by dividing each byte in half and expressing the value of each half-byte",
+        opt3: "● The following table provides the decimal, binary, and hexadecimal equivalents:\nDecimal: 0--> Binary: 0--> Hexadecimal: 0\nDecimal: 1--> Binary: 1--> Hexadecimal: 1\nDecimal: 2--> Binary: 10--> Hexadecimal: 2\nDecimal: 3--> Binary: 11--> Hexadecimal: 3\nDecimal: 4--> Binary: 100--> Hexadecimal: 4\nDecimal: 5--> Binary: 101--> Hexadecimal: 5\nDecimal: 6--> Binary: 110--> Hexadecimal: 6\nDecimal: 7--> Binary: 111--> Hexadecimal: 7\nDecimal: 8--> Binary: 1000--> Hexadecimal: 8\nDecimal: 9--> Binary: 1001--> Hexadecimal: 9\nDecimal: 10--> Binary: 1010--> Hexadecimal: A\nDecimal: 11--> Binary: 1011--> Hexadecimal: B\nDecimal: 12--> Binary: 1100--> Hexadecimal: C\nDecimal: 13--> Binary: 1101--> Hexadecimal: D\nDecimal: 14--> Binary: 1110--> Hexadecimal: E\nDecimal: 15--> Binary: 1111--> Hexadecimal: F	",
         opt4: "",
-    }
-
+    },
+    {
+        /*Page 6*/
+        title: "Transformation of number system",
+        mainText: "Hexadecimal numbers to Binary numbers and Binary numbers to Hexadecimal numbers",
+        opt1: "To convert a binary number to its hexadecimal equivalent the binary number need to be broken into groups of 4 consecutive digits.\n starting from the right write those groups over the corresponding digits of the hexadecimal number.",
+        opt2: "Example - Binary number 1000110011010001-->1000|1100|1101|0001 is equivalent to Hexadecimal number: 8CD1",
+        opt3: "To convert a hexadecimal number to binary one just write each hexadecimal digit into its 4-digit binary equivalent.",
+        opt4: "Example -The Hexadecimal number FAD8 is equivalent to The binary number: 1111 1010 1101 1000",
+    },
+    {
+        /*Page 7*/
+        title: "Addressing Data in Memory",
+        mainText: "The process through which the processor controls the execution of instructions is referred as the fetch-decode-execute cycle or the execution cycle.",
+        opt1: "\nThe execution cycle consists of three continuous steps:\n- Fetching the instruction from memory\n- Decoding or identifying the instruction\n- Executing the instruction",
+        opt2: "\nThe processor may access one or more bytes of memory at a time for example the hexadecimal number 0725H will require two bytes of memory, the high-order byte or most significant byte is '07' and the low-order byte is '25'",
+        opt3: "\nThe processor stores data in reverse-byte sequence, a low-order byte is stored in a low memory address and a high-order byte in high memory address.\nIf the processor brings the value 0725H from register to memory, it will transfer 25 first to the lower memory address and 07 to the next memory address.",
+        opt4: "\nWhen the processor gets the numeric data from memory to register, it again reverses the bytes.\n There are two kinds of memory addresses:\n- Absolute address, a direct reference of specific location.\n- Segment address starting address of a memory segment with the offset value.",
+    },
 ];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
