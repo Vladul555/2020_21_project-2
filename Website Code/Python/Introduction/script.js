@@ -185,3 +185,4 @@ function Copy_text() {
     
         newLink.click(); 
     }
+}
