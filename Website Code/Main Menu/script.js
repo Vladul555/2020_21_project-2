@@ -6,7 +6,7 @@ if (sessionStorage.getItem('DarkMod')) {
 function hideSettings() {
     if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
         let setting = document.getElementById("setting")
-        setting.style.display = 'none'
+        setting.style.display = 'hidden'
     }
 }
 

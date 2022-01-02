@@ -31,7 +31,6 @@ const quizData = [{
         correct: "b",
     },
 
-
 ];
 
 const quiz = document.getElementById('quiz')
@@ -48,13 +47,13 @@ let currentQuiz = 0
 let score = 0
 
 
+
 loadQuiz()
 var heart
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
-    if (sessionStorage.getItem("heart")) {
-        heart = sessionStorage.getItem("heart")
-    } else
-        heart = 3
+if (localStorage.getItem("heart")) {
+    heart = localStorage.getItem("heart")
+} else
+    heart = 3
 
 function loadQuiz() {
 
@@ -83,6 +82,7 @@ function getSelected() {
     return answer
 }
 
+
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if (answer) {
@@ -91,7 +91,7 @@ submitBtn.addEventListener('click', () => {
             currentQuiz++
         }
         else {
-            if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+            if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]){
                 let reTry= window.confirm("Incorrect Answer\nTry Again?")
                 if (reTry == true) // when pressing OK
                     loadQuiz()
@@ -102,19 +102,19 @@ submitBtn.addEventListener('click', () => {
         }
         if (currentQuiz < quizData.length) {
             loadQuiz()
-        } 
+        }  
         else {
-            if (score > 2) {
+            if (score > 3) {
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-            } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+            } else {
                 heart--
                 if (heart > 0) {
-                    sessionStorage.setItem("heart", heart)
+                    localStorage.setItem("heart", heart)
                     quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
@@ -122,7 +122,6 @@ submitBtn.addEventListener('click', () => {
                    <button class="reload" onclick="location.reload()">Reload</button>
                    </div>
                    `
-
                 } else {
                     quiz.innerHTML = `
                    <div  class="quiz-header">
@@ -131,14 +130,6 @@ submitBtn.addEventListener('click', () => {
                    </div>
                    `
                 }
-            } else {
-                quiz.innerHTML = `
-               <div  class="quiz-header">
-               <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
-               <h2 style='text-align: center'>You Failed 😢</h2>
-               <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
-               </div>
-               `
             }
         }
     }
@@ -183,23 +174,12 @@ function run_clock(id, endtime) {
 run_clock('clockdiv', deadline);
 
 
-var timeout
-
-function afkToggle() {
-    if (!afkFlag) {
-        afkFlag = true;
-        sessionStorage.setItem('afk', afkFlag);
-        document.onmousemove = function() {
-            clearTimeout(timeout);
-            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
-        }
-    } else {
-        afkFlag = false;
-        sessionStorage.setItem('afk', afkFlag);
-        clearTimeout(timeout)
-        document.onmousemove = undefined;
-    }
+var timeout;
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
+
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
     sessionStorage.setItem('DarkMod', flag);
@@ -212,22 +192,23 @@ function TestdarkMode() {
     }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
     document.getElementById('status__logo').src = "./images/FREE.png";
-    //document.getElementById('Copy').style.visibility = 'hidden';
-    //document.getElementById('Download').style.visibility = 'hidden';
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
 }
 else{
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
     document.getElementById('Download').style.visibility = 'visible';
 }
+
 function Copy_text() {
-    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
+    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
-    el.style = { position: 'absolute', left: '-9999px' };
+    el.style = {position: 'absolute', left: '-9999px'};
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
