@@ -4,64 +4,36 @@ const Data = [
         mainText: "Conditional execution in assembly language is accomplished by several looping and branching instructions. These instructions can change the flow of control in a program. Conditional execution is observed in two scenarios:\n\nUnconditional jump\n This is performed by the 'JMP' instruction. Conditional execution often involves a transfer of control to the address of an instruction that does not follow the currently executing instruction. Transfer of control may be forward, to execute a new set of instructions or backward, to re-execute the same steps.\n\nConditional jump\nThis is performed by a set of jump instructions j<condition> depending upon the condition. The conditional instructions transfer the control by breaking the sequential flow and they do it by changing the offset value in IP.",
     },
    { /*Page 2*/
-    title: "types of C Loops",
-    mainText: "In C language there are 3 kinds of loop commands:\n'For' loops, 'While' loops, and 'do-while' loops.",
+    title: "CMP Instruction",
+    mainText: "The CMP instruction compares two operands. It is generally used in conditional execution. This instruction basically subtracts one operand from the other for comparing whether the operands are equal or not. It does not disturb the destination or source operands. It is used along with the conditional jump instruction for decision making.\nCMP compares two numeric data fields. The destination operand could be either in register or in memory. The source operand could be a constant data, register or memory.\nSyntax: CMP destination, source",
    },
    { /*Page 3*/
-    title: "'For' Loops syntax",
-    mainText: "The syntax of the for loop is:\nfor (initialization; testExpression; updateStatement){\n'statements inside the body of loop'\n}",
+    title: "Examples",
+    mainText: "valid CMP use:\nComparing between Data Register AL and the number 7: CMP AL,7\nComparing between Data Registers BX and CX: CMP BX,CX\nComparing between memory cell in address SI and Data Register CL: CMP [SI],CL\n\ninvalid CMP use:\nComparing between two memory cells: CMP [SI],[DI]\nComparing between a memory cell and a number: CMP BX,4\nComparing between Data Registers of different sizes: CMP AL,BX",
    },
    { /*Page 4*/
-    title: "How does the 'for' loops works?",
-    mainText: "● The 'initialization' statement is executed only once.\n● Then the 'test' expression is evaluated, If the test expression is evaluated to 'False' the loop is terminated.\n● However if the 'test' expression is evaluated 'True' the statements inside the body of the for loop are executed, and the 'update' expression is updated.\n● The test expression is evaluated again.\n\nThis process goes on until the test expression is false. When the test expression is false, the loop terminates.",
+    title: "Unconditional Jump",
+    mainText: "Unconditional Jump is performed by the 'JMP' instruction. Conditional execution often involves a transfer of control to the address of an instruction that does not follow the currently executing instruction. Transfer of control may be forward, to execute a new set of instructions or backward, to re-execute the same steps.\n\nSyntax\nThe JMP instruction provides a label name where the flow of control is transferred immediately. The syntax of the JMP instruction is:\nJMP 'label'",
    },
    { /*Page 5*/
     title: "Example",
-    mainText: "#include <stdio.h>\n\nint main(){\nint i;\nfor (i = 1; i < 11; ++i){\nprintf(''%d '',i);\n}\nreturn 0;\n}\n-->'1 2 3 4 5 6 7 8 9 10'",
+    mainText: "MOV  AX, 12 \nMOV  BX, 07\nMOV  CX, 03\nL20:\nADD  AX, 01\nADD  BX, AX\nJMP  L20 ",
    },
    { /*Page 6*/
-    title: "'While' loops syntax",
-    mainText: "while (testExpression){\n'the body of the loop'\n}",
+    title: "Conditional Jump",
+    mainText: "If some specified condition is satisfied in conditional jump, the control flow is transferred to a target instruction. There are numerous conditional jump instructions depending upon the condition and data.\n\nthe conditional jump instructions used on signed data used for arithmetic operations are:\n\nJE/JZ--> Jump Equal or Jump Zero uses 'Zero Flag'\nJNE/JNZ--> Jump not Equal or Jump Not Zero uses 'Zero Flag'\nJG/JNLE--> Jump Greater or Jump Not Less/Equal uses 'Overflow Flag'/'Sign Flag'/'Zero Flag'\nJGE/JNL--> Jump Greater/Equal or Jump Not Less uses 'Overflow Flag'/'Sign Flag'\nJL/JNGE--> Jump Less or Jump Not Greater/Equal uses 'Overflow Flag'/'Sign Flag'\nJLE/JNG--> Jump Less/Equal or Jump Not Greater uses 'Overflow Flag'/'Sign Flag'/'Zero Flag'\n\nThe conditional jump instructions used on unsigned data used for logical operations are:\nJE/JZ-->Jump Equal or Jump Zero uses 'Zero Flag'\nJNE/JNZ-->Jump not Equal or Jump Not Zero uses 'Zero flag'\nJA/JNBE-->Jump Above or Jump Not Below/Equal uses 'Carry Flag'/'Zero flag'\nJAE/JNB-->Jump Above/Equal or Jump Not Below uses 'Carry Flag'\nJB/JNAE-->Jump Below or Jump Not Above/Equal uses 'Carry Flag'\nJBE/JNA-->Jump Below/Equal or Jump Not Above uses 'Auxiliary Carry Flag'/'Carry Flag'\n\nconditional jump instructions that have special uses and check the value of does flags are:\nJXCZ-->Jump if CX is Zero uses 'none'\nJC-->Jump If Carry uses 'Carry Flag'\nJNC-->Jump If No Carry uses 'Carry Flag'\nJO-->Jump If Overflow uses 'Overflow Flag'\nJNO-->Jump If No Overflow uses 'Overflow Flag'\nJP/JPE-->Jump Parity or Jump Parity Even uses 'Parity Flag'\nJNP/JPO-->Jump No Parity or Jump Parity Odd uses 'Parity Flag'\nJS-->Jump Sign (negative value) uses 'Sign Flag'\nJNS-->Jump No Sign (positive value) uses 'Sign Flag'",
    },
    { /*Page 7*/
-    title: "How does the 'While' loops works",
-    mainText: "● The 'while' loop evaluates the 'testExpression' inside the parentheses\n● If testExpression is evaluated 'True' the statements inside the body of 'while' loop are executed, then the 'testExpression' is evaluated again.\n● The process goes on until 'testExpression' is evaluated to false.\n● If 'testExpression' is 'False', the loop is terminates",
+    title: "Examples",
+    mainText: "Example1:\nCMP AX,BX\nJBE T1\nADD AX,10\nMOV DX,BX\nT1:\n\nExample2:\nCMP AX,BX\nJBE T1\nADD AX,10\nMOV DX,BX\n JMP T2\nT1:\nSUB AX,8\nINC DX\nT2:\n\nExample3:\nCMP	AX,BX\nJA T1\nSUB AX,8\nINC DX\n JMP T2\nT1:\nADD AX,10\nMOV DX,BX\nT2:\n\nExample4:\nCMP AX,BX\nJLE T1\nCMP CX,5\nJNE T1\nADD AX,10\nMOV DH,BL\nT1:\n\nExample5:\nCMP AX,BX\nJG T1\nCMP CX,5\nJNE T2\nT1:\nADD AX,10\nMOV DH,BL\nT2:",
    },
    { /*Page 8*/
-    title: "Example",
-    mainText: "#include <stdio.h>\n\nint main(){\nint i = 1;\nwhile (i <= 5){\nprintf(''%d\n'', i);\n++i;\n}\nreturn 0;\n}\n\noutput:\n'1\n2\n3\n4\n5'",
+    title: "Loops",
+    mainText: "The JMP instruction can be used for implementing loops. For example, the following code snippet can be used to execute the loop-body 10 times:\nMOV CL,10\nL1:\n<Loop Body>\nDEC CL\nJNZ J1\n\nThe processor instruction set however, includes a group of loop instructions for implementing iteration. The basic LOOP instruction has the following syntax: LOOP 'label'\n\n'Label' is the target label that identifies the target instruction as in the jump instructions. The LOOP instruction assumes that the register CX contains the loop count. When the loop instruction is executed the register is decremented and the control jumps to the target label until the register value, i.e., the counter reaches the value zero.\n\nthis code snippet could be written as:\nMOV CX,10\nL1:\n<loop body>\nloop L1",
    },
    { /*Page 9*/
-       title: "'do-while' loops",
-       mainText: "The 'do-while' loop is similar to the 'while' loop with one important difference. The body of 'do-while' loop is executed at least once, only then the test expression is evaluated.",
-   },
-   { /*Page 10*/
-       title: "'do-While' loops syntax",
-       mainText: "do{\n'the body of the loop'\n}\nwhile (testExpression);",
-   },
-   { /*Page 11*/
-    title: "How does the 'do-While' loops works",
-    mainText: "● The body of 'do-while' loop is executed once and then the 'testExpression' is evaluated.\n● If 'testExpression' is 'True', the body of the loop is executed again and 'testExpression' is evaluated once more.\n● This process goes on until 'testExpression' becomes 'False'\n● If 'testExpression' is 'False' the loop is terminates",
-   },
-   { /*Page 12*/
-    title: "Example",
-    mainText: "#include <stdio.h>\n\nint main(){\nint num,sum=0;\ndo{\nprintf(''Enter a number: '');\n scanf(''%d'',&num);\nsum += num;\n}while(num!=0);\nprintf(''Sum = %d'',sum);\nreturn 0;\n}",
-   },
-   { /*Page 13*/
-    title: "C Break Statement",
-    mainText: "The 'break' statement ends the loop immediately when it is encountered. Its syntax is:\nbreak;",
-   },
-   { /*Page 14*/
-    title: "Example",
-    mainText: "#include <stdio.h>\n\nint main(){\nint i;\nfloat num, sum = 0.0;\nfor(i = 1; i <= 10; ++i){\nprintf(''Enter nubmer %d: '', i);\nscanf(''%f'',&num);\nif (number < 0.0){\n break;\n}\nsum += number;\n}printf(''Sum = %.2f'',sum);\nreturn 0;\n}",
-   },
-   { /*Page 15*/
-    title: "C Continue Statement",
-    mainText: "The 'continue' statement skips the current iteration of the loop and continues with the next iteration. Its syntax is:\ncontinue;",
-   },
-   {/*Page 16*/
-       title: "Example",
-       mainText: "#include <stdio.h>\nint main(){\nint i\nfloat num, sum = 0.0;\n for(i = 1; i <= 10; ++i){\nprintf(''Enter a number %d: '', i);\nscanf(''%f'',&num);\nif(number < 0.0){\ncontinue;\n}\nsum += number;\n}\nprintf(''Sum = %.2f'',sum);\nreturn 0;\n}",
+       title: "Examples",
+       mainText: "Example1:\nCode segment\nassume cs:code, ds:code\nstart: MOV AX,code\nMOV DS,AX\nMOV BX,400H\nMOV AX,0\nMOV CX,100H\nL1: ADD AX,CX\nSUB CX,2\nJNE L1\nMOV [BX],AX\nMOV AH,4CH\nint 21H\ncode ends\nend start\n\nExample2:\ncode segment\nassume ds:code,cs:code\nstart: mov ax,code\nmov ds,ax\nmov bx,300h\nsub al,al\nmov cx,21h\nnext: add al,[bx]\ninc bx\nloop next\nmov [bx],al\nmov ah,4ch\nint 21h\ncode ends\nend start",
    },
   ];
 
@@ -105,7 +77,7 @@ nextBtn.addEventListener('click', () => {
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
-           <input class="button" type="button" onClick="location.href='/FinalTest/index.html'"
+           <input class="button" type="button" onClick="location.href='/Website Code/Assembly/Python/Conditions and Loops/FinalTest/index.html'"
                 value='Start Test!'>
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
