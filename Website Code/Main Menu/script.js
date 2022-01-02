@@ -3,12 +3,6 @@ if (sessionStorage.getItem('DarkMod')) {
     sessionStorage.setItem('DarkMod', flag);
 }
 
-function hideSettings() {
-    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
-        let setting = document.getElementById("setting")
-        setting.style.display = 'none'
-    }
-}
 
 var timeout
 
@@ -35,7 +29,6 @@ let alertMsg = [
 ]
 
 let currentTxt = 0
-let premium = false
 
 function alertMin() {
 
@@ -46,9 +39,6 @@ function alertMin() {
     alert(currentTxtData.txt)
     currentTxt++
 }
-
-if (premium) { alertMin(); }
-setInterval(alert5min, 60 * 1000);
 
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
@@ -62,10 +52,15 @@ function TestdarkMode() {
     }
 }
 
-function checkID() {
+function checkIDMain() {
     if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
         document.getElementById("disUp").classList.add("disabled");
         document.getElementById("upgrade").style.textDecorationLine = "line-through";
         document.getElementById("upgrade").disabled = true;
+    } else {
+        let setting = document.getElementById("setting")
+        setting.style.display = 'none'
+        alertMin();
+        setInterval(alertMin, 60 * 1000);
     }
 }

@@ -77,8 +77,4 @@ function TestdarkMode() {
     }
 }
 
-function checkID() {
-    if (Number(sessionStorage.getItem("user")) === userTypes["Premium"])
-        document.getElementById("afk").style.display = "flex"
-}
 afkToggle()
