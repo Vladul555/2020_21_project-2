@@ -121,9 +121,17 @@ function afkToggle() {
         sessionStorage.setItem('afk', afkFlag);
         clearTimeout(timeout)
         document.onmousemove = undefined;
+    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+        document.getElementById('status__logo').src = "./images/FREE.png";
+        //document.getElementById('Copy').style.visibility = 'hidden';
+        //document.getElementById('Download').style.visibility = 'hidden';
+    }
+    else{
+        document.getElementById('status__logo').src = "./images/PRO.png";
+        document.getElementById('Copy').style.visibility = 'visible';
+        document.getElementById('Download').style.visibility = 'visible';
     }
 }
-
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
     sessionStorage.setItem('DarkMod', flag);
@@ -136,15 +144,13 @@ function TestdarkMode() {
     }
 }
 
+
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
-    document.getElementById('Copy').style.visibility = 'hidden';
-    document.getElementById('Download').style.visibility = 'hidden';
-}
-else{
+    //document.getElementById('Copy').style.visibility = 'hidden';
+} else {
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
-    document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
@@ -159,24 +165,24 @@ function Copy_text() {
     document.body.removeChild(el);
     alert("the question was copied to the clipboard!");
 }
-
-function Download_file() {
-    let downloadText = Data[currentData].title + Data[currentData].mainText + Data[currentData].opt1 + Data[currentData].opt2 + Data[currentData].opt3 + Data[currentData].opt4;
-    // Convert the text to BLOB.
-    const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
-
-    let newLink = document.createElement("a");
-    newLink.download = sFileName;
-
-    if (window.webkitURL != null) {
-        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    function Download_file() {
+        let downloadText = Data[currentData].title + Data[currentData].mainText + Data[currentData].opt1 + Data[currentData].opt2 + Data[currentData].opt3 + Data[currentData].opt4;
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
+    
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+    
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+    
+        newLink.click(); 
     }
-    else {
-        newLink.href = window.URL.createObjectURL(textToBLOB);
-        newLink.style.display = "none";
-        document.body.appendChild(newLink);
-    }
-
-    newLink.click(); 
 }

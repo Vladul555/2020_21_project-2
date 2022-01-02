@@ -100,7 +100,7 @@ submitBtn.addEventListener('click', () => {
             currentQuiz++
         }
         else {
-            if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]){
+            if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
                 let reTry= window.confirm("Incorrect Answer\nTry Again?")
                 if (reTry == true) // when pressing OK
                     loadQuiz()
@@ -203,8 +203,8 @@ function TestdarkMode() {
 
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
     document.getElementById('status__logo').src = "./images/FREE.png";
-    document.getElementById('Copy').style.visibility = 'hidden';
-    document.getElementById('Download').style.visibility = 'hidden';
+    //document.getElementById('Copy').style.visibility = 'hidden';
+    //document.getElementById('Download').style.visibility = 'hidden';
 }
 else{
     document.getElementById('status__logo').src = "./images/PRO.png";
