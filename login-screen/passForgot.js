@@ -11,5 +11,6 @@ function TestdarkMode() {
 }
 
 function readValue(mail) {
+    window.alert("An E-mail that is containing your password has been sent.\nPlease do not open that E-mail with people around you.")
     return forgotPass(mail)
 }

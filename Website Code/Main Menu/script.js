@@ -54,9 +54,8 @@ function TestdarkMode() {
 
 function checkIDMain() {
     if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
-        document.getElementById("disUp").classList.add("disabled");
-        document.getElementById("upgrade").style.textDecorationLine = "line-through";
-        document.getElementById("upgrade").disabled = true;
+        let upgrade = document.getElementById("disUp");
+        upgrade.style.display = 'none'
     } else {
         let setting = document.getElementById("setting")
         setting.style.display = 'none'
