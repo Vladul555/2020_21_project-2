@@ -89,10 +89,9 @@ submitBtn.addEventListener('click', () => {
         if (answer === quizData[currentQuiz].correct) {
             score++
             currentQuiz++
-        }
-        else {
-            if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
-                let reTry= window.confirm("Incorrect Answer\nTry Again?")
+        } else {
+            if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+                let reTry = window.confirm("Incorrect Answer\nTry Again?")
                 if (reTry == true) // when pressing OK
                     loadQuiz()
                 else { // when pressing cancel
@@ -102,8 +101,7 @@ submitBtn.addEventListener('click', () => {
         }
         if (currentQuiz < quizData.length) {
             loadQuiz()
-        } 
-        else {
+        } else {
             if (score > 2) {
                 quiz.innerHTML = `
                <div  class="quiz-header">
@@ -214,14 +212,14 @@ function TestdarkMode() {
 
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
-    //document.getElementById('Copy').style.visibility = 'hidden';
-    //document.getElementById('Download').style.visibility = 'hidden';
-}
-else{
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
+} else {
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
     document.getElementById('Download').style.visibility = 'visible';
 }
+
 function Copy_text() {
     var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
     var el = document.createElement('textarea');
@@ -236,22 +234,21 @@ function Copy_text() {
 }
 
 function Download_file() {
-    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
     // Convert the text to BLOB.
     const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
+    const sFileName = 'formData.txt'; // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
 
     if (window.webkitURL != null) {
         newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-    }
-    else {
+    } else {
         newLink.href = window.URL.createObjectURL(textToBLOB);
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
 
-    newLink.click(); 
+    newLink.click();
 }
