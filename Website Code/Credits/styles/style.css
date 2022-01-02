@@ -14,7 +14,7 @@ body {
 /* Header/logo Title */
 
 .header {
-    padding: 80px;
+    padding: 10px;
     text-align: center;
     background: #1abc9c;
     color: white;
@@ -109,17 +109,10 @@ body {
     background-color: white;
     padding: 20px;
 }
+.img{
+    height: 200px;
 
-
-/* Fake image, just for this example */
-
-.fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
 }
-
-
 /* Footer */
 
 .footer {

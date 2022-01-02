@@ -1,36 +1,59 @@
 const quizData = [{
-        question: "When was Assembly Created?",
-        a: "1991",
-        b: "2005",
-        c: "1803",
-        d: "1994",
+        question: "which statement about Assembly is correct?",
+        a: "Assembly is a low-level language designed for a specific family of processors",
+        b: "Assembly language is used to develop databases",
+        c: "Assembly is a mid-level structured oriented programming language",
+        d: "Assembly is used in System Scripting",
         correct: "a",
     },
     {
-        question: "What Assembly cannot do?",
-        a: "Assembly can connect to database systems",
-        b: "Assembly can be used for rapid prototyping",
+        question: "which statement isn't an advantage of Assembly?",
+        a: "Assembly allows hardware-specific complex jobs",
+        b: "Assembly requires less memory and execution time",
         c: "Assembly can be used to handle big data and perform complex mathematics",
-        d: "Assembly can access hardware registers or write interrupt programs",
+        d: "Assembly is suitable for time-critical jobs",
+        correct: "c",
+    },
+    {
+        question: "What isn't correct about PC Hardware",
+        a: "Registers are processor components that hold data and address",
+        b: "A processor supports only one type of data size",
+        c: "To execute a program the system copies it from the external device into the internal memory",
+        d: "The fundamental unit of computer storage is a 'bit' ",
+        correct: "b",
+    },
+    {
+        question: "What is the Binary definition of the number 53?",
+        a: "101101",
+        b: "1101001",
+        c: "011010",
+        d: "110101",
         correct: "d",
     },
     {
-        question: "What isn't correct about variables",
-        a: "type() is a function to determine variable type",
-        b: "Variables are created the moment you first declare them",
-        c: "Changing the type of a variable is possible after they have been set",
-        d: "Declaring a variable name may not start with a digit or underscore, and may not end with an underscore ",
+        question: "What is the Hexadecimal definition of the number 100 ?",
+        a: "A3B",
+        b: "64",
+        c: "1F4",
+        d: "8CD1",
         correct: "b",
     },
     {
-        question: "What is Indendation in Assembly?",
-        a: "A deep recess or notch on the edge or surface of something",
-        b: "To indicate a block of code",
-        c: "Anger or annoyance provoked by what is perceived as unfair treatment",
-        d: "none of the above",
-        correct: "b",
+        question: "What is the Binary definition of the Hexadecimal number 8CD1 ?",
+        a: "1111 1010 1101 1000",
+        b: "1101 0110 0011 0101",
+        c: "1000 1100 1101 0001",
+        d: "0110 0110 1100 1010",
+        correct: "c",
     },
-
+    {
+        question: "What is the Hexadecimal definition of the Binary number 1111101011011000 ?",
+        a: "FAD8",
+        b: "3A6C",
+        c: "1FEA",
+        d: "F39B",
+        correct: "a",
+    },
 
 ];
 
@@ -96,7 +119,7 @@ submitBtn.addEventListener('click', () => {
         if (currentQuiz < quizData.length) {
             loadQuiz()
         } else {
-            if (score > 2) {
+            if (score > 5) {
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
