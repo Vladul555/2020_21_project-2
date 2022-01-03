@@ -89,10 +89,13 @@ function updateUserAdmin(id) {
 
 function unbanUserAdmin(id) {
     for (const user of users) {
-        if (user._id === id && user.bannedStatus)
-            unbanUser(id)
-        else if (!user.bannedStatus)
-            window.alert("This user is not banned.")
+        if (user._id === id) {
+            if (user.bannedStatus) {
+                unbanUser(id)
+                return
+            } else
+                window.alert("This user is not banned.")
+        }
     }
 }
 
