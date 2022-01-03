@@ -64,35 +64,34 @@ const Data = [{
     {
         /*Page 14*/
         title: "Logical Instructions",
-        mainText: "The processor instruction set provides the instructions AND, OR, XOR, TEST, and NOT Boolean logic, which tests, sets, and clears the bits according to the need of the program.\n\nThe format for these instructions are:\n",
+        mainText: "The processor instruction set provides the instructions AND, OR, XOR, TEST, and NOT Boolean logic, which tests, sets, and clears the bits according to the need of the program.\n\nThe format for these instructions are:\nAND instruction: AND operand1, operand2\nOR instruction: OR operand1, operand2\nXOR instruction: XOR operand1, operand2\nTEST instruction: TEST operand1, operand2\nNOT instruction: NOT operand1\n\nThe first operand in all the cases could be either in register or in memory. The second operand could be either in register/memory or an immediate value. However, memory-to-memory operations are not possible. These instructions compare or match bits of the operands and set the CF, OF, PF, SF and ZF flags",
+    },
+    {
+        /*Page 15*/
+        title: "AND Instruction",
+        mainText: "The AND instruction is used for supporting logical expressions by performing bitwise AND operation. The bitwise AND operation returns 1, if the matching bits from both the operands are 1, otherwise it returns 0.\n\nExemples:\n- nullifing the 7th Bit: AND al,01111111B\n- nullifing Registers 'al': AND al,0",
+    },
+    {
+        /*Page 16*/
+        title: "OR Instruction",
+        mainText: "OR instruction is used for supporting logical expression by performing bitwise OR operation. The bitwise OR operator returns 1, if the matching bits from either or both operands are one. It returns 0, if both the bits are zero.\n\nFor example:\nOperand1: 0101\nOperand2: 0011\nOR Operand1,Operand2\n\nThe OR operation can be used for setting one or more bits. For example, let us assume the AL register contains 0011 1010, you need to set the four low-order bits, you can OR it with a value 0000 1111\nOR AL,0FH",
+    },
+    {
+        /*Page 17*/
+        title: "XOR Instruction",
+        mainText: "The XOR instruction implements the bitwise XOR operation. The XOR operation sets the resultant bit to 1, if and only if the bits from the operands are different. If the bits from the operands are same ,both 0 or both 1, the resultant bit is cleared to 0.\nExample:\nMOV Operand1,0101\nMOV Operand2,0011\nXOR Operand1,Operand2\n-->Operand1: 0110",
 
     },
     {
-        /*Page 10*/
-        title: "Output Variables",
-        mainText: "The C print statement is often used to output variables\nC uses a format specifier to print variables,the '%' character combined with a letter for the specific data type:\n%d for int Variables\n%f for float Variables\n%c for char Variables\nTo combine both text and a variable you put the text in the quotation marks of the printf() function.",
-    },
-    {
-        /*Page 11 */
-        title: "Example 1",
-        mainText: "int x = 5;\n int y = 7;\n'printf(''I am %d years old'',x);'-->I am 5 years old\n'printf(''The number of days in a week is %d'',y);'-->The number of days in a week is 7",
-    },
-    {
-        /*Page 12*/
-        title: "Example 2",
-        mainText: "char letter = 'a';\nprintf(''The first letter of the alphabet is %c'',letter);-->The first letter of the alphabet is 'a'\nchar sign = '@';\nprintf(''%c'',sign); --> @",
+        /*Page 18*/
+        title: "TEST Instruction",
+        mainText: "TEST instruction works same as the AND operation, but unlike AND instruction, it does not change the first operand. So, if we need to check whether a number in a register is even or odd, we can also do this using the TEST instruction without changing the original number.\n\nExemple:\nTEST AL,01H\nJZ EVEN_NUMBER",
 
     },
     {
-        /*Page 13*/
-        title: "Example 3",
-        mainText: "float Grade = '87.5';\nprintf(''Your grade in the test is %f'',Grade);-->Your grade in the test is 87.5\nfloat Length = 17.3;\nprintf(''The lenght of the road is %f kilometers'',Lenght); -->The lenght of the road is 17.3 kilometers",
-
-    },
-    {
-        /*Page 14*/
-        title: "string Variables",
-        mainText: "This Variables uses the header file <string.h> and the format specifier to print string is '%s'."
+        /*Page 19*/
+        title: "NOT Instruction",
+        mainText: "The NOT instruction implements the bitwise NOT operation. NOT operation reverses the bits in an operand. The operand could be either in a register or in the memory.\n\nFor example:\nOperand1: 0101 0011\nNOT Operand1\nOperand1: 1010 1100"
     },
     {
         /*Page 15*/

@@ -1,5 +1,13 @@
 const quizData = [
     {
+        question: "Which statement about Assembly Variables is correct?",
+        a: "In Assembly Declaring a variable name may start with a digit",
+        b: "Define assembler directive is used for allocation of storage space",
+        c: "registers slows down the processor operations",
+        d: "The registers store data elements for processing by accessing the memory",
+        correct: "b",
+    },
+    {
         question: "Which is the corret Syntax to assign the value 'A' to grade",
         a: "char grade = ''A'';",
         b: "char grade = 'A';",
