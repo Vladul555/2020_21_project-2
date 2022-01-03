@@ -93,22 +93,6 @@ const Data = [{
         title: "NOT Instruction",
         mainText: "The NOT instruction implements the bitwise NOT operation. NOT operation reverses the bits in an operand. The operand could be either in a register or in the memory.\n\nFor example:\nOperand1: 0101 0011\nNOT Operand1\nOperand1: 1010 1100"
     },
-    {
-        /*Page 15*/
-        title: "Example ",
-        mainText: "#include <string.h>\n\nint main(){\nchar name[] = ''Amit'';\nprintf(''My name is %s'',name)-->My name is Amit;\n}",
-
-    },
-    {
-        /*Page 16*/
-        title: "long and double Variables",
-        mainText: "The variable long functions the same as int and The variable double functions the same as float only they have twice the memory Size.\nThe format specifier to print long is '%d'\nThe format specifier to print double is '%f'."
-    },
-    {
-        /*Page 17*/
-        title: "scanf function",
-        mainText: "'scanf' is a function that used to input a value to variable when the code is actively running.\nthe syntax of the 'scanf' function is defined similar to the 'printf' function.\n inside the parentheses you put the 'format specifier' in quotation marks and outside of quotation marks the '&' sign followed by the desired variable you wants to input a value into like so:\nint num;\nscanf(''%d'',&num);"
-    },
   ];
 
 /*my elements in JS need to be connected to id's in HTML to function*/
