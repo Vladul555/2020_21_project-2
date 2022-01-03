@@ -130,17 +130,7 @@ function afkToggle() {
         clearTimeout(timeout)
         document.onmousemove = undefined;
     }
-    if (sessionStorage.getItem('DarkMod')) {
-        flag = sessionStorage.getItem('DarkMod')
-        sessionStorage.setItem('DarkMod', flag);
-    }
-
-    function TestdarkMode() {
-        if (flag == 1) {
-            var element = document.body;
-            element.classList.toggle("dark-mode")
-        }
-    }
+   
 
     function Copy_text() {
         var copyText = Data[currentData].title + ' ' + Data[currentData].mainText + '. ' + Data[currentData].opt1 + '. ' + Data[currentData].opt2 + '. ' + Data[currentData].opt3 + '. ' + Data[currentData].opt4 + '. ';
@@ -173,5 +163,16 @@ function afkToggle() {
         }
 
         newLink.click();
+    }
+}
+
+if (sessionStorage.getItem('DarkMod')) {
+    flag = sessionStorage.getItem('DarkMod')
+    sessionStorage.setItem('DarkMod', flag);
+}
+function TestdarkMode() {
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
     }
 }

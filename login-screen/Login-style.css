@@ -98,8 +98,3 @@ form .button input:hover {
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
 
-body.dark-mode {
-    background-color: rgb(53, 49, 49);
-    color: white;
-    background-image: none;
-}
