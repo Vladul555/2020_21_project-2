@@ -6,46 +6,65 @@ const Data = [{
     {
         /*Page 2 */
         title: "About Assembly Variables",
-        mainText: "●like in other programing languages in Assembly you can create variables and define them ourselves.\n●the definition of a variable can be done after it's used.\n●First character of variable can be the sign '$', '@', Bottom dividing line, or some other symbols but it can't be a number\n●variable name can Contains numbers and some symbols but not spacing\n●",
+        mainText: "●like in other programing languages in Assembly you can create variables and define them ourselves.\n●the definition of a variable can be done after it's used.\n●First character of variable can be the sign '$', '@', Bottom dividing line, or some other symbols but it can't be a number\n●variable name can Contains numbers and some symbols but not spacing\n● the definition of a variable will include a name and size.\n●A variable dosen't need to be initialized when it's defined.",
     },
     {
         /*Page 3 */
-        title: "Example",
-        mainText: "If you want to use the printf() function, the header file <stdio.h> should be included like so:\n#include <stdio.h>.",
+        title: "Defining variables ",
+        mainText: "The syntax for storage allocation statement for initialized data is:\nVariable_name Variable_type Values/Memory allocation\n\nvariable-name is the identifier for each storage space. The assembler associates an offset value for each variable name defined in the data segment. There are five basic forms of the define directive:\nDB-->Define Byte allocates 1 byte\nDW-->Define Word allocates 2 bytes\nDD-->Define Doubleword allocates 4 bytes\nDQ-->Define Quadword allocates 8 bytes\nDT-->Define Ten Bytes allocates 10 bytes",
     },
     {
         /*Page 4 */
-        title: "Variables",
-        mainText: "Variables are containers for storing data values.\nIn C you need to declare the data type of the variable than give it a name and assign a value to it.\nThe value of a variable must coincide with the data type otherwise C will indicate an error.",
+        title: "Examples",
+        mainText: "A1 	DB 	7\nnumber DW 12345\nbig_number DQ 123456789\nMone DW ?\nreal_number1 DD 1.234\nTotal DT 750H",
 
     },
     {
-        /*Page 5*/
-        title: "declare data types",
-        mainText: "The most practical way to declare data type of variables is to define all variable of the same type in the same line of code.\nint x=5,y=17,z=34;\nfloat num1=13.5,num2=78.3,num3=42.69\nchar letter='t',sign='#',symbol='!';",
+        /*Page 5 */
+        title: "About defined directive",
+        mainText: "●Each byte of character is stored as its ASCII value in hexadecimal.\n●Each decimal value is automatically converted to its 16-bit binary equivalent and stored as a hexadecimal number.\n●Processor uses the little-endian byte ordering.\n●Negative numbers are converted to its 2's complement representation.\n●Short and long floating-point numbers are represented using 32 or 64 bits, respectively.",
+
     },
     {
         /*Page 6*/
-        title: "Variable Names",
-        mainText: "A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume)",
-    }, {
-        title: "Rules for C variable names",
-        mainText: "Must start with a letter or the underscore character\nCannot start with a number\nCase-sensitive (age, Age and AGE are three different variables)",
+        title: "OFFSET",
+        mainText: "offset operator return the first address of a given variable.\nExemple:\nvariable A1 is defined in the data segment like so:\nA1 DW 2\nRegistration order that causes the 'word' address to load in to Register BX:\nMOV BX,offset A1 ",
     },
     {
         /*Page 7*/
-        title: "Case-Sensitive example",
-        mainText: "int a = 4\nchar A = '#'\n*A will not override a",
+        title: "structure of data segment",
+        mainText: "Assembly Program structure for data segment is like so\ndata segment\nincome BD ?\nsum BD ?\ndata ends",
+    },
+    {   /*Page 8*/
+        title: "Exemple for Code",
+        mainText: "data segment\n addr dw 300h\nnatun db 25h\ndata ends\ncode segment\nassume ds:data,cs:code\nstart: mov ax,data\nmov ds,ax\nmov cx,20h\nmov bx,addr\nmov al,natun\nnext: mov [bx],al\ninc bx\nloop next\nmov ah,4ch\nint 21h\ncode ends\nstart ends",
+    },
+    {   /*Page 9*/
+        title: "String variable",
+        mainText: "strings are variables that contains a Sequence of characters.\nThe variable length strings can have as many characters as required. Generally, we specify the length of the string by either of the two ways:\n- Explicitly storing string length\n- Using a sentinel character\n\nWe can store the string length explicitly by using the '$' location counter symbol that represents the current value of the location counter.\nfor example:\nHELLO DB 'hello, world$'",
     },
     {
-        /*Page 8*/
-        title: "Legal variable names",
-        mainText: "char myvar = 'D'\nchar my_var = 'S'\nint _my_var = 5\nint myVar = 12\nfloat MYVAR= 17.75\nfloat myvar2 = 24.23",
+        /*Page 10*/
+        title: "String Instructions",
+        mainText: "Each string instruction may require a source operand, a destination operand or both.\nFor 16-bit segments, however, the SI and the DI registers are used to point to the source and destination, respectively.\nThere are five basic instructions for processing strings, They are:\n● MOVS - This instruction moves 1 Byte, Word or Doubleword of data from memory location to another.\n● LODS - This instruction loads from memory. If the operand is of one byte, it is loaded into the AL register, if the operand is one word, it is loaded into the AX register.\n● STOS - This instruction stores data from register (AL or AX) to memory.\n● CMPS - This instruction compares two data items in memory. Data could be of a byte size, word or doubleword.\n● SCAS - This instruction compares the contents of a register (AL or AX) with the contents of an item in memory.",
+    },
+    {   /*Page 11*/
+        title: "Exemple for Code",
+        mainText: "data segment\nstring db 'abcdef$'\ndata ends\ncode segment\nassume ds:data,cs:code\nstart: mov ax,data\nmov ds,ax\nmov bx,offset string\nmov si,bx\nnext: mov al,[si]\ncmp al,'$'\nje cont\ninc si\njmp next\ncont: dec si\nagain: mov al,[bx]\nmov ah,[si]\nmov [bx],ah\nmov [si],al\ninc bx\ndec si\ncmp bx,si\njb again\nmov ah,4ch\nint 21h\ncode ends\nstart ends",
     },
     {
-        /*Page 9*/
-        title: "illegal variable names",
-        mainText: "char 2myvar = 'J'\n int my-var = 8\nfloat my var = 64.12",
+        /*Page 12*/
+        title: "Array variables ",
+        mainText: "Arrays are a series of memory cells, you can Refer to Each one as a variable that Share the same name of array with it's index in array.\nlike so: ARR[0] for the first memory cell, ARR[1] for the second memory cell, and so on.\n\nTo initialize Array and it's memory cells the name and data definition directive as you were a Regular variables but with the values Separated by commas.\nFor Exemple: ARR1 DB 7, 8, 9",
+    },
+    {   /*Page 13*/
+        title: "Exemple for Code",
+        mainText: "data segment\nARR1 DB 31H, 32H, 33H, 34H, 35H, 36H, 37H, 38H, 39H\nARR2 DB 9 DUP (?)\ndata ends\ncode segment\nassume ds:data,cs:code\nstart: mov ax,data\nmov ds,ax\nmov si,0\nCPYLOOP: MOV AL,ARR1[SI]\nMOV ARR2[si],AL\nINC SI\nCMP SI,9\nJNE CPYLOOP\nMOV AH,4CH\nint 21H\ncode ends\nstart ends",
+    },
+    {
+        /*Page 14*/
+        title: "Logical Instructions",
+        mainText: "The processor instruction set provides the instructions AND, OR, XOR, TEST, and NOT Boolean logic, which tests, sets, and clears the bits according to the need of the program.\n\nThe format for these instructions are:\n",
 
     },
     {
