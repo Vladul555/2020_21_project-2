@@ -50,7 +50,7 @@ let score = 0
 
 loadQuiz()
 var heart
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) //Hearts are only defined for a free user
     if (sessionStorage.getItem("heart")) {
         heart = sessionStorage.getItem("heart")
     } else
@@ -97,6 +97,8 @@ submitBtn.addEventListener('click', () => {
                 else { // when pressing cancel
                     currentQuiz++
                 }
+            } else {
+                currentQuiz++
             }
         }
         if (currentQuiz < quizData.length) {
@@ -134,7 +136,7 @@ submitBtn.addEventListener('click', () => {
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
                <h2 style='text-align: center'>You Failed 😢</h2>
-               <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
+               <button class="reload" onclick="location.reload()">Try again?</button>
                </div>
                `
             }
@@ -159,6 +161,10 @@ function time_remaining(endtime) {
 function run_clock(id, endtime) {
     var clock = document.getElementById(id);
     var press;
+    if (Number(sessionStorage.getItem('user')) === userTypes["Premium"]) {
+        document.getElementById("timerTitle").style.display = 'none'
+        return;
+    }
 
     function update_clock() {
         var t = time_remaining(endtime);

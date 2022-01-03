@@ -21,7 +21,7 @@
     justify-content: space-between;
 }
 
-.status__logo  {
+.status__logo {
     border-radius: 50%;
     width: 50px;
     height: 45px;
@@ -176,6 +176,7 @@
 
 .timerTitle {
     margin: 0;
+    color: white
 }
 
 body.dark-mode {
