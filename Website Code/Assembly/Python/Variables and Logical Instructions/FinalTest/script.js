@@ -1,11 +1,19 @@
 const quizData = [
     {
-        question: "Which is the corret Syntax to assign the value 'A' to grade",
-        a: "char grade = ''A'';",
-        b: "char grade = 'A';",
-        c: "int grade = 'A';",
-        d: "char grade == 'A';",
+        question: "Which statement about Assembly Variables is correct?",
+        a: "In Assembly Declaring a variable name may start with a digit",
+        b: "Define assembler directive is used for allocation of storage space",
+        c: "Variables slows down the processor operations",
+        d: "Variables get initialized on their own",
         correct: "b",
+    },
+    {
+        question: "Which isn't an attribute of Variables",
+        a: "the definition of a variable can be done after it's used",
+        b: "First character of variable name can't be a number",
+        c: "variable name can Contains spacing;",
+        d: "Variables don't have to be initialized",
+        correct: "c",
     },
     {
         question: "Which is the corret way to create an int variable?",
