@@ -16,7 +16,7 @@ const quizData = [
         correct: "c",
     },
     {
-        question: "Which statement about  define directives is incorrect?",
+        question: "Which statement about define directives is incorrect?",
         a: "Each byte of character is stored as its ASCII value in Binary",
         b: "Each decimal value is automatically converted to its 16-bit binary equivalent.",
         c: "Negative numbers are converted to its 2's complement representation",
@@ -24,7 +24,7 @@ const quizData = [
         correct: "a",
     },
     {
-        question: "Which syntax is the corret way to create a variable?",
+        question: "Which syntax is a corret way to create a variable?",
         a: "Total db 750h",
         b: "number DW 243556334;",
         c: "real number1 DD 1.234;",
@@ -48,30 +48,21 @@ const quizData = [
         correct: "b",
     },
     {
-        question: "Determine the correct Syntax to define multiple variables in the same line of code",
-        a: "int x = 5, y =13, z=24;",
-        b: "int x = 5 = y =17 z=32;",
-        c: "char x ==2, y ==15, z==38;",
-        d: "you cannot assign multiple variables in the same line of code",
-        correct: "a",
-    },
-    {
-        question: "Determine wich is the correct Syntax to print Variables",
-        a: "printf(%c,int_variable);",
-        b: "printf==int_variable",
-        c: "printf(%c,Char_variable);",
-        d: "printf(''%c'',char_variable);",
+        question: "Which statement about Logical Instructions is correct?",
+        a: "Logical Instructions tests, sets, and clears the bits to the need of the program",
+        b: "memory-to-memory operations are not possible with Logical Instructions",
+        c: "The first operand in all Logical Instructions could be either in register or in memory",
+        d: "All of the above",
         correct: "d",
     },
     {
-        question: "What isn't correct about string variables",
-        a: "Data type of string is char and their own format specifier to print variables is '%s'",
-        b: "String variables don't need to includ a header file",
-        c: "String variable names must and end with Brackets",
-        d: "The value of string variables must be in quotation marks",
-        correct: "b",
+        question: "which Logical Instructions is used for the Syntax of the code to be correct\noperand1: 1101 0011\noperand2: 0101 1010\n____ operand1,operand2\noperand1-->0101 0010",
+        a: "AND",
+        b: "OR",
+        c: "XOR",
+        d: "NOT",
+        correct: "a",
     },
-
 ];
 
 const quiz = document.getElementById('quiz')
