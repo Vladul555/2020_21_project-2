@@ -6,12 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="../../http.js"></script>
     <title>Main Menu</title>
 </head>
 
-<body class="page" onload="TestdarkMode()">
-
-
+<body class="page" onload="checkIDMain(), TestdarkMode()">
     <nav class="navbar">
         <label class="logo">Glyph</label>
         <ul class="menu" id="menu">
@@ -19,7 +18,7 @@
                 <a href="../Courses/index.html">
                     <button class="buttons" id="start">Start</button></a>
             </li>
-            <li class="list">
+            <li class="list" id="disUp">
                 <a href="../Upgrade/index.html">
                     <button class="buttons" id="upgrade">Upgrade</button></a>
             </li>

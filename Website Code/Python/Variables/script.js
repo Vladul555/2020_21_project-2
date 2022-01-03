@@ -74,8 +74,17 @@ const previousBtn = document.getElementById('previous')
 
 let currentData = 0
 let skip = document.getElementById('skip')
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"])
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     skip.style.display = 'none'
+    document.getElementById('status__logo').src = "./images/FREE.png";
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
+} else {
+    document.getElementById('status__logo').src = "./images/PRO.png";
+    document.getElementById('Copy').style.visibility = 'visible';
+    document.getElementById('Download').style.visibility = 'visible';
+}
+
 loadData()
 
 /*function loads new data for each page of the theory*/
@@ -120,10 +129,22 @@ previousBtn.addEventListener('click', () => {
     }
 })
 
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 
 if (sessionStorage.getItem('DarkMod')) {
@@ -138,23 +159,12 @@ function TestdarkMode() {
     }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
-    document.getElementById('status__logo').src = "./images/FREE.png";
-    //document.getElementById('Copy').style.visibility = 'hidden';
-    //document.getElementById('Download').style.visibility = 'hidden';
-}
-else{
-    document.getElementById('status__logo').src = "./images/PRO.png";
-    document.getElementById('Copy').style.visibility = 'visible';
-    document.getElementById('Download').style.visibility = 'visible';
-}
-
 function Copy_text() {
-    var copyText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ';
+    var copyText = Data[currentData].title + ' ' + Data[currentData].mainText + '. ';
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
-    el.style = {position: 'absolute', left: '-9999px'};
+    el.style = { position: 'absolute', left: '-9999px' };
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
@@ -166,19 +176,18 @@ function Download_file() {
     let downloadText = Data[currentData].title + Data[currentData].mainText + Data[currentData].opt1 + Data[currentData].opt2 + Data[currentData].opt3 + Data[currentData].opt4;
     // Convert the text to BLOB.
     const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
+    const sFileName = 'formData.txt'; // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
 
     if (window.webkitURL != null) {
         newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-    }
-    else {
+    } else {
         newLink.href = window.URL.createObjectURL(textToBLOB);
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
 
-    newLink.click(); 
+    newLink.click();
 }

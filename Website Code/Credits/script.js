@@ -1,7 +1,19 @@
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 
 

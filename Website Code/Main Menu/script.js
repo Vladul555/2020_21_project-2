@@ -3,17 +3,23 @@ if (sessionStorage.getItem('DarkMod')) {
     sessionStorage.setItem('DarkMod', flag);
 }
 
-function hideSettings() {
-    if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
-        let setting = document.getElementById("setting")
-        setting.style.display = 'none'
-    }
-}
 
-var timeout;
-document.onmousemove = function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 
 let alertMsg = [
@@ -23,7 +29,6 @@ let alertMsg = [
 ]
 
 let currentTxt = 0
-let premium = false
 
 function alertMin() {
 
@@ -35,9 +40,6 @@ function alertMin() {
     currentTxt++
 }
 
-if (premium) { alertMin(); }
-setInterval(alert5min, 60 * 1000);
-
 if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
     sessionStorage.setItem('DarkMod', flag);
@@ -47,5 +49,17 @@ function TestdarkMode() {
     if (flag == 1) {
         var element = document.body;
         element.classList.toggle("dark-mode")
+    }
+}
+
+function checkIDMain() {
+    if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
+        let upgrade = document.getElementById("disUp");
+        upgrade.style.display = 'none'
+    } else {
+        let setting = document.getElementById("setting")
+        setting.style.display = 'none'
+        alertMin();
+        setInterval(alertMin, 60 * 1000);
     }
 }

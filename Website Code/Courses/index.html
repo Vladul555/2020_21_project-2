@@ -6,23 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="../../http.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Courses</title>
 </head>
 
-<body class="page" onload="TestdarkMode()">
+<body class="page" onload="hidePremiumCourses(), TestdarkMode()">
 
 
     <nav class="navbar">
         <label class="logo">Glyph</label>
         <ul class="menu" id="menu">
             <li class="list">
+                <img src="./images/icon.png" alt="" class="crossCheck c_return" id="vid">
+                <a href="../Orientation/index.html">
+                    <button class="buttons" id="orientation">Orientation</button>
+                </a>
+            </li>
+            <li class="list">
                 <img src="./images/cross.png" alt="" class="crossCheck" id="crs1">
                 <a href="../Python/Lessons/index.html">
                     <button class="buttons" id="course1">Python</button></a>
             </li>
 
-            <li class="list">
+            <li class="list" id="C">
                 <img src="./images/cross.png" alt="" class="crossCheck c_return" id="crs2">
                 <a href="../C/Python/Lessons/index.html">
                     <button class="buttons" id="course2">C</button></a>

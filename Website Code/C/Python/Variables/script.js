@@ -1,5 +1,4 @@
-const Data = [
-    {
+const Data = [{
         /*Page 1 */
         title: "Structure of code in C",
         mainText: "code in C is made out of a main function where the code exsits in and is define like so:\n''int main(){\n'code goes here.'\n}\n abave the main code are standard library functions that are define like so:\n#include <'library_function's_name'.h>",
@@ -29,7 +28,7 @@ const Data = [
         /*Page 6*/
         title: "Variable Names",
         mainText: "A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume)",
-    },{
+    }, {
         title: "Rules for C variable names",
         mainText: "Must start with a letter or the underscore character\nCannot start with a number\nCase-sensitive (age, Age and AGE are three different variables)",
     },
@@ -63,13 +62,13 @@ const Data = [
         /*Page 12*/
         title: "Example 2",
         mainText: "char letter = 'a';\nprintf(''The first letter of the alphabet is %c'',letter);-->The first letter of the alphabet is 'a'\nchar sign = '@';\nprintf(''%c'',sign); --> @",
- 
+
     },
     {
         /*Page 13*/
         title: "Example 3",
         mainText: "float Grade = '87.5';\nprintf(''Your grade in the test is %f'',Grade);-->Your grade in the test is 87.5\nfloat Length = 17.3;\nprintf(''The lenght of the road is %f kilometers'',Lenght); -->The lenght of the road is 17.3 kilometers",
- 
+
     },
     {
         /*Page 14*/
@@ -80,12 +79,17 @@ const Data = [
         /*Page 15*/
         title: "Example ",
         mainText: "#include <string.h>\n\nint main(){\nchar name[] = ''Amit'';\nprintf(''My name is %s'',name)-->My name is Amit;\n}",
- 
+
     },
     {
         /*Page 16*/
         title: "long and double Variables",
         mainText: "The variable long functions the same as int and The variable double functions the same as float only they have twice the memory Size.\nThe format specifier to print long is '%d'\nThe format specifier to print double is '%f'."
+    },
+    {
+        /*Page 17*/
+        title: "scanf function",
+        mainText: "'scanf' is a function that used to input a value to variable when the code is actively running.\nthe syntax of the 'scanf' function is defined similar to the 'printf' function.\n inside the parentheses you put the 'format specifier' in quotation marks and outside of quotation marks the '&' sign followed by the desired variable you wants to input a value into like so:\nint num;\nscanf(''%d'',&num);"
     },
   ];
 
@@ -101,10 +105,10 @@ let currentData = 0
 loadData()
 
 /*function loads new data for each page of the theory*/
-function loadData(){
+function loadData() {
 
     {
-        if (currentData == 0){
+        if (currentData == 0) {
             document.getElementById('previous').style.visibility = 'hidden';
         } else {
             document.getElementById('previous').style.visibility = 'visible';
@@ -118,12 +122,11 @@ function loadData(){
 
 /*Next Button changes the page content, when reaching the end a test button or reload appears */
 nextBtn.addEventListener('click', () => {
-       currentData++
-       if(currentData < Data.length) {
-           loadData()
-       } 
-       else {
-           intro.innerHTML = `
+    currentData++
+    if (currentData < Data.length) {
+        loadData()
+    } else {
+        intro.innerHTML = `
            <div class="header">
            <h2 class="test">You completed the theory!</h2>
 
@@ -132,44 +135,55 @@ nextBtn.addEventListener('click', () => {
             <button class="button" onclick="location.reload()">Reload</button>
            </div>
            `
-       }
+    }
 })
 
 /*Previous button to return and read the last page*/
 previousBtn.addEventListener('click', () => {
-    if(currentData > -1) {
-        if(currentData != 0)
+    if (currentData > -1) {
+        if (currentData != 0)
             currentData--
-        loadData()  
-    } 
+            loadData()
+    }
 })
 
-var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+var timeout
+
+function afkToggle() {
+    if (!afkFlag) {
+        afkFlag = true;
+        sessionStorage.setItem('afk', afkFlag);
+        document.onmousemove = function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(function() { alert("We noticed you are AFK\nTaking a break is important!\nWe are awaiting your eager return!"); }, 5000);
+        }
+    } else {
+        afkFlag = false;
+        sessionStorage.setItem('afk', afkFlag);
+        clearTimeout(timeout)
+        document.onmousemove = undefined;
+    }
 }
 
 function first_quastion() {
-    
+
 }
 
-if(sessionStorage.getItem('DarkMod')){
+if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
+    sessionStorage.setItem('DarkMod', flag);
 }
 
 function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
     //document.getElementById('Copy').style.visibility = 'hidden';
-    //document.getElementById('Download').style.visibility = 'hidden';
 }
 else{
     document.getElementById('status__logo').src = "./images/PRO.png";
@@ -178,11 +192,11 @@ else{
 }
 
 function Copy_text() {
-    var copyText = Data[currentData].title + ' ' +  Data[currentData].mainText +'. ' +  Data[currentData].opt1 +'. ' +  Data[currentData].opt2 +'. ' +  Data[currentData].opt3 +'. ' +  Data[currentData].opt4 + '. ';
+    var copyText = Data[currentData].title + ' ' + Data[currentData].mainText + '. ' + Data[currentData].opt1 + '. ' + Data[currentData].opt2 + '. ' + Data[currentData].opt3 + '. ' + Data[currentData].opt4 + '. ';
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
-    el.style = {position: 'absolute', left: '-9999px'};
+    el.style = { position: 'absolute', left: '-9999px' };
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
