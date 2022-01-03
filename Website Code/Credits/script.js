@@ -38,15 +38,3 @@ function alert5min() {
 
 if (premium) { alert5min(); }
 setInterval(alert5min, 5 * 60 * 1000);
-
-if (sessionStorage.getItem('DarkMod'))
-    flag = sessionStorage.getItem('DarkMod')
-sessionStorage.setItem('DarkMod', flag);
-
-
-function TestdarkMode() {
-    if (flag == 1) {
-        var element = document.body;
-        element.classList.toggle("dark-mode")
-    }
-}

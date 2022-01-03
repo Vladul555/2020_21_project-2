@@ -208,6 +208,5 @@ function Download_file() {
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
-
     newLink.click(); 
 }
