@@ -16,20 +16,36 @@ const quizData = [
         correct: "c",
     },
     {
-        question: "Which is the corret way to create an int variable?",
-        a: "char x = 50;",
-        b: "x == 50;",
-        c: "int x = 50;",
-        d: "int x = 50",
+        question: "Which statement about  define directives is incorrect?",
+        a: "Each byte of character is stored as its ASCII value in Binary",
+        b: "Each decimal value is automatically converted to its 16-bit binary equivalent.",
+        c: "Negative numbers are converted to its 2's complement representation",
+        d: "Processor uses the little-endian byte ordering",
+        correct: "a",
+    },
+    {
+        question: "Which syntax is the corret way to create a variable?",
+        a: "Total db 750h",
+        b: "number DW 243556334;",
+        c: "real number1 DD 1.234;",
+        d: "Array 	dw 	1, 2, 3, 4, 5 ",
         correct: "d",
     },
     {
-        question: "What isn't correct about variables",
+        question: "What is correct about String variables",
         a: "Every data type have their own format specifier to print variables",
         b: "C variable names are case sensitive",
-        c: "Declaring a variable name may start with a digit or underscore, and may end with an underscore",
+        c: "strings are variables that contains a Sequence of characters",
         d: "To use the printf() function you must have the header file <stdio.h> included",
         correct: "c",
+    },
+    {
+        question: "What isn't correct about Array variables",
+        a: "Every data type have their own format specifier to print variables",
+        b: "C variable names are case sensitive",
+        c: "strings are variables that contains a Sequence of characters",
+        d: "To use the printf() function you must have the header file <stdio.h> included",
+        correct: "b",
     },
     {
         question: "Determine the correct Syntax to define multiple variables in the same line of code",
@@ -121,7 +137,7 @@ submitBtn.addEventListener('click', () => {
        if(currentQuiz < quizData.length) {
            loadQuiz()
        } else {
-           if (score > 3){
+           if (score > 4){
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
