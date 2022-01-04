@@ -197,7 +197,9 @@ function TestdarkMode() {
 
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
-    //document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
+}
 else{
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
@@ -215,6 +217,7 @@ function Copy_text() {
     document.execCommand('copy');
     document.body.removeChild(el);
     alert("the question was copied to the clipboard!");
+}
 
 function Download_file() {
     let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
