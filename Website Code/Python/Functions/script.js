@@ -169,8 +169,8 @@ function TestdarkMode() {
 
 if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
-    //document.getElementById('Copy').style.visibility = 'hidden';
-    //document.getElementById('Download').style.visibility = 'hidden';
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
 }
 else {
     document.getElementById('status__logo').src = "./images/PRO.png";
@@ -208,6 +208,5 @@ function Download_file() {
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
-
     newLink.click(); 
 }

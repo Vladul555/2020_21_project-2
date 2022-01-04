@@ -35,7 +35,7 @@ function updateUserOps() {
     let FullName = document.getElementById('fname').value;
     let Username = document.getElementById('username').value;
     let Email = document.getElementById('mail').value;
-    Gender = document.getElementById("m").checked ? document.getElementById("m").value : document.getElementById("f").checked ? document.getElementById("f").value : document.getElementById("nb").checked ? document.getElementById("nb").value : null;
+    let Gender = document.getElementById("m").checked ? document.getElementById("m").value : document.getElementById("f").checked ? document.getElementById("f").value : document.getElementById("nb").checked ? document.getElementById("nb").value : null;
     let info = {
         FullName,
         Username,
@@ -77,8 +77,4 @@ function TestdarkMode() {
     }
 }
 
-function checkID() {
-    if (Number(sessionStorage.getItem("user")) === userTypes["Premium"])
-        document.getElementById("afk").style.display = "flex"
-}
 afkToggle()
