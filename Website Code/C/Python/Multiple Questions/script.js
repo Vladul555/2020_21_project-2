@@ -47,13 +47,13 @@ let currentQuiz = 0
 let score = 0
 
 
-
 loadQuiz()
 var heart
-if (localStorage.getItem("heart")) {
-    heart = localStorage.getItem("heart")
-} else
-    heart = 3
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) //Hearts are only defined for a free user
+    if (sessionStorage.getItem("heart")) {
+        heart = sessionStorage.getItem("heart")
+    } else
+        heart = 3
 
 function loadQuiz() {
 
@@ -82,16 +82,24 @@ function getSelected() {
     return answer
 }
 
-
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
     if (answer) {
         if (answer === quizData[currentQuiz].correct) {
             score++
+            currentQuiz++
+        } else {
+            if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
+                let reTry = window.confirm("Incorrect Answer\nTry Again?")
+                if (reTry == true) // when pressing OK
+                    loadQuiz()
+                else { // when pressing cancel
+                    currentQuiz++
+                }
+            } else {
+                currentQuiz++
+            }
         }
-
-        currentQuiz++
-
         if (currentQuiz < quizData.length) {
             loadQuiz()
         } else {
@@ -102,10 +110,10 @@ submitBtn.addEventListener('click', () => {
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-            } else {
+            } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
                 heart--
                 if (heart > 0) {
-                    localStorage.setItem("heart", heart)
+                    sessionStorage.setItem("heart", heart)
                     quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
@@ -113,6 +121,7 @@ submitBtn.addEventListener('click', () => {
                    <button class="reload" onclick="location.reload()">Reload</button>
                    </div>
                    `
+
                 } else {
                     quiz.innerHTML = `
                    <div  class="quiz-header">
@@ -121,6 +130,14 @@ submitBtn.addEventListener('click', () => {
                    </div>
                    `
                 }
+            } else {
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
+               <h2 style='text-align: center'>You Failed 😢</h2>
+               <button class="reload" onclick="location.reload()">Try again?</button>
+               </div>
+               `
             }
         }
     }
@@ -199,8 +216,7 @@ if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
     document.getElementById('Copy').style.visibility = 'hidden';
     document.getElementById('Download').style.visibility = 'hidden';
-}
-else{
+} else {
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
     document.getElementById('Download').style.visibility = 'visible';
@@ -220,22 +236,21 @@ function Copy_text() {
 }
 
 function Download_file() {
-    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
     // Convert the text to BLOB.
     const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
+    const sFileName = 'formData.txt'; // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
 
     if (window.webkitURL != null) {
         newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-    }
-    else {
+    } else {
         newLink.href = window.URL.createObjectURL(textToBLOB);
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
 
-    newLink.click(); 
+    newLink.click();
 }
