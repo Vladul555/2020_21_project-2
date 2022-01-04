@@ -90,7 +90,7 @@ submitBtn.addEventListener('click', () => {
             score++
             currentQuiz++
         } else {
-            if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+            if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
                 let reTry = window.confirm("Incorrect Answer\nTry Again?")
                 if (reTry == true) // when pressing OK
                     loadQuiz()
