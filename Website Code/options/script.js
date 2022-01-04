@@ -30,6 +30,22 @@ if (sessionStorage.getItem('DarkMod'))
     flag = sessionStorage.getItem('DarkMod')
 sessionStorage.setItem('DarkMod', flag);
 
+function getCurrentUserDetails() {
+    let id = sessionStorage.getItem('id')
+    printUser(id).then(currUser => {
+        currUser = currUser.data
+        console.log(currUser)
+        document.getElementById('pass').value = currUser.Password;
+        document.getElementById('fname').value = currUser.FullName;
+        document.getElementById('username').value = currUser.Username;
+        document.getElementById('mail').value = currUser.Email;
+        document.getElementById(currUser.Gender).checked = true;
+
+    })
+}
+
+getCurrentUserDetails()
+
 function updateUserOps() {
     let Password = document.getElementById('pass').value;
     let FullName = document.getElementById('fname').value;
