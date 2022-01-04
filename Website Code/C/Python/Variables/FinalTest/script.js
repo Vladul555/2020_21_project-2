@@ -1,5 +1,4 @@
-const quizData = [
-    {
+const quizData = [{
         question: "Which is the corret Syntax to assign the value 'A' to grade",
         a: "char grade = ''A'';",
         b: "char grade = 'A';",
@@ -64,13 +63,12 @@ let currentQuiz = 0
 let score = 0
 
 
-
 loadQuiz()
 var heart
-if (localStorage.getItem("heart")){
-    heart = localStorage.getItem("heart")
-}
-    else
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) //Hearts are only defined for a free user
+    if (sessionStorage.getItem("heart")) {
+        heart = sessionStorage.getItem("heart")
+    } else
         heart = 3
 
 function loadQuiz() {
@@ -93,56 +91,71 @@ function deselectAnswers() {
 function getSelected() {
     let answer
     answerEls.forEach(answerEl => {
-        if(answerEl.checked) {
+        if (answerEl.checked) {
             answer = answerEl.id
         }
     })
     return answer
 }
 
-
 submitBtn.addEventListener('click', () => {
     const answer = getSelected()
-    if(answer) {
-       if(answer === quizData[currentQuiz].correct) {
-           score++
-       }
-
-       currentQuiz++
-
-       if(currentQuiz < quizData.length) {
-           loadQuiz()
-       } else {
-           if (score > 3){
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++
+            currentQuiz++
+        } else {
+            if (Number(sessionStorage.getItem("user")) === userTypes["Premium"]) {
+                let reTry = window.confirm("Incorrect Answer\nTry Again?")
+                if (reTry == true) // when pressing OK
+                    loadQuiz()
+                else { // when pressing cancel
+                    currentQuiz++
+                }
+            } else {
+                currentQuiz++
+            }
+        }
+        if (currentQuiz < quizData.length) {
+            loadQuiz()
+        } else {
+            if (score > 2) {
                 quiz.innerHTML = `
                <div  class="quiz-header">
                <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
                <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                </div>
                `
-           }
-           else{
-               heart--
-               if (heart > 0) {
-                   localStorage.setItem("heart",heart)
-                   quiz.innerHTML = `
+            } else if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+                heart--
+                if (heart > 0) {
+                    sessionStorage.setItem("heart", heart)
+                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
                    <h2>You Haven't Passed 😔,Reamining hearts left ${heart}</h2>
                    <button class="reload" onclick="location.reload()">Reload</button>
                    </div>
                    `
-               }
-               else {
-                   quiz.innerHTML = `
+
+                } else {
+                    quiz.innerHTML = `
                    <div  class="quiz-header">
                    <h2>You Failed 😢</h2>
                    <button class="reload" onclick="location.href='/Website Code/Courses/index.html'">Return To Courses</button>
                    </div>
                    `
-               }
-           }
-       }
+                }
+            } else {
+                quiz.innerHTML = `
+               <div  class="quiz-header">
+               <h2>You answered ${score}/${quizData.length} questions correctly</h2><br>
+               <h2 style='text-align: center'>You Failed 😢</h2>
+               <button class="reload" onclick="location.reload()">Try again?</button>
+               </div>
+               `
+            }
+        }
     }
 })
 
@@ -186,44 +199,43 @@ run_clock('clockdiv', deadline);
 
 
 var timeout;
-document.onmousemove = function(){
-  clearTimeout(timeout);
-  timeout = setTimeout(function(){alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!");}, 30000);
+document.onmousemove = function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() { alert("We noticed you are AFk\nTaking a break is important!\nWe are awaiting your eager return!"); }, 30000);
 }
 
 function first_quastion() {
-    
+
 }
 
-if(sessionStorage.getItem('DarkMod')){
+if (sessionStorage.getItem('DarkMod')) {
     flag = sessionStorage.getItem('DarkMod')
-    sessionStorage.setItem('DarkMod',flag);
+    sessionStorage.setItem('DarkMod', flag);
 }
 
 function TestdarkMode() {
-  if (flag == 1){
-    var element = document.body;
-    element.classList.toggle("dark-mode")
-  }
+    if (flag == 1) {
+        var element = document.body;
+        element.classList.toggle("dark-mode")
+    }
 }
 
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]){
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     document.getElementById('status__logo').src = "./images/FREE.png";
     //document.getElementById('Copy').style.visibility = 'hidden';
     //document.getElementById('Download').style.visibility = 'hidden';
-}
-else{
+} else {
     document.getElementById('status__logo').src = "./images/PRO.png";
     document.getElementById('Copy').style.visibility = 'visible';
     document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
-    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    var copyText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
     var el = document.createElement('textarea');
     el.value = copyText;
     el.setAttribute('readonly', '');
-    el.style = {position: 'absolute', left: '-9999px'};
+    el.style = { position: 'absolute', left: '-9999px' };
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
@@ -232,22 +244,21 @@ function Copy_text() {
 }
 
 function Download_file() {
-    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ' ;
+    let downloadText = quizData[currentQuiz].question + ' ' + quizData[currentQuiz].a + '. ' + quizData[currentQuiz].b + '. ' + quizData[currentQuiz].c + '. ' + quizData[currentQuiz].d + '. ';
     // Convert the text to BLOB.
     const textToBLOB = new Blob([downloadText], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
+    const sFileName = 'formData.txt'; // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
 
     if (window.webkitURL != null) {
         newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-    }
-    else {
+    } else {
         newLink.href = window.URL.createObjectURL(textToBLOB);
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
 
-    newLink.click(); 
+    newLink.click();
 }
