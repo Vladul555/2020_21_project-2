@@ -29,11 +29,11 @@ export class UserService {
   async updateByID(id: string, updateUserDto: UpdateUserDto) {
     return this.userModel.updateOne({ _id: id }, { ...updateUserDto }).exec();
   }
-  async updateCourses(id: string) {
+  async updateLessons(id: string) {
     const user = await this.findOne(id);
-    let count = user.numOfCourses;
+    let count = user.numOfLessons;
     return this.userModel
-      .updateOne({ _id: id }, { numOfCourses: ++count })
+      .updateOne({ _id: id }, { numOfLessons: ++count })
       .exec();
   }
   async banUser(id: string) {
