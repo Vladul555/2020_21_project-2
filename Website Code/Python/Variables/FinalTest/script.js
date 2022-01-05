@@ -115,6 +115,9 @@ submitBtn.addEventListener('click', () => {
             loadQuiz()
         } else {
             if (score > 3) {
+                let id = sessionStorage.getItem('id')
+                updateUser({ PyLesson2: true }, id);
+                updateLessons(id);
                 quiz.innerHTML = `
                 <div  class="quiz-header">
                 <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>

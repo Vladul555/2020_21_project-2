@@ -8,7 +8,23 @@ export declare class User {
     Password: string;
     private UserType;
     Gender: string;
-    numOfCourses: number;
+    PyPass: boolean;
+    cPass: boolean;
+    AsmPass: boolean;
+    PyLesson1: boolean;
+    PyLesson2: boolean;
+    PyLesson3: boolean;
+    PyLesson4: boolean;
+    PyLesson5: boolean;
+    cLesson1: boolean;
+    cLesson2: boolean;
+    cLesson3: boolean;
+    cLesson4: boolean;
+    AsmLesson1: boolean;
+    AsmLesson2: boolean;
+    AsmLesson3: boolean;
+    AsmLesson4: boolean;
+    numOfLessons: number;
     bannedStatus: boolean;
 }
 export declare const UserSchema: import("mongoose").Schema<Document<User, any, any>, import("mongoose").Model<Document<User, any, any>, any, any, any>, {}>;
