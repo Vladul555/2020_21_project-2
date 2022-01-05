@@ -158,7 +158,7 @@ if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
     run_clock() = undefined;
 }
 
-var time_in_minutes = 0.1;
+var time_in_minutes = 10;
 var current_time = Date.parse(new Date());
 var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
 

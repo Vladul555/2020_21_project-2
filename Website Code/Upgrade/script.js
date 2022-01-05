@@ -1,6 +1,10 @@
 function updateStatus() {
-    if (sessionStorage.getItem('id')) {
-        updateUser({ UserType: userTypes["Premium"] }, sessionStorage.getItem('id')).then(value => { window.location.href = "../Main Menu/index.html" })
+    let id = sessionStorage.getItem('id')
+    if (id) {
+        updateUser({ UserType: userTypes["Premium"] }, id).then(value => {
+            sessionStorage.setItem('user', 1)
+            window.location.href = "../Main Menu/index.html"
+        })
     } else {
         alert('Login!!');
         window.location.href = "../../login-screen/Login.html"
