@@ -66,4 +66,3 @@ function coursesXV() {
             crs3.src = './images/checked.png'
     })
 }
-coursesXV();
