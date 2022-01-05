@@ -40,11 +40,11 @@ let UserService = class UserService {
     async updateByID(id, updateUserDto) {
         return this.userModel.updateOne({ _id: id }, Object.assign({}, updateUserDto)).exec();
     }
-    async updateCourses(id) {
+    async updateLessons(id) {
         const user = await this.findOne(id);
-        let count = user.numOfCourses;
+        let count = user.numOfLessons;
         return this.userModel
-            .updateOne({ _id: id }, { numOfCourses: ++count })
+            .updateOne({ _id: id }, { numOfLessons: ++count })
             .exec();
     }
     async banUser(id) {

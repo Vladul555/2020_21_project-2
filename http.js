@@ -20,8 +20,8 @@ function printUser(id) {
     return axios.get(url + "/user/" + id);
 }
 
-function updateCourses(id) {
-    return axios.put(url + "/user/" + id + "/course");
+function updateLessons(id) {
+    return axios.put(url + "/user/" + id + "/lesson");
 }
 
 function banUser(id) {

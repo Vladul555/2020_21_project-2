@@ -26,9 +26,9 @@ export class UserController {
   updateByID(@Param('id') id, @Body() body) {
     return this.userService.updateByID(id, body);
   }
-  @Put('/:id/course')
-  updateCourses(@Param('id') id) {
-    return this.userService.updateCourses(id);
+  @Put('/:id/lesson')
+  updateLessons(@Param('id') id) {
+    return this.userService.updateLessons(id);
   }
   @Put('/:id/ban')
   banUser(@Param('id') id){

@@ -40,10 +40,30 @@ let crs1 = document.getElementById("crs1")
 let crs2 = document.getElementById("crs2")
 let crs3 = document.getElementById("crs3")
 
+function checkIfPassed() {
+    let id = sessionStorage.getItem('id')
+    printUser(id).then(user => {
+        user = user.data
+        if (user.PyLesson1 && user.PyLesson2 && user.PyLesson3 && user.PyLesson4 && user.PyLesson5)
+            updateUser({ PyPass: true }, id)
+        if (user.cLesson1 && user.cLesson2 && user.cLesson3 && user.cLesson4)
+            updateUser({ cPass: true }, id)
+        if (user.AsmLesson1 && user.AsmLesson2 && user.AsmLesson3 && user.AsmLesson4)
+            updateUser({ AsmPass: true }, id)
+    })
+}
 
-if (crs1)
-    crs1.src = "./images/checked.png"
-if (crs2)
-    crs2.src = "./images/checked.png"
-if (crs3)
-    crs3.src = "./images/checked.png"
+function coursesXV() {
+    let id = sessionStorage.getItem('id')
+    checkIfPassed()
+    printUser(id).then(user => {
+        user = user.data
+        if (user.PyPass)
+            crs1.src = './images/checked.png'
+        if (user.cPass)
+            crs2.src = './images/checked.png'
+        if (user.AsmPass)
+            crs3.src = './images/checked.png'
+    })
+}
+coursesXV();

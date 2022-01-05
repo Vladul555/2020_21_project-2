@@ -34,8 +34,8 @@ let UserController = class UserController {
     updateByID(id, body) {
         return this.userService.updateByID(id, body);
     }
-    updateCourses(id) {
-        return this.userService.updateCourses(id);
+    updateLessons(id) {
+        return this.userService.updateLessons(id);
     }
     banUser(id) {
         return this.userService.banUser(id);
@@ -88,12 +88,12 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updateByID", null);
 __decorate([
-    (0, common_1.Put)('/:id/course'),
+    (0, common_1.Put)('/:id/lesson'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "updateCourses", null);
+], UserController.prototype, "updateLessons", null);
 __decorate([
     (0, common_1.Put)('/:id/ban'),
     __param(0, (0, common_1.Param)('id')),

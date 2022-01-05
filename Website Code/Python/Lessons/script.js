@@ -33,13 +33,19 @@ let lsn3 = document.getElementById("lsn3")
 let lsn4 = document.getElementById("lsn4")
 let lsn5 = document.getElementById("lsn5")
 
-if (lsn1)
-    lsn1.src = "./images/checked.png"
-if (lsn2)
-    lsn2.src = "./images/checked.png"
-if (lsn3)
-    lsn3.src = "./images/checked.png"
-if (lsn4)
-    lsn4.src = "./images/checked.png"
-if (lsn5)
-    lsn5.src = "./images/checked.png"
+function PyLessonsXV() {
+    let id = sessionStorage.getItem('id')
+    printUser(id).then(user => {
+        user = user.data
+        if (user.PyLesson1)
+            lsn1.src = "./images/checked.png"
+        if (user.PyLesson2)
+            lsn2.src = "./images/checked.png"
+        if (user.PyLesson3)
+            lsn3.src = "./images/checked.png"
+        if (user.PyLesson4)
+            lsn4.src = "./images/checked.png"
+        if (user.PyLesson5)
+            lsn5.src = "./images/checked.png"
+    })
+}

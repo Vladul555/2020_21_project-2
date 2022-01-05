@@ -14,14 +14,14 @@ function getUsers() {
             let email = row.insertCell(1)
             let usertype = row.insertCell(2)
             let gender = row.insertCell(3)
-            let numOfCourses = row.insertCell(4)
+            let numOfLessons = row.insertCell(4)
             let id = row.insertCell(5)
             let banStat = row.insertCell(6)
             username.innerHTML = user.Username;
             email.innerHTML = user.Email
             usertype.innerHTML = Object.keys(userTypes)[user.UserType]
             gender.innerHTML = user.Gender
-            numOfCourses.innerHTML = user.numOfCourses
+            numOfLessons.innerHTML = user.numOfLessons
             id.innerHTML = user._id
             banStat.innerHTML = user.bannedStatus
         }

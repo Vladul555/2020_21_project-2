@@ -1,5 +1,4 @@
-const quizData = [
-    {
+const quizData = [{
         question: "What is the output of:\nfor (i = 1;i < 6;i++){\nprint(i,end=' ')\n}",
         a: "1 2 3 4 5",
         b: "0 1 2 3 4 5",
@@ -108,6 +107,9 @@ submitBtn.addEventListener('click', () => {
             loadQuiz()
         } else {
             if (score > 2) {
+                let id = sessionStorage.getItem('id')
+                updateUser({ PyLesson4: true }, id);
+                updateLessons(id);
                 quiz.innerHTML = `
                 <div  class="quiz-header">
                 <h2>You answered ${score}/${quizData.length} questions correctly\nYOU PASSED! 😀</h2>
