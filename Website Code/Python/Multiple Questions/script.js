@@ -146,8 +146,19 @@ submitBtn.addEventListener('click', () => {
         }
     }
 })
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+    document.getElementById('status__logo').src = "./images/FREE.png";
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
+} else {
+    document.getElementById('status__logo').src = "./images/PRO.png";
+    document.getElementById('Copy').style.visibility = 'visible';
+    document.getElementById('Download').style.visibility = 'visible';
+    document.getElementById("timerTitle").style.display = 'none'
+    run_clock() = undefined;
+}
 
-var time_in_minutes = 10;
+var time_in_minutes = 0.1;
 var current_time = Date.parse(new Date());
 var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
 
@@ -164,10 +175,6 @@ function time_remaining(endtime) {
 function run_clock(id, endtime) {
     var clock = document.getElementById(id);
     var press;
-    if (Number(sessionStorage.getItem('user')) === userTypes["Premium"]) {
-        document.getElementById("timerTitle").style.display = 'none'
-        return;
-    }
 
     function update_clock() {
         var t = time_remaining(endtime);
@@ -217,16 +224,6 @@ function TestdarkMode() {
         var element = document.body;
         element.classList.toggle("dark-mode")
     }
-}
-
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
-    document.getElementById('status__logo').src = "./images/FREE.png";
-    document.getElementById('Copy').style.visibility = 'hidden';
-    document.getElementById('Download').style.visibility = 'hidden';
-} else {
-    document.getElementById('status__logo').src = "./images/PRO.png";
-    document.getElementById('Copy').style.visibility = 'visible';
-    document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
