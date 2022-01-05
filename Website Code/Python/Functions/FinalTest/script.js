@@ -163,6 +163,17 @@ submitBtn.addEventListener('click', () => {
         }
     }
 })
+if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
+    document.getElementById('status__logo').src = "./images/FREE.png";
+    document.getElementById('Copy').style.visibility = 'hidden';
+    document.getElementById('Download').style.visibility = 'hidden';
+} else {
+    document.getElementById('status__logo').src = "./images/PRO.png";
+    document.getElementById('Copy').style.visibility = 'visible';
+    document.getElementById('Download').style.visibility = 'visible';
+    document.getElementById("timerTitle").style.display = 'none'
+    run_clock() = undefined;
+}
 
 var time_in_minutes = 10;
 var current_time = Date.parse(new Date());
@@ -219,16 +230,6 @@ function TestdarkMode() {
         var element = document.body;
         element.classList.toggle("dark-mode")
     }
-}
-
-if (Number(sessionStorage.getItem("user")) === userTypes["Free"]) {
-    document.getElementById('status__logo').src = "./images/FREE.png";
-    document.getElementById('Copy').style.visibility = 'hidden';
-    document.getElementById('Download').style.visibility = 'hidden';
-} else {
-    document.getElementById('status__logo').src = "./images/PRO.png";
-    document.getElementById('Copy').style.visibility = 'visible';
-    document.getElementById('Download').style.visibility = 'visible';
 }
 
 function Copy_text() {
